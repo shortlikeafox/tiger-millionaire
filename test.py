@@ -10,13 +10,13 @@ pd.set_option('display.max_rows', 500) #Used for debugging
 
 df = h.create_fight_df(h.MASTER_CSV_FILE)
 
-print(df.head)
+#print(df.head)
 
 
-print(df.describe())
+#print(df.describe())
 
 
-print(len(df))
+#print(len(df))
 
 #print(df.head)
 
@@ -24,3 +24,7 @@ print(len(df))
 
 #OK... Now we need to create some dataframes....
 
+
+
+
+df.to_csv('testfile.csv')
