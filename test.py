@@ -8,7 +8,7 @@ import pandas as pd
 pd.set_option('display.max_rows', 500) #Used for debugging
 
 
-df = h.create_fight_df(h.MASTER_CSV_FILE)
+#df = h.create_fight_df(h.MASTER_CSV_FILE)
 
 #print(df.head)
 
@@ -24,7 +24,10 @@ df = h.create_fight_df(h.MASTER_CSV_FILE)
 
 #OK... Now we need to create some dataframes....
 
+df = h.create_master_df()
 
+print(df.head)
+print(len(df))
 
 
 df.to_csv('testfile.csv')
