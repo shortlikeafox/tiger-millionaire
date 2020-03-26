@@ -81,4 +81,15 @@ def create_fight_df(csv_location: str) -> pd.DataFrame:
     df["label"] = df["Winner"].cat.codes
         
     return df
+
+def create_master_df():
+    """
+    Returns the DataFrame associated with MASTER_CSV_FILE
+
+    Returns
+    -------
+    the DataFrame associated with MASTER_CSV_FILE
+
+    """
+    return create_fight_df(MASTER_CSV_FILE)
     
