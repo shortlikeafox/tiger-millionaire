@@ -7,7 +7,7 @@ import numpy as np
 import fs_definitions as fsd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression 
+
 
 pd.set_option('display.max_rows', 500) #Used for debugging
 
@@ -22,6 +22,10 @@ df = h.create_master_df()
 #print(df.head)
 #print(len(df))
 #adding a comment
+
+
+
+
 
 
 
@@ -51,11 +55,15 @@ print('Training Labels Shape:', y_train.shape)
 print('Testing Features Shape:', X_test.shape)
 print('Testing Labels Shape:', y_test.shape)
 
-lr = LogisticRegression()
+rf = RandomForestClassifier(criterion='entropy',
+                            max_leaf_nodes=34,
+                            max_depth=5,
+                            n_estimators=25
+                            )
 
-lr.fit(X_train, y_train)
+rf.fit(X_train, y_train)
 
-predictions = lr.predict(X_test)
+predictions = rf.predict(X_test)
 
 errors = abs(predictions - y_test)
 total_errors = (sum(errors))

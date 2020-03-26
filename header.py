@@ -4,7 +4,7 @@
 import pandas as pd
 import math
 #from pyspark.ml.feature import oneHotEncoder
-import fs_definitions
+import fs_definitions as fsd
 
 print("Header imported")
 #Constants that we will need
