@@ -8,6 +8,10 @@ import fs_definitions as fsd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression 
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.set(style="white")
+sns.set(style="whitegrid", color_codes=True)
 
 pd.set_option('display.max_rows', 500) #Used for debugging
 
@@ -33,6 +37,17 @@ temp_df = fsd.create_prepped_df('c1', df)
 X = temp_df.iloc[:, :-2].values
 y = temp_df.iloc[:, -1:].values
 
+
+print(temp_df['label'].value_counts())
+
+sns.countplot(x='Winner',data=temp_df, palette='hls')
+
+%matplotlib inline
+pd.crosstab(temp_df.title_bout,temp_df.Winner).plot(kind='bar')
+plt.title("Title bout vs. winner")
+
+
+
 #print(X)
 
 #print(y)
@@ -41,7 +56,7 @@ print(X.shape)
 print(y.shape)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
-                                                    random_state = 85)
+                                                    random_state = 75)
 
 y_test = np.ravel(y_test)
 y_train = np.ravel(y_train)
@@ -51,7 +66,7 @@ print('Training Labels Shape:', y_train.shape)
 print('Testing Features Shape:', X_test.shape)
 print('Testing Labels Shape:', y_test.shape)
 
-lr = LogisticRegression()
+lr = LogisticRegression(max_iter=10000)
 
 lr.fit(X_train, y_train)
 
