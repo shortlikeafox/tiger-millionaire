@@ -30,7 +30,7 @@ df = h.create_master_df()
 
 
 
-temp_df = fsd.create_prepped_df('c1', df)
+temp_df = fsd.create_prepped_df('test', df)
 
 y = temp_df['label']
 
@@ -43,14 +43,14 @@ X = temp_prepped_df.values
 
 
 print(temp_df['label'].value_counts())
-
+"""
 sns.countplot(x='Winner',data=temp_df, palette='hls')
 
 %matplotlib inline
 pd.crosstab(temp_df.title_bout,temp_df.Winner).plot(kind='bar')
 plt.title("Title bout vs. winner")
 
-
+"""
 
 #print(X)
 
@@ -78,8 +78,10 @@ predictions = lr.predict(X_test)
 
 errors = abs(predictions - y_test)
 total_errors = (sum(errors))
-print(1 -total_errors / len(y_test))
 
+print(f"The number of errors is {sum(errors)}")
+print(f"That means I am getting {len(predictions) - sum(errors)} right\
+      out of {len(predictions)} for a {(len(predictions) - sum(errors)) / (len(predictions))}")
 
 
 print(f"In the test set 0 wins {len(y_test) - sum(y_test)}")
