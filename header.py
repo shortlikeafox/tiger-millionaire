@@ -79,6 +79,9 @@ def create_fight_df(csv_location: str) -> pd.DataFrame:
     #We need to encode the winner as the label...
     df["Winner"] = df["Winner"].astype('category')
     df["label"] = df["Winner"].cat.codes
+    
+    df['date'] = pd.to_datetime(df['date'])
+
         
     return df
 
@@ -92,4 +95,28 @@ def create_master_df():
 
     """
     return create_fight_df(MASTER_CSV_FILE)
+
+
+def split_event(event_date: str, df: pd.DataFrame) -> [pd.DataFrame,\
+    pd.DataFrame]:
+    """
+    Splits a fight DataFrame.  Removes all fights from a current date and
+    places them in a separate DataFrame
+
+    Parameters
+    ----------
+    event_date : str
+        The date to be removed and placed into its own DataFrame
+    df : pd.DataFrame
+        The master DataFrame we wish to use
+
+    Returns
+    -------
+    A tuple of the two dataframes (master_df, event_df)
+
+    """
+    event_df = df[df['date'] == event_date]
+    master_df = df[df['date'] != event_date]
+    
+    return (master_df, event_df)
     

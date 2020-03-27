@@ -30,7 +30,7 @@ df = h.create_master_df()
 
 
 
-temp_df = fsd.create_prepped_df('test', df)
+temp_df = fsd.create_prepped_df('c5d', df)
 
 y = temp_df['label']
 
@@ -91,7 +91,25 @@ print(f"I predict 1 to win {sum(predictions)}")
 #print(X_train.dtypes)
 
 
+"""
+df = h.create_master_df()
+print(df.dtypes)
 
 
+#print(df.head)
+print(len(df))
+
+date_df = df['date']
+print(date_df.dtypes)
+
+
+master_df, event_df = h.split_event("02-29-2020", df)
+
+print(len(master_df))
+print(len(event_df))
+
+print(event_df['Winner'])
+print(event_df['label'])
+"""
 
 #df.to_csv('testfile.csv')
