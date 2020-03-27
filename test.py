@@ -32,10 +32,14 @@ df = h.create_master_df()
 
 temp_df = fsd.create_prepped_df('c1', df)
 
-#print(temp_df)
+y = temp_df['label']
 
-X = temp_df.iloc[:, :-2].values
-y = temp_df.iloc[:, -1:].values
+temp_prepped_df = temp_df.drop(['Winner', 'label'], axis=1)
+
+X = temp_prepped_df.values
+
+#y = temp_df.iloc[:, -1:].values
+
 
 
 print(temp_df['label'].value_counts())
@@ -76,10 +80,16 @@ errors = abs(predictions - y_test)
 total_errors = (sum(errors))
 print(1 -total_errors / len(y_test))
 
+
+
+print(f"In the test set 0 wins {len(y_test) - sum(y_test)}")
+print(f"In the test set 1 wins {sum(y_test)}")
+print(f"I predict 0 to win {len(predictions) - sum(predictions)}")
+print(f"I predict 1 to win {sum(predictions)}")
 #print(X_train.dtypes)
 
 
 
 
 
-df.to_csv('testfile.csv')
+#df.to_csv('testfile.csv')
