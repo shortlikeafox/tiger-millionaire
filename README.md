@@ -10,3 +10,6 @@ This is a work in progress.  This readme will be updated as work progresses.
 ### Initial Steps
 
 * The original data set comes from [Rajeev Warrier's Kaggle dataset](https://www.kaggle.com/rajeevw/ufcdata/)
+* I have modified to data to add extra features and remove some rows
+* The models predict who will win the 'Blue' fighter or the 'Red' fighter.  The red fighter is generally the favorite.
+
