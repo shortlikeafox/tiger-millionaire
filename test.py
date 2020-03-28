@@ -28,9 +28,9 @@ df = h.create_master_df()
 #adding a comment
 
 
+fs = 'c1d'
 
-
-temp_df = fsd.create_prepped_df('c5d', df)
+temp_df = fsd.create_prepped_df(fs, df)
 
 y = temp_df['label']
 
@@ -59,8 +59,8 @@ plt.title("Title bout vs. winner")
 print(X.shape)
 print(y.shape)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
-                                                    random_state = 75)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,
+                                                    random_state = 85)
 
 y_test = np.ravel(y_test)
 y_train = np.ravel(y_train)
@@ -70,7 +70,10 @@ print('Training Labels Shape:', y_train.shape)
 print('Testing Features Shape:', X_test.shape)
 print('Testing Labels Shape:', y_test.shape)
 
-lr = LogisticRegression(max_iter=10000)
+lr = h.get_classifier(fs)
+
+
+print(f"The type of classifier is {lr.get_params}")
 
 lr.fit(X_train, y_train)
 

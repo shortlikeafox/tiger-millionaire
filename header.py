@@ -5,6 +5,11 @@ import pandas as pd
 import math
 #from pyspark.ml.feature import oneHotEncoder
 import fs_definitions as fsd
+from sklearn.linear_model import LogisticRegression 
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
+
+
 
 print("Header imported")
 #Constants that we will need
@@ -119,4 +124,70 @@ def split_event(event_date: str, df: pd.DataFrame) -> [pd.DataFrame,\
     master_df = df[df['date'] != event_date]
     
     return (master_df, event_df)
+
+def get_classifier(fs: str):
+    """
+    Returns the proper classifier with hyperparameters
+
+    Parameters
+    ----------
+    fs : str
+        The feature set
+
+    Returns
+    -------
+    The classifier
+
+    """
+    if fs =='c1':
+        the_classifier = LogisticRegression(solver='liblinear', 
+                                            max_iter = 10000)
+        
+    if fs =='c2':
+        the_classifier = LogisticRegression(solver='liblinear',
+                                            max_iter=10000)
+    
+    if fs=='c3':
+        the_classifier = LogisticRegression(solver='liblinear',
+                                            max_iter=10000,
+                                            fit_intercept=False)
+    
+    if fs=='c4':
+        the_classifier=RandomForestClassifier(max_leaf_nodes=64,
+                                              max_depth=5,
+                                              min_samples_split=6)
+        
+    if fs=='c5':
+        the_classifier=LogisticRegression()
+        
+    if fs=='c6':
+        the_classifier=GradientBoostingClassifier(max_leaf_nodes=28,
+                                                  max_depth=7, 
+                                                  n_estimators=20)
+        
+    if fs=='c1d':
+        the_classifier=LogisticRegression(tol=1.0e-3, solver='liblinear')
+                                                  
+    if fs=='c2d':
+        the_classifier=LogisticRegression(max_iter=10000, solver='liblinear')
+        
+    if fs=='c3d':
+        the_classifier=RandomForestClassifier(max_leaf_nodes=40,
+                                              max_depth=5,
+                                              min_samples_split=6)
+        
+    if fs=='c4d':
+        the_classifier=GradientBoostingClassifier()
+        
+    if fs=='c5d':
+        the_classifier=RandomForestClassifier(criterion='entropy', 
+                                              max_leaf_nodes=34, 
+                                              max_depth=5,
+                                              n_estimators=25)
+        
+    return(the_classifier)
+    
+    
+    
+    
     
