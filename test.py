@@ -115,4 +115,22 @@ print(event_df['Winner'])
 print(event_df['label'])
 """
 
+red_favorite = df[df['R_ev'] < df['B_ev']]
+blue_favorite = df[df['R_ev'] > df['B_ev']]
+
+
+print(f"Red is the favorite {len(red_favorite)} times.  Blue is the",
+      f"favorite {len(blue_favorite)} times")
+print(len(red_favorite) + len(blue_favorite))
+print(len(df))
+even_amount = len(df) - (len(red_favorite) + len(blue_favorite))
+objects = ('Red', 'Blue', 'Even')
+y_pos = np.arange(len(objects))
+performance=[len(red_favorite), len(blue_favorite), even_amount]
+plt.bar(y_pos, performance, align='center', alpha=1, 
+        color=['red', 'blue', 'purple'] )
+plt.xticks(y_pos, objects)
+plt.ylabel('Number of Fights')
+plt.title('Corner of Favorite Fighter')
+
 #df.to_csv('testfile.csv')
