@@ -9,7 +9,17 @@ This is a work in progress.  This readme will be updated as work progresses.
 ***
 ### Initial Steps
 
-* The original data set comes from [Rajeev Warrier's Kaggle dataset](https://www.kaggle.com/rajeevw/ufcdata/)
-* I have modified to data to add extra features and remove some rows
-* The models predict who will win the 'Blue' fighter or the 'Red' fighter.  The red fighter is generally the favorite.
+* The original data set comes from [WarrierRajeev's Kaggle dataset](https://www.kaggle.com/rajeevw/ufcdata/)
+* I have modified this data to add extra features and remove some rows
+* The models predict who will win: 'Blue' or 'Red'.  The red fighter is generally the favorite.
 
+![Red = 2629, Blue = 1459, Draw = 79](images/ss2.PNG)
+
+* Because of this I predict models that have a high true positive rate with respect to blue could be the most profitable.  Being able to predict underdog winners means more return per winning bet.
+* My best model currently has a true positive rate of .57.
+
+![TP = 97, FN = 73, TN = 198, FP = 49](images/ss1.PNG)
+
+### Acknowledgements
+
+* This project is built off of WarrierRajeev's initial work: (https://github.com/WarrierRajeev/UFC-Predictions)
