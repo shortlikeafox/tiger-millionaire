@@ -107,3 +107,5 @@ for fs in h.FEATURES:
     print(f"The accuracy is {accuracy}")
     print(f"The prevalence of blue is {(tp + fn) / total}")
     print(f"The true_positive rate for {fs} is {true_positive}")
+    print()
+    print()
