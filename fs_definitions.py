@@ -197,15 +197,18 @@ def create_prepped_df(fs: str, df: pd.DataFrame ):
         #Used so 'get_dummies' uses the proper columns
         column_names = ['location', 'B_Stance', 'R_Stance', 'weight_class']
 
+    if fs == 'c5d':
+        df = df[['B_avg_SIG_STR_pct', 'B_ev', 'R_total_rounds_fought',
+                      'R_win_by_Decision_Split', 'R_win_by_Decision_Majority',
+                      'Winner', 'label']]
+
+
+
     #The test model is where we can test different features
     if fs =='test':
         df = df[['gender', 'Winner', 'label']]
         column_names = ['gender']
     
-    if fs == 'c5d':
-        df = df[['B_avg_SIG_STR_pct', 'B_ev', 'R_total_rounds_fought',
-                      'R_win_by_Decision_Split', 'R_win_by_Decision_Majority',
-                      'Winner', 'label']]
     
     
     
