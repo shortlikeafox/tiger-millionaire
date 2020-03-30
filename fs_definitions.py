@@ -26,6 +26,9 @@ def create_prepped_df(fs: str, df: pd.DataFrame ):
     
     column_names = "" #The columns that need to be encoded
     
+    #We will use this to make copies fo the evaluation columns....
+    df_copy = df[['R_ev', 'B_ev']].copy()
+    
     
     if fs =='c1':
         #The list of features that are included in this model
@@ -197,17 +200,21 @@ def create_prepped_df(fs: str, df: pd.DataFrame ):
         #Used so 'get_dummies' uses the proper columns
         column_names = ['location', 'B_Stance', 'R_Stance', 'weight_class']
 
+    if fs == 'c5d':
+        df = df[['B_avg_SIG_STR_pct', 'B_ev', 'R_total_rounds_fought',
+                      'R_win_by_Decision_Split', 'R_win_by_Decision_Majority',
+                      'Winner', 'label']]
+
+
+
     #The test model is where we can test different features
     if fs =='test':
         df = df[['gender', 'Winner', 'label']]
         column_names = ['gender']
     
-    if fs == 'c5d':
-        df = df[['B_avg_SIG_STR_pct', 'B_ev', 'R_total_rounds_fought',
-                      'R_win_by_Decision_Split', 'R_win_by_Decision_Majority',
-                      'Winner', 'label']]
-    
-    
+    #These are going to be used for evauluation purposes
+    df = df.assign(B_ev_final = df_copy['B_ev'])
+    df = df.assign(R_ev_final = df_copy['R_ev'])
     
     
     #Remove all rows with null values
