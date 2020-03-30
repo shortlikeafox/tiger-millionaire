@@ -10,6 +10,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import train_test_split
+from random import randint
 
 
 
@@ -441,5 +442,32 @@ def get_bet_results(df: pd.DataFrame) -> pd.DataFrame:
 
                               
 
-
+def get_bet_results_multiple(df: pd.DataFrame, n: int
+                             , fs: str) -> pd.DataFrame:
+    """
     
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The master dataframe
+    n : int
+        How many times to run each model
+
+    Returns
+    -------
+    DataFrame with information about how the bets did.  It runs
+    get_bet_results multiple times and stores the results in a DataFrame
+
+    """
+    all_results_df = None
+    for _ in range(n):
+        itr_df = get_test_probs(df,fs,randint(1, 1000000),0.1)
+        single_result_df = get_bet_results(itr_df)
+
+        if (all_results_df is not None):
+            all_results_df = all_results_df.append(single_result_df)
+        else:
+            all_results_df = single_result_df
+    
+    return(all_results_df)
