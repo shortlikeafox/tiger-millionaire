@@ -15,13 +15,12 @@ sns.set(style="whitegrid", color_codes=True)
 np.set_printoptions(suppress=True)
 
 df = h.create_fight_df('../data/ufc-master.csv')
-fs = 'c3d'
+fs = 'c1'
 temp_df = fsd.create_prepped_df(fs, df)
 
 
 print(df.shape)
 print(temp_df.shape)
-print(temp_df[['R_ev', 'R_ev_final', 'B_ev_final', 'Winner', 'label']])
 y = temp_df['label']
 
 
@@ -87,6 +86,8 @@ print(X_test.shape)
     
 
 
-test_df = h.get_test_probs(df, 'c1', 85, .1)
+test_df = h.get_test_probs(df, fs, 85, .1)
     
 print(test_df.head)
+
+test_df.to_csv('testfile.csv')
