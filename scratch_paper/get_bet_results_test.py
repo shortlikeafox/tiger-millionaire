@@ -10,7 +10,7 @@ from sklearn.linear_model import LogisticRegression
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-fs = 'c2'
+fs = 'c1'
 
 df = h.create_fight_df('../data/ufc-master.csv')
 old_df = df

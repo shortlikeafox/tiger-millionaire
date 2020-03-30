@@ -27,7 +27,7 @@ def create_prepped_df(fs: str, df: pd.DataFrame ):
     column_names = "" #The columns that need to be encoded
     
     #We will use this to make copies fo the evaluation columns....
-    df_copy = df[['R_ev', 'B_ev']].copy()
+    df_copy = df[['R_ev', 'B_ev', 'date']].copy()
     
     
     if fs =='c1':
@@ -215,7 +215,7 @@ def create_prepped_df(fs: str, df: pd.DataFrame ):
     #These are going to be used for evauluation purposes
     df = df.assign(B_ev_final = df_copy['B_ev'])
     df = df.assign(R_ev_final = df_copy['R_ev'])
-    
+    df = df.assign(date_final = df_copy['date'])
     
     #Remove all rows with null values
     df = df.dropna(how='any', axis=0)
