@@ -8,7 +8,7 @@ import pandas as pd
 
 
 
-fs = 'c3'
+fs = 'c3d'
 df = h.create_fight_df('../data/ufc-master.csv')
 """
 #We want to figure out how to split on the date....
@@ -87,3 +87,5 @@ for d in list_of_dates:
 final_probs = h.get_recent_probs(df, fs)
 print(final_probs.shape)
 final_probs.to_csv('test_recent.csv')
+results_df = h.get_bet_results(final_probs)
+results_df.to_csv('recent_results.csv')
