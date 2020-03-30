@@ -81,3 +81,12 @@ print(p_and_p)
 print(p_and_p.shape)
 
 print(X_test.shape)
+
+
+    
+    
+
+
+test_df = h.get_test_probs(df, 'c1', 85, .1)
+    
+print(test_df.head)
