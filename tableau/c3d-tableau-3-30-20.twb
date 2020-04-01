@@ -12,6 +12,265 @@
     <preference name='ui.shelf.height' value='26' />
   </preferences>
   <datasources>
+    <datasource caption='recent_results' inline='true' name='federated.0ehj6pw1n0db7z1a2ufhu08erzkb' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='recent_results' name='textscan.0nj56zf0gtxg0b16z9urq1a7uvmh'>
+            <connection class='textscan' directory='C:/Users/matth/OneDrive/github/tiger-millionaire/tableau' filename='recent_results.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0nj56zf0gtxg0b16z9urq1a7uvmh' name='recent_results.csv' table='[recent_results#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='num_fights' ordinal='1' />
+            <column datatype='integer' name='num_bets' ordinal='2' />
+            <column datatype='integer' name='num_wins' ordinal='3' />
+            <column datatype='integer' name='num_losses' ordinal='4' />
+            <column datatype='integer' name='num_under' ordinal='5' />
+            <column datatype='integer' name='num_under_losses' ordinal='6' />
+            <column datatype='integer' name='num_under_wins' ordinal='7' />
+            <column datatype='integer' name='num_even' ordinal='8' />
+            <column datatype='integer' name='num_even_losses' ordinal='9' />
+            <column datatype='integer' name='num_even_wins' ordinal='10' />
+            <column datatype='integer' name='num_fav' ordinal='11' />
+            <column datatype='integer' name='num_fav_wins' ordinal='12' />
+            <column datatype='integer' name='num_fav_losses' ordinal='13' />
+            <column datatype='real' name='profit' ordinal='14' />
+            <column datatype='real' name='profit_per_bet' ordinal='15' />
+            <column datatype='real' name='profit_per_fight' ordinal='16' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_fights</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_fights]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_fights</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_bets</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_bets]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_bets</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_wins</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_wins]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_wins</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_losses</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_losses]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_losses</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_under</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_under]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_under</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_under_losses</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_under_losses]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_under_losses</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_under_wins</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_under_wins]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_under_wins</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_even</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_even]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_even</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_even_losses</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_even_losses]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_even_losses</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_even_wins</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_even_wins]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_even_wins</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_fav</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_fav]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_fav</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_fav_wins</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_fav_wins]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_fav_wins</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_fav_losses</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_fav_losses]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>num_fav_losses</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>profit</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit_per_bet</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit_per_bet]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>profit_per_bet</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit_per_fight</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit_per_fight]</local-name>
+            <parent-name>[recent_results.csv]</parent-name>
+            <remote-alias>profit_per_fight</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Num Bets' datatype='integer' name='[num_bets]' role='measure' type='quantitative' />
+      <column caption='Num Even' datatype='integer' name='[num_even]' role='measure' type='quantitative' />
+      <column caption='Num Even Losses' datatype='integer' name='[num_even_losses]' role='measure' type='quantitative' />
+      <column caption='Num Even Wins' datatype='integer' name='[num_even_wins]' role='measure' type='quantitative' />
+      <column caption='Num Fav' datatype='integer' name='[num_fav]' role='measure' type='quantitative' />
+      <column caption='Num Fav Losses' datatype='integer' name='[num_fav_losses]' role='measure' type='quantitative' />
+      <column caption='Num Fav Wins' datatype='integer' name='[num_fav_wins]' role='measure' type='quantitative' />
+      <column caption='Num Fights' datatype='integer' name='[num_fights]' role='measure' type='quantitative' />
+      <column caption='Num Losses' datatype='integer' name='[num_losses]' role='measure' type='quantitative' />
+      <column caption='Num Under' datatype='integer' name='[num_under]' role='measure' type='quantitative' />
+      <column caption='Num Under Losses' datatype='integer' name='[num_under_losses]' role='measure' type='quantitative' />
+      <column caption='Num Under Wins' datatype='integer' name='[num_under_wins]' role='measure' type='quantitative' />
+      <column caption='Num Wins' datatype='integer' name='[num_wins]' role='measure' type='quantitative' />
+      <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+      <column caption='Profit Per Bet' datatype='real' name='[profit_per_bet]' role='measure' type='quantitative' />
+      <column caption='Profit Per Fight' datatype='real' name='[profit_per_fight]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.329091' measure-ordering='alphabetic' measure-percentage='0.670909' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
     <datasource caption='test_recent' inline='true' name='federated.1cdnis019zg2o0126t18b1pq9mun' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -47,6 +306,7 @@
             <column datatype='real' name='temp_blue' ordinal='23' />
             <column datatype='real' name='temp_red' ordinal='24' />
             <column datatype='real' name='profit' ordinal='25' />
+            <column datatype='integer' name='is_winning_bet' ordinal='26' />
           </columns>
         </relation>
         <metadata-records>
@@ -358,6 +618,17 @@
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
           </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_winning_bet</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[is_winning_bet]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>is_winning_bet</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
@@ -383,6 +654,7 @@
       <column caption='Date Final' datatype='date' name='[date_final]' role='dimension' type='ordinal' />
       <column caption='gender FEMALE' datatype='integer' name='[gender_FEMALE]' role='measure' type='quantitative' />
       <column caption='gender MALE' datatype='integer' name='[gender_MALE]' role='measure' type='quantitative' />
+      <column aggregation='Sum' datatype='integer' name='[is_winning_bet]' role='dimension' type='ordinal' />
       <column caption='Label' datatype='integer' name='[label]' role='measure' type='quantitative' />
       <column caption='Loss Dif' datatype='integer' name='[loss_dif]' role='measure' type='quantitative' />
       <column caption='Preds' datatype='integer' name='[preds]' role='measure' type='quantitative' />
@@ -391,23 +663,1486 @@
       <column caption='Reach Dif' datatype='real' name='[reach_dif]' role='measure' type='quantitative' />
       <column caption='Temp Blue' datatype='real' name='[temp_blue]' role='measure' type='quantitative' />
       <column caption='Temp Red' datatype='real' name='[temp_red]' role='measure' type='quantitative' />
-      <layout dim-ordering='alphabetic' dim-percentage='0.307356' measure-ordering='alphabetic' measure-percentage='0.692644' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.295644' measure-ordering='alphabetic' measure-percentage='0.704356' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='test_recent (3)' inline='true' name='federated.0emefzk0insgg212o2t5a1p11sxj' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='test_recent' name='textscan.14vo6xm0owaysq12gml4f1sbugal'>
+            <connection class='textscan' directory='C:/Users/matth/OneDrive/github/tiger-millionaire/tableau' filename='test_recent.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.14vo6xm0owaysq12gml4f1sbugal' name='test_recent.csv' table='[test_recent#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='B_age' ordinal='1' />
+            <column datatype='integer' name='R_age' ordinal='2' />
+            <column datatype='integer' name='loss_dif' ordinal='3' />
+            <column datatype='real' name='reach_dif' ordinal='4' />
+            <column datatype='integer' name='age_dif' ordinal='5' />
+            <column datatype='integer' name='B_odds' ordinal='6' />
+            <column datatype='integer' name='R_odds' ordinal='7' />
+            <column datatype='real' name='R_ev' ordinal='8' />
+            <column datatype='integer' name='gender_FEMALE' ordinal='9' />
+            <column datatype='integer' name='gender_MALE' ordinal='10' />
+            <column datatype='real' name='B_prob' ordinal='11' />
+            <column datatype='real' name='R_prob' ordinal='12' />
+            <column datatype='integer' name='preds' ordinal='13' />
+            <column datatype='date' name='date_final' ordinal='14' />
+            <column datatype='real' name='B_ev_final' ordinal='15' />
+            <column datatype='real' name='R_ev_final' ordinal='16' />
+            <column datatype='string' name='Winner' ordinal='17' />
+            <column datatype='integer' name='label' ordinal='18' />
+            <column datatype='real' name='B_ev_actual' ordinal='19' />
+            <column datatype='real' name='R_ev_actual' ordinal='20' />
+            <column datatype='string' name='bet_actual' ordinal='21' />
+            <column datatype='real' name='profit_if_win' ordinal='22' />
+            <column datatype='real' name='temp_blue' ordinal='23' />
+            <column datatype='real' name='temp_red' ordinal='24' />
+            <column datatype='real' name='profit' ordinal='25' />
+            <column datatype='integer' name='is_winning_bet' ordinal='26' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[B_age]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_age</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[R_age]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_age</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loss_dif</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[loss_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>loss_dif</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reach_dif</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[reach_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>reach_dif</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age_dif</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>age_dif</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[B_odds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_odds</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[R_odds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_odds</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender_FEMALE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gender_FEMALE]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>gender_FEMALE</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender_MALE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gender_MALE]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>gender_MALE</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_prob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_prob]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_prob</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_prob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_prob]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_prob</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>preds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[preds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>preds</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_final</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>date_final</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_ev_final</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_ev_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_ev_final</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev_final</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev_final</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Winner</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Winner]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>Winner</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>label</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[label]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>label</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_ev_actual</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_ev_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_ev_actual</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev_actual</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev_actual</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bet_actual</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[bet_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>bet_actual</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit_if_win</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit_if_win]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>profit_if_win</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>temp_blue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[temp_blue]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>temp_blue</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>temp_red</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[temp_red]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>temp_red</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>profit</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_winning_bet</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[is_winning_bet]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>is_winning_bet</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='B age' datatype='integer' name='[B_age]' role='measure' type='quantitative' />
+      <column caption='B ev actual' datatype='real' name='[B_ev_actual]' role='measure' type='quantitative' />
+      <column caption='B ev final' datatype='real' name='[B_ev_final]' role='measure' type='quantitative' />
+      <column caption='B odds' datatype='integer' name='[B_odds]' role='measure' type='quantitative' />
+      <column caption='B prob' datatype='real' name='[B_prob]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='R age' datatype='integer' name='[R_age]' role='measure' type='quantitative' />
+      <column caption='R ev' datatype='real' name='[R_ev]' role='measure' type='quantitative' />
+      <column caption='R ev actual' datatype='real' name='[R_ev_actual]' role='measure' type='quantitative' />
+      <column caption='R ev final' datatype='real' name='[R_ev_final]' role='measure' type='quantitative' />
+      <column caption='R odds' datatype='integer' name='[R_odds]' role='measure' type='quantitative' />
+      <column caption='R prob' datatype='real' name='[R_prob]' role='measure' type='quantitative' />
+      <column caption='Age Dif' datatype='integer' name='[age_dif]' role='measure' type='quantitative' />
+      <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+      <column caption='Date Final' datatype='date' name='[date_final]' role='dimension' type='ordinal' />
+      <column caption='gender FEMALE' datatype='integer' name='[gender_FEMALE]' role='measure' type='quantitative' />
+      <column caption='gender MALE' datatype='integer' name='[gender_MALE]' role='measure' type='quantitative' />
+      <column caption='Is Winning Bet' datatype='integer' name='[is_winning_bet]' role='measure' type='quantitative' />
+      <column caption='Label' datatype='integer' name='[label]' role='measure' type='quantitative' />
+      <column caption='Loss Dif' datatype='integer' name='[loss_dif]' role='measure' type='quantitative' />
+      <column caption='Preds' datatype='integer' name='[preds]' role='measure' type='quantitative' />
+      <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+      <column caption='Profit If Win' datatype='real' name='[profit_if_win]' role='measure' type='quantitative' />
+      <column caption='Reach Dif' datatype='real' name='[reach_dif]' role='measure' type='quantitative' />
+      <column caption='Temp Blue' datatype='real' name='[temp_blue]' role='measure' type='quantitative' />
+      <column caption='Temp Red' datatype='real' name='[temp_red]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.286376' measure-ordering='alphabetic' measure-percentage='0.713624' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='test_recent (2)' inline='true' name='federated.1ferfve15jl6cu1213toc0s8czns' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='test_recent' name='textscan.1lmaqnc1kvdx24154lhxd1qvnkx5'>
+            <connection class='textscan' directory='C:/Users/matth/OneDrive/github/tiger-millionaire/tableau' filename='test_recent.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1lmaqnc1kvdx24154lhxd1qvnkx5' name='test_recent.csv' table='[test_recent#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='B_age' ordinal='1' />
+            <column datatype='integer' name='R_age' ordinal='2' />
+            <column datatype='integer' name='loss_dif' ordinal='3' />
+            <column datatype='real' name='reach_dif' ordinal='4' />
+            <column datatype='integer' name='age_dif' ordinal='5' />
+            <column datatype='integer' name='B_odds' ordinal='6' />
+            <column datatype='integer' name='R_odds' ordinal='7' />
+            <column datatype='real' name='R_ev' ordinal='8' />
+            <column datatype='integer' name='gender_FEMALE' ordinal='9' />
+            <column datatype='integer' name='gender_MALE' ordinal='10' />
+            <column datatype='real' name='B_prob' ordinal='11' />
+            <column datatype='real' name='R_prob' ordinal='12' />
+            <column datatype='integer' name='preds' ordinal='13' />
+            <column datatype='date' name='date_final' ordinal='14' />
+            <column datatype='real' name='B_ev_final' ordinal='15' />
+            <column datatype='real' name='R_ev_final' ordinal='16' />
+            <column datatype='string' name='Winner' ordinal='17' />
+            <column datatype='integer' name='label' ordinal='18' />
+            <column datatype='real' name='B_ev_actual' ordinal='19' />
+            <column datatype='real' name='R_ev_actual' ordinal='20' />
+            <column datatype='string' name='bet_actual' ordinal='21' />
+            <column datatype='real' name='profit_if_win' ordinal='22' />
+            <column datatype='real' name='temp_blue' ordinal='23' />
+            <column datatype='real' name='temp_red' ordinal='24' />
+            <column datatype='real' name='profit' ordinal='25' />
+            <column datatype='integer' name='is_winning_bet' ordinal='26' />
+            <column datatype='integer' name='is_bet_favorite' ordinal='27' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[B_age]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_age</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[R_age]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_age</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loss_dif</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[loss_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>loss_dif</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reach_dif</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[reach_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>reach_dif</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age_dif</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>age_dif</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[B_odds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_odds</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[R_odds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_odds</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender_FEMALE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gender_FEMALE]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>gender_FEMALE</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender_MALE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gender_MALE]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>gender_MALE</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_prob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_prob]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_prob</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_prob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_prob]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_prob</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>preds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[preds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>preds</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_final</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>date_final</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_ev_final</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_ev_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_ev_final</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev_final</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev_final</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Winner</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Winner]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>Winner</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>label</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[label]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>label</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_ev_actual</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_ev_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_ev_actual</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev_actual</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev_actual</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bet_actual</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[bet_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>bet_actual</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit_if_win</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit_if_win]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>profit_if_win</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>temp_blue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[temp_blue]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>temp_blue</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>temp_red</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[temp_red]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>temp_red</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>profit</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_winning_bet</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[is_winning_bet]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>is_winning_bet</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_bet_favorite</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[is_bet_favorite]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>is_bet_favorite</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='B ev actual (bin)' datatype='integer' name='[B ev actual (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[B_ev_actual]' peg='0' size='2' />
+      </column>
+      <column caption='B age' datatype='integer' name='[B_age]' role='measure' type='quantitative' />
+      <column caption='B ev actual' datatype='real' name='[B_ev_actual]' role='measure' type='quantitative' />
+      <column caption='B ev final' datatype='real' name='[B_ev_final]' role='measure' type='quantitative' />
+      <column caption='B odds' datatype='integer' name='[B_odds]' role='measure' type='quantitative' />
+      <column caption='B prob' datatype='real' name='[B_prob]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column aggregation='None' caption='R ev actual (bin)' datatype='integer' name='[R ev actual (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[R_ev_actual]' peg='0' size='2' />
+      </column>
+      <column caption='R age' datatype='integer' name='[R_age]' role='measure' type='quantitative' />
+      <column caption='R ev' datatype='real' name='[R_ev]' role='measure' type='quantitative' />
+      <column caption='R ev actual' datatype='real' name='[R_ev_actual]' role='measure' type='quantitative' />
+      <column caption='R ev final' datatype='real' name='[R_ev_final]' role='measure' type='quantitative' />
+      <column caption='R odds' datatype='integer' name='[R_odds]' role='measure' type='quantitative' />
+      <column caption='R prob' datatype='real' name='[R_prob]' role='measure' type='quantitative' />
+      <column caption='Age Dif' datatype='integer' name='[age_dif]' role='measure' type='quantitative' />
+      <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+      <column caption='Date Final' datatype='date' name='[date_final]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='gender FEMALE' datatype='integer' name='[gender_FEMALE]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='gender MALE' datatype='integer' name='[gender_MALE]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='0' value='Female' />
+          <alias key='1' value='Male' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' datatype='integer' name='[is_bet_favorite]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='-1' value='Underdog' />
+          <alias key='0' value='Even' />
+          <alias key='1' value='Favorite' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' datatype='integer' name='[is_winning_bet]' role='dimension' type='ordinal' />
+      <column caption='Label' datatype='integer' name='[label]' role='measure' type='quantitative' />
+      <column caption='Loss Dif' datatype='integer' name='[loss_dif]' role='measure' type='quantitative' />
+      <column caption='Preds' datatype='integer' name='[preds]' role='measure' type='quantitative' />
+      <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+      <column caption='Profit If Win' datatype='real' name='[profit_if_win]' role='measure' type='quantitative' />
+      <column caption='Reach Dif' datatype='real' name='[reach_dif]' role='measure' type='quantitative' />
+      <column caption='Temp Blue' datatype='real' name='[temp_blue]' role='measure' type='quantitative' />
+      <column caption='Temp Red' datatype='real' name='[temp_red]' role='measure' type='quantitative' />
+      <column-instance column='[bet_actual]' derivation='None' name='[none:bet_actual:nk]' pivot='key' type='nominal' />
+      <column-instance column='[gender_MALE]' derivation='None' name='[none:gender_MALE:ok]' pivot='key' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.334569' measure-ordering='alphabetic' measure-percentage='0.665431' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:gender_MALE:ok]' type='palette'>
+            <map to='#a5cfe9'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#ffbed1'>
+              <bucket>0</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:bet_actual:nk]' type='palette'>
+            <map to='#43719f'>
+              <bucket>&quot;Blue&quot;</bucket>
+            </map>
+            <map to='#d3293d'>
+              <bucket>&quot;Red&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
     </datasource>
   </datasources>
   <worksheets>
-    <worksheet name='Sheet 1'>
+    <worksheet name='Bets Per Color'>
       <table>
         <view>
           <datasources>
-            <datasource caption='test_recent' name='federated.1cdnis019zg2o0126t18b1pq9mun' />
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
           </datasources>
-          <datasource-dependencies datasource='federated.1cdnis019zg2o0126t18b1pq9mun'>
-            <column-instance column='[profit]' derivation='Attribute' name='[attr:profit:qk]' pivot='key' type='quantitative' />
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+            <column-instance column='[bet_actual]' derivation='None' name='[none:bet_actual:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Blue&quot;' />
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Red&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' scope='rows' value='Number of Bets' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</cols>
+      </table>
+      <simple-id uuid='{3DC62C4C-855D-4D55-9FAA-D214E90416C4}' />
+    </worksheet>
+    <worksheet name='Blue Actual EV vs PPB'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column caption='B ev actual (bin)' datatype='integer' name='[B ev actual (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[B_ev_actual]' peg='0' size='2' />
+            </column>
+            <column caption='B ev actual' datatype='real' name='[B_ev_actual]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[B ev actual (bin)]' derivation='None' name='[none:B ev actual (bin):ok]' pivot='key' type='ordinal' />
             <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='0' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='9' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</cols>
+        <show-full-range>
+          <column>[federated.1ferfve15jl6cu1213toc0s8czns].[B ev actual (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{03D50E44-B079-4080-B501-0B3AD48F74A6}' />
+    </worksheet>
+    <worksheet name='Blue EV vs # of records'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column caption='B ev actual (bin)' datatype='integer' name='[B ev actual (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[B_ev_actual]' peg='0' size='2' />
+            </column>
+            <column caption='B ev actual' datatype='real' name='[B_ev_actual]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[B ev actual (bin)]' derivation='None' name='[none:B ev actual (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='0' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='9' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</cols>
+      </table>
+      <simple-id uuid='{AF1F86DF-DFE0-4589-975A-92B20B7B5342}' />
+    </worksheet>
+    <worksheet name='Fights Per Gender'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column aggregation='Sum' caption='gender MALE' datatype='integer' name='[gender_MALE]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='0' value='Female' />
+                <alias key='1' value='Male' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' datatype='integer' name='[is_winning_bet]' role='dimension' type='ordinal' />
+            <column-instance column='[gender_MALE]' derivation='None' name='[none:gender_MALE:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[is_winning_bet]' derivation='None' name='[none:is_winning_bet:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_winning_bet:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:is_winning_bet:ok]' member='-1' />
+              <groupfilter function='member' level='[none:is_winning_bet:ok]' member='1' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_winning_bet:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' scope='rows' value='Number of Bets' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</cols>
+      </table>
+      <simple-id uuid='{D2B23340-43E6-4B9E-B62B-7986024EAC43}' />
+    </worksheet>
+    <worksheet name='Profit (UD v Fav)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='Sum' datatype='integer' name='[is_bet_favorite]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='-1' value='Underdog' />
+                <alias key='0' value='Even' />
+                <alias key='1' value='Favorite' />
+              </aliases>
+            </column>
+            <column-instance column='[is_bet_favorite]' derivation='None' name='[none:is_bet_favorite:ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+            <column-instance column='[is_bet_favorite]' derivation='Sum' name='[sum:is_bet_favorite:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[profit]' derivation='Sum' name='[sum:profit:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1ferfve15jl6cu1213toc0s8czns].[sum:is_bet_favorite:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]'>
+            <groupfilter from='-1' function='range' level='[none:is_bet_favorite:ok]' to='1' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[:Measure Names]</column>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</cols>
+      </table>
+      <simple-id uuid='{F92E9350-4F32-4EF5-80CF-C2CBE7A79C44}' />
+    </worksheet>
+    <worksheet name='Profit Per Bet (UD vs Fav)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Sum' datatype='integer' name='[is_bet_favorite]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='-1' value='Underdog' />
+                <alias key='0' value='Even' />
+                <alias key='1' value='Favorite' />
+              </aliases>
+            </column>
+            <column-instance column='[is_bet_favorite]' derivation='None' name='[none:is_bet_favorite:ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]'>
+            <groupfilter from='-1' function='range' level='[none:is_bet_favorite:ok]' to='1' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</cols>
+        <show-full-range>
+          <column>[federated.1ferfve15jl6cu1213toc0s8czns].[R ev actual (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{50D62E01-219E-4495-8212-2B1422494DA6}' />
+    </worksheet>
+    <worksheet name='Profit per Bet (Color)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+            <column-instance column='[bet_actual]' derivation='None' name='[none:bet_actual:nk]' pivot='key' type='nominal' />
+            <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Sum' name='[sum:profit:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Blue&quot;' />
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Red&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' value='155' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk] + [federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk])</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</cols>
+      </table>
+      <simple-id uuid='{C292B086-B292-4F86-887B-E4BBC8A562E6}' />
+    </worksheet>
+    <worksheet name='Profit per Bet (Gender)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Sum' caption='gender MALE' datatype='integer' name='[gender_MALE]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='0' value='Female' />
+                <alias key='1' value='Male' />
+              </aliases>
+            </column>
+            <column-instance column='[gender_MALE]' derivation='None' name='[none:gender_MALE:ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</cols>
+      </table>
+      <simple-id uuid='{4B21186A-E37F-4C9F-B212-DADCFF08A6BE}' />
+    </worksheet>
+    <worksheet name='Profit vs Color'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+            <column-instance column='[bet_actual]' derivation='None' name='[none:bet_actual:nk]' pivot='key' type='nominal' />
+            <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Blue&quot;' />
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Red&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='cell-w' value='80' />
+            <format attr='cell-h' value='20' />
+            <format attr='cell' value='20' />
+            <format attr='cell-q' value='100' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</cols>
+      </table>
+      <simple-id uuid='{46E6A97F-D4C0-4593-8CD4-8445FAAFA2B4}' />
+    </worksheet>
+    <worksheet name='Profit vs Gender'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='Sum' caption='gender MALE' datatype='integer' name='[gender_MALE]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='0' value='Female' />
+                <alias key='1' value='Male' />
+              </aliases>
+            </column>
+            <column-instance column='[gender_MALE]' derivation='None' name='[none:gender_MALE:ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Sum' name='[sum:profit:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#72b966' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</cols>
+      </table>
+      <simple-id uuid='{F032B1D8-C694-4431-BB04-A1D16F0A04F3}' />
+    </worksheet>
+    <worksheet name='Red-actual_ev vs profit per bet'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='None' caption='R ev actual (bin)' datatype='integer' name='[R ev actual (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[R_ev_actual]' peg='0' size='2' />
+            </column>
+            <column caption='R ev actual' datatype='real' name='[R_ev_actual]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[R ev actual (bin)]' derivation='None' name='[none:R ev actual (bin):ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='0' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='9' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</cols>
+      </table>
+      <simple-id uuid='{C27AEF61-3B7C-437A-B8E0-AA3D349E268A}' />
+    </worksheet>
+    <worksheet name='Red_ev vs # of Records'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column aggregation='None' caption='R ev actual (bin)' datatype='integer' name='[R ev actual (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[R_ev_actual]' peg='0' size='2' />
+            </column>
+            <column caption='R ev actual' datatype='real' name='[R_ev_actual]' role='measure' type='quantitative' />
+            <column-instance column='[R ev actual (bin)]' derivation='None' name='[none:R ev actual (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='0' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='9' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</cols>
+      </table>
+      <simple-id uuid='{B7F71559-3512-4129-84E2-D53C31429D3A}' />
+    </worksheet>
+    <worksheet name='Win % of UD'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='Sum' datatype='integer' name='[is_bet_favorite]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='-1' value='Underdog' />
+                <alias key='0' value='Even' />
+                <alias key='1' value='Favorite' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' datatype='integer' name='[is_winning_bet]' role='dimension' type='ordinal' />
+            <column-instance column='[is_bet_favorite]' derivation='Sum' name='[sum:is_bet_favorite:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[is_winning_bet]' derivation='Sum' name='[sum:is_winning_bet:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1ferfve15jl6cu1213toc0s8czns].[sum:is_bet_favorite:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1ferfve15jl6cu1213toc0s8czns].[sum:is_winning_bet:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[:Measure Names]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style />
@@ -420,13 +2155,233 @@
           </pane>
         </panes>
         <rows />
-        <cols>[federated.1cdnis019zg2o0126t18b1pq9mun].[attr:profit:qk]</cols>
+        <cols />
       </table>
-      <simple-id uuid='{46E6A97F-D4C0-4593-8CD4-8445FAAFA2B4}' />
+      <simple-id uuid='{E50314DC-9EF3-4038-B9BE-9C402D4090A5}' />
     </worksheet>
   </worksheets>
-  <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Sheet 1'>
+  <windows source-height='93'>
+    <window class='worksheet' name='Profit vs Color'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:Winner:nk]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_winning_bet:ok]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[yr:date_final:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{8AC09A56-157D-44BE-B111-924D98A7B563}' />
+    </window>
+    <window class='worksheet' name='Profit vs Gender'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_FEMALE:ok]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{DCAE4A47-C7DC-4E4F-94EB-3C659870676A}' />
+    </window>
+    <window class='worksheet' name='Fights Per Gender'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1cdnis019zg2o0126t18b1pq9mun].[none:is_winning_bet:ok]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:Winner:nk]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_winning_bet:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{E18C348D-2574-4AE8-BAC2-A497BB16FBA5}' />
+    </window>
+    <window class='worksheet' name='Bets Per Color'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{D52D1652-BD92-492C-93F6-1C9931CBC733}' />
+    </window>
+    <window class='worksheet' name='Profit per Bet (Color)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[:Measure Names]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{1762DCED-ABCA-41CA-A43D-6F4919946564}' />
+    </window>
+    <window class='worksheet' name='Profit per Bet (Gender)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{B08C62C6-9BE3-4A13-91DB-5E003A43AF8D}' />
+    </window>
+    <window class='worksheet' name='Profit (UD v Fav)'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -447,18 +2402,923 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{8AC09A56-157D-44BE-B111-924D98A7B563}' />
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{87AD7B92-06F0-4BFB-9456-A4828840A40C}' />
+    </window>
+    <window class='worksheet' name='Profit Per Bet (UD vs Fav)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{E548D7A3-E1B6-4F70-BEFE-3620A385BDCF}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Red-actual_ev vs profit per bet'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{1A99760D-3BF6-4BAE-91CE-D30B205105F9}' />
+    </window>
+    <window class='worksheet' name='Red_ev vs # of Records'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{98B34693-B8FF-482B-924E-0E10907F1D91}' />
+    </window>
+    <window class='worksheet' name='Blue Actual EV vs PPB'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{D607DB85-4058-4C15-8542-1BE454C92BDC}' />
+    </window>
+    <window class='worksheet' name='Blue EV vs # of records'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{A289B167-0112-4ED4-97E6-A90794785F4A}' />
+    </window>
+    <window class='worksheet' name='Win % of UD'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</field>
+            <field>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_winning_bet:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{74AEC94C-C637-413F-80BC-A6A2737FE0B1}' />
     </window>
   </windows>
   <thumbnails>
-    <thumbnail height='79' name='Sheet 1' width='192'>
-      iVBORw0KGgoAAAANSUhEUgAAAMAAAABPCAYAAAC9OsoKAAAACXBIWXMAAA7DAAAOwwHHb6hk
-      AAABAklEQVR4nO3cMQ6AIBAAQTH+/7m0+AStJHFnaoprNtBwY621Dog6dw8AOwmANAGQJgDS
-      BECaAEgTAGmPAcw5v5gDtnADkCYA0gRAmgBIEwBpAiBNAKQJgDQBkCYA0gRAmgBIEwBpAiBN
-      AKQJgDQBkCYA0q43h3yL5K+G3aCUeQKRJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgT
+    <thumbnail height='192' name='Bets Per Color' width='183'>
+      iVBORw0KGgoAAAANSUhEUgAAALcAAADACAYAAABGSfLmAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAALyklEQVR4nO3df1DU953H8WdcFlk20Kpk/dWYgyIBbTxO1gYYNUETjLUWZshEL5yR1osI
+      V+cmXprrnXfJkZ7p5HrGZEzMYfwBSU1Ne9yURnPR1BqVgAJG2qpR4mGs10EJ4ESOBXG33B9g
+      XYxnag/ZzdvXY8Y/9vv97nc/H3j69cPnD7mlt7e3FxGDhoV6ACI3iuIWsxS3mKW4xSzFLWYp
+      bjFLcYtZilvMUtxiluIWsxS3mKW4xSzFLWYp7rBxivJ8L17vpT8ZZD1YzL/Vnh+0Tzj60ny8
+      Xi+zfnBw0O75hzhVno/3qb1D+pmguMPOvOfqqa+vp75+D6/m9VL+3VI+O8W9POXNp/zUta45
+      yu634ZvLF8De/Rz9jDuGKsjBpLjDViS3Z6aTcP5/6ByM252qo7pzJun5dzOjtZq6a/5FsEFx
+      hym/7yRvvvQ6rTlzSOs/dr52DYuyMvB6vczIfZyKJj+cKiffu4LtHGdtXt+S5moP3LP793E8
+      I40/jZjMlNTj7Hy3v25/M7/4/iKyMrx4vTPILfk5257ykrf2OGxf0bdEyi/nFH1P8/ygfx4G
+      vD6+mW/NyyLD68WbkcWDT+6g5YZ+hT5bRIg/X66wfYWX7QDcSnzuE2x8IhM3wNkK/vZfeyiu
+      2EfGSGj/xff488c3ctd/FLKlPp6nvKUkVGxh8R1Xu2sbVe82MO2+Z4lgFN70O/n+/npYPJ6D
+      awpYeWwBm3ZtJiWyh+bTnxAbX89dCfnkNRVSXzLz93e51sO+KyqNFRsWkDw2moieQzyXV0xp
+      9Rz+MXMQvzjXSXGHmXnP1VMyE+g5z4kd/8yS+Ud4Zvt3SD5YTV3THuqyfxJ8NWeApM+6aecB
+      quvuJP27owC4Y1omY9dWAyns3xvJXzz7LVKiASIYGx8NQOt1jtsZ2cqbKx+n6FftdF0anf86
+      bzLIFHe4iowlcf7XSS95nvomSAZI/Q7bNyxg9HXeqnPPLvZwnD15XtYOOLNkkAbbRuXTT3A4
+      /TV2rE8hOuIU5fl5NA3S3f9YWnOHrR5a3tnFfud4xowCd9pXSW3YxOo3T9MDfU/2fXX9SwU3
+      t8Y209jYjh8//gFPTD8HD1Qz9puv9u/C1FNfv591D8biJ4n0mT388NlNfODzg99H88lmOoFb
+      b42FE8do7AH8fi7dsvn0b+nBj+/kPrbtb+4/2k23D+JuG01kRA8th6v5VTMhp7jDzPYVl/a5
+      M8n7wWkeWF3CvFHA6Dy+9y/30rr2YTK9XryzH+SZd9r735XGQ389lSNPZ5PuzWLANrb/far3
+      xfFA1qSggxFMnZXN+/4I0h4rY1Xybopnp+NNn0PRq0foBkY98JcsHvYjFmd6ySis4CwwfsbX
+      SNr1N2Rm3M8jLzUxbuJt/fcbz/wleZx6Lpv0GQ/xT+90MfI2Qu4W/dcOYpWe3GKW4hazFLeY
+      pbjFLMUdxOfzhXoIMogUt5iluMUsxS1mKW4xS3GLWYpbzFLcYpbiFrMUt5iluMUsxS1mKW4x
+      S3GLWYpbzFLcYpbiFrMUt5iluMUsxS1mKW4xS3GLWYpbzFLcYpbiFrMUt5iluMUsxS1mKW4x
+      S3GLWYpbzFLcYpbiFrMUt5iluMUsxS1mKW4xS3GLWYpbzIoI9QCu5VzDG2yuqOFESxcBhwvP
+      5FyKlt3LOMfA687sfIanK/zML3mSuWP6jgVaayhb8zq1rQFct9/D0scWMMk99HOQ0AnjuHto
+      7Yhj7vJVJHrcOC920rTjBUq3JVCSM+HyZZ01/Hv9FL6W9n7Qe8+wc/1uRixexbokF21Vr7C6
+      /AAlxXcTNeTzkFAJ42VJJBNnzCbF48YJ4HSTMHUK0Z3Bvwi1k4Nb3uNPCubypeCn+clq6ibk
+      kpMUiwMnnukLye6o41D30M5AQiuM4w4S6KatqYqyLU1kzkq+fPhYJT+Py2PuleuUT84x8ssJ
+      XD46kpTJEbS1D9WAJRyE8bKkT8PGQl6uhagJWTzyaBFpnv4TgZNUvh3FQ8vjuSJtLly4gMs1
+      cAEyzNHC2RZgXN/r/+tXYXd0dAzq+CV0wj7u1CWllC65SGfLaQ699TxlqcUUpLo5s7OS7geW
+      E39l2cDw4cPp6uqGoBX27wIeRnsuXxMdHf2p9/l8PmJiYm7ALCQUwj7uPk7cngSmF9zP8Wfe
+      4+PUsbz95gfUBIrZE3xZbSF1uSU8mTyC9sNNBDIm9T/V2/ngiJ9R94Vk8BIiYRz3h+yr9BE/
+      607GxkThCHTTXFNN4xfTiOEuCtaVUhB0dcPGp2med2krMJNpP9pEZeOXyEly0Va1lZ0x0yjR
+      VslNJYzjjiMusoLXSjbwUUcPOFx4Js/h0YI/ZDtvDNlLsyhbs5Li1gCuiXP4dpG2AW82t/T2
+      9vaGehDhwufzXXUtLp9Pn4+tQJE/guIWsxS3mBXGP1BKKB2eNDPUQ7huXzm6d8BrPbnFLMUt
+      ZiluMUtxi1mKW8xS3GKW4hazFLeYpbjFLMUtZiluMUtxi1mKW8xS3GKW4hazFLeYpbjFLMUt
+      ZiluMUtxi1mKW8xS3GKW4hazFLeYpbjFLMUtZiluMUtxi1mKW8xS3GKW4hazFLeYpbjFLMUt
+      ZiluMUtxi1mKW8xS3GKW4hazFLeYpbjFLMUtZiluMUtxi1mKW8xS3GKW4hazIkI9gGs51/AG
+      mytqONHSRcDhwjM5l6Jl9zLOAXCRlrqtbHyjlo86eoiMuZP7lhWSk+gGINBaQ9ma16ltDeC6
+      /R6WPraASe6QTkeGWBjH3UNrRxxzl68i0ePGebGTph0vULotgZKcCfDrrbx8JJ5FKxeSMGIY
+      3c1VbHixkmOrHiaZM+xcv5sRi1exLslFW9UrrC4/QEnx3USFeloyZMJ4WRLJxBmzSfG4cQI4
+      3SRMnUJ0p6/v9KSH+YeC6SSMcAIOosZOJ+OOLroBTlZTNyGXnKRYHDjxTF9Idkcdh7pDNhkJ
+      gTCOO0igm7amKsq2NJE5K7nvmMOBI+iSzhOVvOf6KskAn5xj5JcTgs6PJGVyBG3tQzloCbUw
+      Xpb0adhYyMu1EDUhi0ceLSLNc8UFgfM0btvANr5B4aJEooALFy7gcg1cgAxztHC2BRjX99rn
+      81318zo6OgZ9DjI0rvzehX3cqUtKKV1ykc6W0xx663nKUospSO3/yfDiaf5z/c9gTiErEi//
+      tDh8+HC6urohaIX9u4CH0UF/MaKjoz/1WT6fj5iYmBs1FbnBrvzefT6WJThxexKYXnA/gbfe
+      42MA2nl30y48i5YxN/GKbZAvjKD9v5oI/P5AOx8c8TNq5FCOWUItjOP+kH2Vv+S/O7r7Ig10
+      01xVTeMXv0AMwLG3+XXiN0iLdXz6rfGZTPvNT6lsPE+Ai7RUbWVnzDT+TFslN5UwXpbEERdZ
+      wWslG/ioowccLjyT5/BoQd923se/+YjDFX9H4Y+D3zOe3JInmTtmDNlLsyhbs5Li1gCuiXP4
+      dpG2AW82t/T29vaGehDhwufzXXUtfjM6PGlmqIdw3b5ydO+A12G8LBH5/1HcYpbiFrMUt5il
+      uMUsxS1mKW4xS3GLWYpbzFLcYpbiFrMUt5iluMUsxS1mKW4xS3GLWYpbzFLcYpbiFrMUt5il
+      uMUsxS1mKW4xS3GLWYpbzFLcYpbiFrMUt5iluMUsxS1mKW4xS3GLWYpbzFLcYpbiFrMUt5il
+      uMUsxS1mKW4xS3GLWYpbzFLcYpbiFrMUt5iluMUsxS1mKW4xS3GLWYpbzFLcYpbiFrMiQj2A
+      aznX8AabK2o40dJFwOHCMzmXomX3Ms7Rd77zRCUvv7iDD7scxE3J46+CzgVaayhb8zq1rQFc
+      t9/D0scWMMkdurnI0AvjuHto7Yhj7vJVJHrcOC920rTjBUq3JVCSMwG6G9j66m9J//sXeHxU
+      F42VL14+xxl2rt/NiMWrWJfkoq3qFVaXH6Ck+G6iQj0tGTJhvCyJZOKM2aR43DgBnG4Spk4h
+      utMHQPehKlrvWch0jxMcsSTl5DLxl/WcBDhZTd2EXHKSYnHgxDN9IdkddRzqDuF0ZMj9L4rU
+      PdbV1JLHAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Blue Actual EV vs PPB' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Blue EV vs # of records' width='192'>
+      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
+      o+b/22EkrWPsGa8AAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Fights Per Gender' width='183'>
+      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
+      sRS3GEtxi7EUtxhLcYuxFLcYS3GLsRS3GEtxi7EUtxhLcYuxFLcYS3GLsRS3GEtxi7EUtxhL
+      cYuxFLcYS3GLsRS3GEtxi7EmuD2Az9Lb/ja765s5F4rhWD6CReVUbljKdGvwgOg53qnbzaFf
+      humfGGDmUy/yz9/IBcAJN1O3dR8tYQffjCWs27ySuX735iKjL43j7iccyaF0Uw2zgn48A1E6
+      D2+j9mA+1WW5QA8/2/E657/6j/zHhml4b0T5uLd/8NwuGnceJWtNDdtn++huep1X9rxPddVC
+      vG5OSUZVGi9LJlLw2BMUBv14ADx+8h+dR2bUTu6+eIyjmX/H8yXT8FrJ/Q8Fs5L7zp+gNbec
+      stmTsPAQLFnF8kgrbXGXpiKuSOO4UzhxujubqNvbyeLH5wBwrfMsDy788sh34mu9ZD+cj3Vr
+      QzaFRRPo7hmd4Up6SONlSVL7rvXsaAFv7jKee6GS+cHk9ljMQ+zj3fzrT05yIdKP5ZvBom9t
+      YPX8HK739eHzDc9+vBXiSgiYnnxt2/aInxeJRO7ibORuS71+aR938dpaatcOEA1dou3Qq9QV
+      V1FRnPzOMCPvKZ7/+28T8FoM9Haw/we7+Fned3kiI4NYLA4p9/UbTpAHgkPvm5mZedtn2bZN
+      IBC421MaQ2JuD+COpV6/sbEswYM/mE9JxZM4h45zFZiadz8D8UwC3uTiw5NVyGML+rhwEZic
+      Rc9vO3Fund9Dx6nr3JftzujFHWkc91mONZzk40g8GakT53LTCc5MmUwAoGARD37wY45cSO4f
+      6O3gWFsOj8wB8haz4OJ+Gs78EYcBQk1v0RhYwJf0qOSeMi6RSCTcHsTIeul4p579R5Jraiwf
+      waIVrKkoZdbg82on/CH7fvgmzZdiWIGZlDz/IisHH2YPe85dsIKNlWW3zvs0tm2PuFy5V+1r
+      D7k9hDu2unho7ZnGcY8+xT3cWI87jZclIn8dxS3GUtxiLMUtxlLcYizFLcZS3GIsxS3GUtxi
+      LMUtxlLcYizFLcZS3GIsxS3GUtxiLMUtxlLcYizFLcZS3GIsxS3GUtxiLMUtxlLcYizFLcZS
+      3GIsxS3GUtxiLMUtxlLcYizFLcZS3GIsxS3GUtxiLMUtxlLcYizFLcZS3GIsxS3GUtxiLMUt
+      xlLcYizFLcZS3GIsxS3GmuD2AD5Lb/vb7K5v5lwohmP5CBaVU7lhKdOt4cd1Nb7MS/XXebp6
+      C6VTk9uccDN1W/fREnbwzVjCus0rmesf/TmIe9I47n7CkRxKN9UwK+jHMxCl8/A2ag/mU12W
+      O3RYtJmffjCPr8//35Rzu2jceZSsNTVsn+2ju+l1XtnzPtVVC/GO+jzELWm8LJlIwWNPUBj0
+      4wHw+Ml/dB6ZUTvlmCgf7j3OzIpSHkq9m58/QWtuOWWzJ2HhIViyiuWRVtriozsDcVcax53C
+      idPd2UTd3k4WPz5naPNHDbyX8wyln1ynXOsl++F8hrZmU1g0ge6e0RqwpIM0XpYkte9az44W
+      8OYu47kXKpkfHNzhnKfhXS/PbsrjE2nT19eHzzd8ATLeCnElBExPvrZtm5FEIpHPdfwyulKv
+      X9rHXby2ltq1A0RDl2g79Cp1xVVUFPvpamwg/tQm8j5ZNpCRkUEsFoeUFfYNJ8gDwaFjMjMz
+      bzvPtm0CgcBdmMVYFXN7AHcs9fqlfdxJHvzBfEoqnuT0y8e5WjyNdw900OxU8fPUw1rW01pe
+      zZY5WfT8uhNn0dzBu3oPHaeuc9/XXBm8uCSN4z7LsQabvMe/wLSAF8uJc7n5BGemzCfAF6nY
+      XktFytHtu17i8jduPgpczIKf/IiGMw9RNttHd9NbNAYWUK1HJfeUNI47h5yJ9bxZ/QYXIv1g
+      +QgWreCFij/ncd5Ulq9bRt3W71MVdvAVrGBjpR4D3mvGJRKJhNuDSBe2bY+4Fr9X7WsPuT2E
+      O7a6eOgbq7HxKFDkL6C4xViKW4yluMVY/w9WTD5GjFjNMQAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Profit (UD v Fav)' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Profit Per Bet (UD vs Fav)' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Profit per Bet (Color)' width='192'>
+      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
+      zDEw2076AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Profit per Bet (Gender)' width='187'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Profit vs Color' width='192'>
+      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
+      AABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Profit vs Gender' width='190'>
+      iVBORw0KGgoAAAANSUhEUgAAAL4AAADACAYAAAC6XNksAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAMjUlEQVR4nO3dcUzU9/3H8Wf9inDdoAXhRBrttIJFU4tpscOQ2MX+MCRLITMZhpToYiO6
+      miUubiauP60mLL9/lt/a1TqsztatC0tmA4uR1dmpgboJZjjXjooKrZvzPOGonNwdHuf39wf+
+      5A5OaWuVL/d5Pf7y7nPfL99v8gQ/fGN8P2Dbto2IYSaN9wWIjAeFL0ZS+GIkhS9GUvhiJIUv
+      RlL4YiSF/zkFAoHxvgT5Cil8MZLCFyMpfDGSwhcjKXwxksIXI00e7wu4o3AvnSeO0djUzLWC
+      jWwqzY5a89Jat4fftXyC//oUUuc+x9rqMuZ8bWj51J5qdrZEneuRcrZtKSUbiHT/hbf+97e0
+      dEdwzVjCmg0VzPva/bwxGXe2g7Xte8V+8/A/bd+Fg/bug5di1k7ve8Xe23Te9l23bXswaP/n
+      6C/sze+031z12u/9z177dNyzXrIP1tTY+89ctQft6/blph32j3f81Q6OcS39/f13fT/iHI7e
+      6hRUbeXFpfmkJ41em1f5MquKZw+tWSlMLy7i0WDo5moP3dY0suKdtOs4rTPLKctLwyIJd/EK
+      SvyttIXifVgSlaPDvxPLsqJe9XOu4QNcix4fehnqxZc+nex4B17tJeOx2QwfnUH+/Mn0+O7l
+      1YrTOHuP/zlE+jo4sPsAPF9N1ZyUoTf9fvpa3qK6BWAKqd94ku+s/B6LcywGBgZwuVJizjHJ
+      8nLZC+QMvb7dP0/w+/337D7k/prQ4Yf/1ciuP8Cy6h/e+qUWgKwSNteWDP05EqKn4zB7f/l7
+      srZXkJucTDAYAobjvxFxM809fPiDDz446msFAgFSU1PvzY3IfTdhtzr4jvKr991UrS2NjX4k
+      K4Wp+d/muUfP03UFeCgd3/lOIsMnov2jQaZm3PMrFgeZsOF//Md/MOf5p0izRq95Du/m163/
+      pj8MEKa3/V0OXpjP41nArMUUXqinoaOPCGG8zXUcSi1kYcro80jiesC2nfrfi3ho3L6V+osj
+      3n6knG1bnub0T19m/6fx1krJjnnGb+GaUUTV2kqeyhz6Lol5jp+7jPXryu78twZDW514WyCZ
+      mBwcvrMo/MQyYbc6IndD4YuRFL4YSeGLkRS+GEnhi5EUvhhJ4YuRFL4YSeGLkRS+GEnhi5EU
+      vhhJ4YuRFL4YSeGLkRS+GEnhi5EUvhhJ4YuRFL4YSeGLkRS+GEnhi5EUvhhJ4YuRFL4YSeGL
+      kRS+GEnhi5EUvhhJ4YuRFL4YydlTD8O9dJ44RmNTM9cKNrKpNGpybcy4nymkzn2OtdXDI336
+      zzWw8/X3OBu0yFywnJfWPkvOzXlZMaOAZixhzYYK5o0xCkgSzPgOVr+ztn2v2G8e/qftu3DQ
+      3n3wUsza6X2v2Hubztu+67ZtDwbt/xz9hb35nfahxWCbvfu/d9hNl6/b9uBV+8z+GntL/ac3
+      j7xkH6ypsfefuWoP2tfty0077B/v+KsdHONa+vv7v+rbk3Hk6J/4BVVbKQDwfDJqbV7lyzxx
+      a7p5CtOLi3j0rRAAobZmupdUstqdBCSRV1ZObs1JuspmMqvrOK0zy/lJXhoW4C5eQckHv6Ut
+      9AxFdzP58Mjpuzh4nHxrwXhfwbiZsHt8y4qe89nPuYYPcC16HIDPPoPc2VGDa6255Gd344sA
+      V3vJeGw2w0dnkD9/Mj2++3Pd4gyO/on/eUT6Ojiw+wA8X03VnKEf2dcHJuFyRX/KwrI8XLoC
+      AwMDuFyxP9onWV4ue4GcodeBQCDu1/L7/be9jok48/xO95PoJnT44X81susPsKz6hzFzaqck
+      3yAYjP5khEgkG3cWJHuSCQZDwHD8NyJuprmHPx1vrGcgECA1dSLmfXuJdj9fxITd6uA7yq/e
+      d1O1tnTUcOaHH4aznVF7l8gZ2j2ZZFjAQ+n4zncSGT4R7R8NMjUDMciEDf/jP/6DOc8/RZo1
+      ei1lYTGZx+po9oYh0kdHQz1nn3yaWQCzFlN4oZ6Gjj4ihPE213EotZCFd/OLrUw4Dp5s7qFx
+      +1bqL454+5Fytm15mtM/fZn9n8ZbKyWbEc/xF1WyYVURmfGe4+cuY/26slF/a4w05mRzPdWZ
+      UBwcvrMo/MQyYbc6IndD4YuRFL4YSeGLkRS+GEnhi5EUvhhJ4YuRFL4YSeGLkRS+GEnhi5EU
+      vhhJ4YuRFL4YSeGLkRS+GEnhi5EUvhhJ4YuRFL4YSeGLkRS+GEnhi5EUvhhJ4YuRFL4YSeGL
+      kRS+GEnhi5EUvhhJ4YuRFL4YSeGLkZw97jPcS+eJYzQ2NXOtYCObSrOH1yIhLn14hD8dPc7f
+      vr6cn68uiDn01J5qdrZEvRE1HytmBtaMJazZUMG8MWZgSWJxdPin6l7jZM53qXwhmXc/jF3z
+      vL+L3/QW8UJ1OeF3Rh55BW93EetrV/HEqLN6OLTrCOkra3gjz0VP85v87O0TbPv+M2jwoTkc
+      vdUpqNrKi0vzSU8avZZd8gN+VFHI9JQ48z7poduaRla8k3Ydp3VmOWV5aVgk4S5eQYm/lbbQ
+      V3zx4miODv9LC/XiS59Odry1q71kPDab4W+XDPLnT6bHF+/DkqgcvdX50vx++lreoroFYAqp
+      33iS76z8HotzLAYGBnC5Yjc1kywvl71AztDrQCBwm9P6b/slU7+aK7+v7nQ/iS4xw88qYXNt
+      ydCfIyF6Og6z95e/J2t7BbnJyQSDIYja0d+IuJnmHj483jzbQCBAaupEzPv2Eu1+vojE3OpE
+      s1KYmv9tnnv0PF1XgIfS8Z3vJHLrAz7aPxpkasb4XaLcfwkZvufwbn7d+m/6wwBhetvf5eCF
+      +TyeBcxaTOGFeho6+ogQxttcx6HUQhbqkY5RHrBt2x7vi4jPQ+P2rdRfHPH2zefxnpHP6QFY
+      xLra1RSEvbTW7eF3LZ/gv27hmlFE1dpKnsoc+pU25jl+7jLWrytjzhjP8QOBQNwt0C1HTn/R
+      Gxx/31ow3lcwbhwcvrMo/MSSkFsdkbEofDGSwhcjKXwxksIXIyl8MZLCFyMpfDGSwhcjKXwx
+      ksIXIyl8MZLCFyMpfDGSwhcjKXwxksIXIyl8MZLCFyMpfDGSwhcjKXwxksIXIyl8MZLCFyMp
+      fDGSwhcjKXwxksIXIyl8MZLCFyMpfDGSwhcjOXvqYbiXzhPHaGxq5lrBRjaVRk2ujYS49OER
+      /nT0OH/7+nJ+vrog5tD+cw3sfP09zgYtMhcs56W1z5Jzc7htzCigGUtYs6GCeWOMApLE4uif
+      +KfqXuPPA3OpfGEpmSPWPO/v4jcfZ/Jf1eU8MfLA0Cnq9l3km5tfpfaNGlZOP07tgQv/fySH
+      dh0hfWUNb9S+yuZne3j77RNosLlZHB1+QdVWXlyaT3rS6LXskh/wo4pCpqdYo9ZCbc10L1lB
+      sTsJrDTyysrJ/ftJugC6jtM6s5yyvDQsknAXr6DE30qbyjeKo8P/sj77DHJnRw2uteaSn92N
+      LwJc7SXjsdkMf7tkkD9/Mj2++3+dMn6cvcf/kq4PTMLlin7HwrI8XLoCAwMDuFyxQ20nWV4u
+      e4GcodeBQCDuef1+/22/5kScEX6n+0l0CRn+lOQbBIPR70SIRLJxZ0GyJ5lgMAQMx38j4maa
+      e/jT8cZ6BgIBUlMnYt63l2j380Uk5Fbn4YfhbGfU3iVyhnZPJhkW8FA6vvOdRG4t+mj/aJCp
+      GaPPI4krIcNPWVhM5rE6mr1hiPTR0VDP2SefZhbArMUUXqinoaOPCGG8zXUcSi1kYcpYZ5VE
+      4uDJ5h4at2+l/uKItx8pZ9uWUjx7qtnZMvKYRayrXU0BI57jL6pkw6oiMuM9x89dxvp1ZcwZ
+      4zm+JpsnFgeH7ywKP7Ek5FZHZCwKX4yk8MVICl+MpPDFSApfjKTwxUgKX4yk8MVICl+MpPDF
+      SApfjKTwxUgKX4yk8MVICl+MpPDFSApfjKTwxUgKX4yk8MVICl+MpPDFSApfjKTwxUgKX4yk
+      8MVICl+MpPDFSApfjKTwxUgKX4yk8MVICl+M5Oxxn+FeOk8co7GpmWsFG9lUmh212M+5hp28
+      /t5ZglYmC5a/xNpnc24Nbj41ckbWzdlZ2YyYgTVjCWs2VDBvjBlYklgcHf6putc4mfNdKl9I
+      5t0PY9dCp+rYd/GbbH51I1ODHTS8XsuB2dsomwlwBW93EetrV/HEqLN6OLTrCOkra3gjz0VP
+      85v87O0TbPv+M2jwoTkcvdUpqNrKi0vzSU8auRKirbmbJSuKcSeBlZZHWXkufz/ZdXO9h25r
+      GlnxTtp1nNaZ5ZTlpWGRhLt4BSX+VtpC9/RWxGH+DzSNVybccpBmAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Red-actual_ev vs profit per bet' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Red_ev vs # of Records' width='192'>
+      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
+      82Q56mr/A6Z4w1yy07CsAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Win % of UD' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACN0lEQVR4nO3asQkDMRAAwbdRqv7bVAf6HoTxG+9MfnDBbSDQa++9L4h6P70APEkApAmA
+      NAGQJgDSBECaAEgTAGkCIE0ApI3TQT8o+AfHAay1rjGOx+EnHF/wGOOac35yF/g6bwDSBECa
+      AEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmA
+      NAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgT
       AGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQ
-      JgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSbpTgDluXaYBD
-      AAAAAElFTkSuQmCC
+      JgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkC
+      IE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDS
+      BECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0A
+      pAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECa
+      AEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmA
+      NAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBEDaDWKhC44c/YWnAAAAAElFTkSuQmCC
     </thumbnail>
   </thumbnails>
 </workbook>
