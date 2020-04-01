@@ -1,0 +1,2237 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20201.20.0219.0753                               -->
+<workbook source-build='2020.1.0 (20201.20.0219.0753)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='test_recent (2)' inline='true' name='federated.1ferfve15jl6cu1213toc0s8czns' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='test_recent' name='textscan.1lmaqnc1kvdx24154lhxd1qvnkx5'>
+            <connection class='textscan' directory='C:/Users/matth/OneDrive/github/tiger-millionaire/tableau' filename='test_recent.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1lmaqnc1kvdx24154lhxd1qvnkx5' name='test_recent.csv' table='[test_recent#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='B_age' ordinal='1' />
+            <column datatype='integer' name='R_age' ordinal='2' />
+            <column datatype='integer' name='loss_dif' ordinal='3' />
+            <column datatype='real' name='reach_dif' ordinal='4' />
+            <column datatype='integer' name='age_dif' ordinal='5' />
+            <column datatype='integer' name='B_odds' ordinal='6' />
+            <column datatype='integer' name='R_odds' ordinal='7' />
+            <column datatype='real' name='R_ev' ordinal='8' />
+            <column datatype='integer' name='gender_FEMALE' ordinal='9' />
+            <column datatype='integer' name='gender_MALE' ordinal='10' />
+            <column datatype='real' name='B_prob' ordinal='11' />
+            <column datatype='real' name='R_prob' ordinal='12' />
+            <column datatype='integer' name='preds' ordinal='13' />
+            <column datatype='date' name='date_final' ordinal='14' />
+            <column datatype='real' name='B_ev_final' ordinal='15' />
+            <column datatype='real' name='R_ev_final' ordinal='16' />
+            <column datatype='string' name='Winner' ordinal='17' />
+            <column datatype='integer' name='label' ordinal='18' />
+            <column datatype='real' name='B_ev_actual' ordinal='19' />
+            <column datatype='real' name='R_ev_actual' ordinal='20' />
+            <column datatype='string' name='bet_actual' ordinal='21' />
+            <column datatype='real' name='profit_if_win' ordinal='22' />
+            <column datatype='real' name='temp_blue' ordinal='23' />
+            <column datatype='real' name='temp_red' ordinal='24' />
+            <column datatype='real' name='profit' ordinal='25' />
+            <column datatype='integer' name='is_winning_bet' ordinal='26' />
+            <column datatype='integer' name='is_bet_favorite' ordinal='27' />
+            <column datatype='string' name='country_final' ordinal='28' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[B_age]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_age</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[R_age]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_age</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loss_dif</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[loss_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>loss_dif</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reach_dif</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[reach_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>reach_dif</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age_dif</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age_dif]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>age_dif</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[B_odds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_odds</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[R_odds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_odds</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender_FEMALE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gender_FEMALE]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>gender_FEMALE</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender_MALE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gender_MALE]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>gender_MALE</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_prob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_prob]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_prob</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_prob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_prob]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_prob</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>preds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[preds]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>preds</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_final</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>date_final</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_ev_final</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_ev_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_ev_final</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev_final</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev_final</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Winner</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Winner]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>Winner</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>label</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[label]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>label</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>B_ev_actual</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[B_ev_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>B_ev_actual</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R_ev_actual</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[R_ev_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>R_ev_actual</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bet_actual</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[bet_actual]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>bet_actual</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit_if_win</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit_if_win]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>profit_if_win</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>temp_blue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[temp_blue]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>temp_blue</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>temp_red</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[temp_red]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>temp_red</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profit</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[profit]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>profit</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_winning_bet</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[is_winning_bet]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>is_winning_bet</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_bet_favorite</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[is_bet_favorite]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>is_bet_favorite</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_final</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_final]</local-name>
+            <parent-name>[test_recent.csv]</parent-name>
+            <remote-alias>country_final</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='None' caption='B ev actual (bin)' datatype='integer' name='[B ev actual (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[B_ev_actual]' peg='0' size='2' />
+      </column>
+      <column caption='B age' datatype='integer' name='[B_age]' role='measure' type='quantitative' />
+      <column caption='B ev actual' datatype='real' name='[B_ev_actual]' role='measure' type='quantitative' />
+      <column caption='B ev final' datatype='real' name='[B_ev_final]' role='measure' type='quantitative' />
+      <column caption='B odds' datatype='integer' name='[B_odds]' role='measure' type='quantitative' />
+      <column caption='B prob' datatype='real' name='[B_prob]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column aggregation='None' caption='R ev actual (bin)' datatype='integer' name='[R ev actual (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[R_ev_actual]' peg='0' size='2' />
+      </column>
+      <column caption='R age' datatype='integer' name='[R_age]' role='measure' type='quantitative' />
+      <column caption='R ev' datatype='real' name='[R_ev]' role='measure' type='quantitative' />
+      <column caption='R ev actual' datatype='real' name='[R_ev_actual]' role='measure' type='quantitative' />
+      <column caption='R ev final' datatype='real' name='[R_ev_final]' role='measure' type='quantitative' />
+      <column caption='R odds' datatype='integer' name='[R_odds]' role='measure' type='quantitative' />
+      <column caption='R prob' datatype='real' name='[R_prob]' role='measure' type='quantitative' />
+      <column caption='Age Dif' datatype='integer' name='[age_dif]' role='measure' type='quantitative' />
+      <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+      <column datatype='string' name='[country_final]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Date Final' datatype='date' name='[date_final]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='gender FEMALE' datatype='integer' name='[gender_FEMALE]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='gender MALE' datatype='integer' name='[gender_MALE]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='0' value='Female' />
+          <alias key='1' value='Male' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' datatype='integer' name='[is_bet_favorite]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='-1' value='Underdog' />
+          <alias key='0' value='Even' />
+          <alias key='1' value='Favorite' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' datatype='integer' name='[is_winning_bet]' role='dimension' type='ordinal' />
+      <column caption='Label' datatype='integer' name='[label]' role='measure' type='quantitative' />
+      <column caption='Loss Dif' datatype='integer' name='[loss_dif]' role='measure' type='quantitative' />
+      <column caption='Preds' datatype='integer' name='[preds]' role='measure' type='quantitative' />
+      <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+      <column caption='Profit If Win' datatype='real' name='[profit_if_win]' role='measure' type='quantitative' />
+      <column caption='Reach Dif' datatype='real' name='[reach_dif]' role='measure' type='quantitative' />
+      <column caption='Temp Blue' datatype='real' name='[temp_blue]' role='measure' type='quantitative' />
+      <column caption='Temp Red' datatype='real' name='[temp_red]' role='measure' type='quantitative' />
+      <column-instance column='[bet_actual]' derivation='None' name='[none:bet_actual:nk]' pivot='key' type='nominal' />
+      <column-instance column='[gender_MALE]' derivation='None' name='[none:gender_MALE:ok]' pivot='key' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.443082' measure-ordering='alphabetic' measure-percentage='0.556918' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:gender_MALE:ok]' type='palette'>
+            <map to='#a5cfe9'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#ffbed1'>
+              <bucket>0</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:bet_actual:nk]' type='palette'>
+            <map to='#43719f'>
+              <bucket>&quot;Blue&quot;</bucket>
+            </map>
+            <map to='#d3293d'>
+              <bucket>&quot;Red&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Bets Per Color'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+            <column-instance column='[bet_actual]' derivation='None' name='[none:bet_actual:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Blue&quot;' />
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Red&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' scope='rows' value='Number of Bets' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</cols>
+      </table>
+      <simple-id uuid='{3DC62C4C-855D-4D55-9FAA-D214E90416C4}' />
+    </worksheet>
+    <worksheet name='Bets by Favorite Status'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column aggregation='Sum' datatype='integer' name='[is_bet_favorite]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='-1' value='Underdog' />
+                <alias key='0' value='Even' />
+                <alias key='1' value='Favorite' />
+              </aliases>
+            </column>
+            <column-instance column='[is_bet_favorite]' derivation='None' name='[none:is_bet_favorite:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]'>
+            <groupfilter from='-1' function='range' level='[none:is_bet_favorite:ok]' to='1' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <computed-sort column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]' direction='DESC' using='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' />
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</cols>
+      </table>
+      <simple-id uuid='{3EB52EE1-23AF-4628-9F2B-3074E6C6BED0}' />
+    </worksheet>
+    <worksheet name='Blue Actual EV vs PPB'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='None' caption='B ev actual (bin)' datatype='integer' name='[B ev actual (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[B_ev_actual]' peg='0' size='2' />
+            </column>
+            <column caption='B ev actual' datatype='real' name='[B_ev_actual]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[B ev actual (bin)]' derivation='None' name='[none:B ev actual (bin):ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='0' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='9' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</cols>
+        <show-full-range>
+          <column>[federated.1ferfve15jl6cu1213toc0s8czns].[B ev actual (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{03D50E44-B079-4080-B501-0B3AD48F74A6}' />
+    </worksheet>
+    <worksheet name='Blue EV vs # of records'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='None' caption='B ev actual (bin)' datatype='integer' name='[B ev actual (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[B_ev_actual]' peg='0' size='2' />
+            </column>
+            <column caption='B ev actual' datatype='real' name='[B_ev_actual]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[B ev actual (bin)]' derivation='None' name='[none:B ev actual (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='0' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:B ev actual (bin):ok]' member='9' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:B ev actual (bin):ok]</cols>
+      </table>
+      <simple-id uuid='{AF1F86DF-DFE0-4589-975A-92B20B7B5342}' />
+    </worksheet>
+    <worksheet name='Country-bet-count'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Fight Count</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='string' name='[country_final]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country_final]' derivation='None' name='[none:country_final:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:country_final:nk]' direction='DESC' using='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' />
+              <text column='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='false' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[none:country_final:nk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{88024ED8-ECA4-4388-ADA9-D02E91F54A64}' />
+    </worksheet>
+    <worksheet name='Fights Per Gender'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column aggregation='Sum' caption='gender MALE' datatype='integer' name='[gender_MALE]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='0' value='Female' />
+                <alias key='1' value='Male' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' datatype='integer' name='[is_winning_bet]' role='dimension' type='ordinal' />
+            <column-instance column='[gender_MALE]' derivation='None' name='[none:gender_MALE:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[is_winning_bet]' derivation='None' name='[none:is_winning_bet:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_winning_bet:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:is_winning_bet:ok]' member='-1' />
+              <groupfilter function='member' level='[none:is_winning_bet:ok]' member='1' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_winning_bet:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' scope='rows' value='Number of Bets' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</cols>
+      </table>
+      <simple-id uuid='{D2B23340-43E6-4B9E-B62B-7986024EAC43}' />
+    </worksheet>
+    <worksheet name='Profit (UD v Fav)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='Sum' datatype='integer' name='[is_bet_favorite]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='-1' value='Underdog' />
+                <alias key='0' value='Even' />
+                <alias key='1' value='Favorite' />
+              </aliases>
+            </column>
+            <column-instance column='[is_bet_favorite]' derivation='None' name='[none:is_bet_favorite:ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+            <column-instance column='[is_bet_favorite]' derivation='Sum' name='[sum:is_bet_favorite:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[profit]' derivation='Sum' name='[sum:profit:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1ferfve15jl6cu1213toc0s8czns].[sum:is_bet_favorite:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]'>
+            <groupfilter from='-1' function='range' level='[none:is_bet_favorite:ok]' to='1' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <computed-sort column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]' direction='DESC' using='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' />
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[:Measure Names]</column>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</cols>
+      </table>
+      <simple-id uuid='{F92E9350-4F32-4EF5-80CF-C2CBE7A79C44}' />
+    </worksheet>
+    <worksheet name='Profit Per Bet (UD vs Fav)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Sum' datatype='integer' name='[is_bet_favorite]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='-1' value='Underdog' />
+                <alias key='0' value='Even' />
+                <alias key='1' value='Favorite' />
+              </aliases>
+            </column>
+            <column-instance column='[is_bet_favorite]' derivation='None' name='[none:is_bet_favorite:ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:is_bet_favorite:ok]' member='-1' />
+              <groupfilter function='member' level='[none:is_bet_favorite:ok]' member='1' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:is_bet_favorite:ok]</cols>
+        <show-full-range>
+          <column>[federated.1ferfve15jl6cu1213toc0s8czns].[R ev actual (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{50D62E01-219E-4495-8212-2B1422494DA6}' />
+    </worksheet>
+    <worksheet name='Profit per Bet (Color)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+            <column-instance column='[bet_actual]' derivation='None' name='[none:bet_actual:nk]' pivot='key' type='nominal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Blue&quot;' />
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Red&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' value='155' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</cols>
+      </table>
+      <simple-id uuid='{C292B086-B292-4F86-887B-E4BBC8A562E6}' />
+    </worksheet>
+    <worksheet name='Profit per Bet (Gender)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Sum' caption='gender MALE' datatype='integer' name='[gender_MALE]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='0' value='Female' />
+                <alias key='1' value='Male' />
+              </aliases>
+            </column>
+            <column-instance column='[gender_MALE]' derivation='None' name='[none:gender_MALE:ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</cols>
+      </table>
+      <simple-id uuid='{4B21186A-E37F-4C9F-B212-DADCFF08A6BE}' />
+    </worksheet>
+    <worksheet name='Profit per Bet per Country'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Profit Per Bet by Country</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column datatype='string' name='[country_final]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country_final]' derivation='None' name='[none:country_final:nk]' pivot='key' type='nominal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1ferfve15jl6cu1213toc0s8czns].[Longitude (generated)]' field-type='quantitative' max='27363231.828016087' min='-19095259.984567437' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1ferfve15jl6cu1213toc0s8czns].[Latitude (generated)]' field-type='quantitative' max='16011075.487400278' min='-10404226.017413359' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' palette='red_blue_white_diverging_10_0' symmetric='false' type='interpolated' />
+            <encoding attr='size-bar' field='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:country_final:nk]' />
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' />
+              <geometry column='[federated.1ferfve15jl6cu1213toc0s8czns].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='auto' />
+                <format attr='font-weight' value='bold' />
+                <format attr='font-size' value='12' />
+                <format attr='text-decoration' value='none' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[Latitude (generated)]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{E50314DC-9EF3-4038-B9BE-9C402D4090A5}' />
+    </worksheet>
+    <worksheet name='Profit per Country'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Profit</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='string' name='[country_final]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country_final]' derivation='None' name='[none:country_final:nk]' pivot='key' type='nominal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Sum' name='[sum:profit:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:country_final:nk]' direction='DESC' using='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+            <encoding attr='color' field='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' palette='red_blue_white_diverging_10_0' symmetric='false' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' />
+              <text column='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='false' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[none:country_final:nk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{777488F2-701A-49EA-9E52-BE2E03A76A61}' />
+    </worksheet>
+    <worksheet name='Profit per bet'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Profit per Bet</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column datatype='string' name='[country_final]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country_final]' derivation='None' name='[none:country_final:nk]' pivot='key' type='nominal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:country_final:nk]' direction='DESC' using='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+            <encoding attr='color' field='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' palette='red_blue_white_diverging_10_0' symmetric='false' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' />
+              <text column='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='false' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[none:country_final:nk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{134DBE3D-0674-4288-BB88-7A5318EFDE65}' />
+    </worksheet>
+    <worksheet name='Profit vs Color'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column caption='Bet Actual' datatype='string' name='[bet_actual]' role='dimension' type='nominal' />
+            <column-instance column='[bet_actual]' derivation='None' name='[none:bet_actual:nk]' pivot='key' type='nominal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Sum' name='[sum:profit:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Blue&quot;' />
+              <groupfilter function='member' level='[none:bet_actual:nk]' member='&quot;Red&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='cell-w' value='80' />
+            <format attr='cell-h' value='20' />
+            <format attr='cell' value='20' />
+            <format attr='cell-q' value='100' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]</cols>
+      </table>
+      <simple-id uuid='{46E6A97F-D4C0-4593-8CD4-8445FAAFA2B4}' />
+    </worksheet>
+    <worksheet name='Profit vs Gender'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='Sum' caption='gender MALE' datatype='integer' name='[gender_MALE]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='0' value='Female' />
+                <alias key='1' value='Male' />
+              </aliases>
+            </column>
+            <column-instance column='[gender_MALE]' derivation='None' name='[none:gender_MALE:ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Sum' name='[sum:profit:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#72b966' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]</cols>
+      </table>
+      <simple-id uuid='{F032B1D8-C694-4431-BB04-A1D16F0A04F3}' />
+    </worksheet>
+    <worksheet name='Red-actual_ev vs profit per bet'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column aggregation='None' caption='R ev actual (bin)' datatype='integer' name='[R ev actual (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[R_ev_actual]' peg='0' size='2' />
+            </column>
+            <column caption='R ev actual' datatype='real' name='[R_ev_actual]' role='measure' type='quantitative' />
+            <column-instance column='[profit]' derivation='Avg' name='[avg:profit:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[R ev actual (bin)]' derivation='None' name='[none:R ev actual (bin):ok]' pivot='key' type='ordinal' />
+            <column caption='Profit' datatype='real' default-format='C1033%' name='[profit]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='0' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='9' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</cols>
+      </table>
+      <simple-id uuid='{C27AEF61-3B7C-437A-B8E0-AA3D349E268A}' />
+    </worksheet>
+    <worksheet name='Red_ev vs # of Records'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='test_recent (2)' name='federated.1ferfve15jl6cu1213toc0s8czns' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ferfve15jl6cu1213toc0s8czns'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column aggregation='None' caption='R ev actual (bin)' datatype='integer' name='[R ev actual (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[R_ev_actual]' peg='0' size='2' />
+            </column>
+            <column caption='R ev actual' datatype='real' name='[R_ev_actual]' role='measure' type='quantitative' />
+            <column-instance column='[R ev actual (bin)]' derivation='None' name='[none:R ev actual (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='0' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:R ev actual (bin):ok]' member='9' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1ferfve15jl6cu1213toc0s8czns].[none:R ev actual (bin):ok]</cols>
+      </table>
+      <simple-id uuid='{B7F71559-3512-4129-84E2-D53C31429D3A}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Color and Bets'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='5' type='layout-basic' w='98400' x='800' y='1000'>
+              <zone h='98000' id='12' name='Bets Per Color' w='51828' x='47372' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='98000' id='13' name='Profit per Bet (Color)' w='46572' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='15' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='14' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='98000' id='13' is-fixed='true' name='Profit per Bet (Color)' w='46572' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='98000' id='12' is-fixed='true' name='Bets Per Color' w='51828' x='47372' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{89E4C5D4-6AFE-43B1-A184-C91C266826DC}' />
+    </dashboard>
+    <dashboard name='Gender and Profit'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='5' type='layout-basic' w='98400' x='800' y='1000'>
+              <zone h='98000' id='9' name='Fights Per Gender' w='49200' x='50000' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='98000' id='10' name='Profit per Bet (Gender)' w='49200' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='12' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='11' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='98000' id='10' is-fixed='true' name='Profit per Bet (Gender)' w='49200' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='98000' id='9' is-fixed='true' name='Fights Per Gender' w='49200' x='50000' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{04575805-AB42-4055-84A4-45E997F6E99B}' />
+    </dashboard>
+    <dashboard name='UD-vs-FAV'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='5' name='Profit Per Bet (UD vs Fav)' w='30900' x='800' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='98000' id='8' name='Profit (UD v Fav)' w='36100' x='31700' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='98000' id='9' name='Bets by Favorite Status' w='31400' x='67800' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='7' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='6' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='98000' id='5' is-fixed='true' name='Profit Per Bet (UD vs Fav)' w='98400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{E1F53ED5-9069-43E5-9535-D311CABE2390}' />
+    </dashboard>
+    <dashboard name='country comparisons'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='5' type='layout-basic' w='79300' x='800' y='1000'>
+              <zone h='98000' id='3' name='Profit per bet' w='23288' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='98000' id='9' name='Profit per Country' w='23001' x='24088' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='98000' id='11' name='Country-bet-count' w='33011' x='47089' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='191' h='98000' id='6' is-fixed='true' param='vert' type='layout-flow' w='19100' x='80100' y='1000'>
+              <zone h='8125' id='8' name='Profit per bet' pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' type='color' w='19100' x='80100' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8125' id='10' name='Profit per Country' pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' type='color' w='19100' x='80100' y='9125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8125' id='12' name='Country-bet-count' pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' type='color' w='19100' x='80100' y='17250'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1100' minheight='1100' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='14' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='13' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='Profit per bet' w='23288' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8125' id='8' name='Profit per bet' pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' type='color' w='19100' x='80100' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='98000' id='9' is-fixed='true' name='Profit per Country' w='23001' x='24088' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8125' id='10' name='Profit per Country' pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' type='color' w='19100' x='80100' y='9125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='98000' id='11' is-fixed='true' name='Country-bet-count' w='33011' x='47089' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8125' id='12' name='Country-bet-count' pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' type='color' w='19100' x='80100' y='17250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{7853740A-1731-4E12-BFD6-C6A2280BEFAA}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Profit vs Color'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8AC09A56-157D-44BE-B111-924D98A7B563}' />
+    </window>
+    <window class='worksheet' name='Profit vs Gender'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{DCAE4A47-C7DC-4E4F-94EB-3C659870676A}' />
+    </window>
+    <window class='worksheet' name='Fights Per Gender'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E18C348D-2574-4AE8-BAC2-A497BB16FBA5}' />
+    </window>
+    <window class='worksheet' name='Bets Per Color'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D52D1652-BD92-492C-93F6-1C9931CBC733}' />
+    </window>
+    <window class='worksheet' name='Profit per Bet (Color)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:bet_actual:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1762DCED-ABCA-41CA-A43D-6F4919946564}' />
+    </window>
+    <window class='worksheet' name='Profit per Bet (Gender)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[none:gender_MALE:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B08C62C6-9BE3-4A13-91DB-5E003A43AF8D}' />
+    </window>
+    <window class='worksheet' name='Profit (UD v Fav)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{87AD7B92-06F0-4BFB-9456-A4828840A40C}' />
+    </window>
+    <window class='worksheet' name='Profit Per Bet (UD vs Fav)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E548D7A3-E1B6-4F70-BEFE-3620A385BDCF}' />
+    </window>
+    <window class='worksheet' name='Red-actual_ev vs profit per bet'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1A99760D-3BF6-4BAE-91CE-D30B205105F9}' />
+    </window>
+    <window class='worksheet' name='Red_ev vs # of Records'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{98B34693-B8FF-482B-924E-0E10907F1D91}' />
+    </window>
+    <window class='worksheet' name='Blue Actual EV vs PPB'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D607DB85-4058-4C15-8542-1BE454C92BDC}' />
+    </window>
+    <window class='worksheet' name='Blue EV vs # of records'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A289B167-0112-4ED4-97E6-A90794785F4A}' />
+    </window>
+    <window class='worksheet' name='Profit per Bet per Country'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{74AEC94C-C637-413F-80BC-A6A2737FE0B1}' />
+    </window>
+    <window class='worksheet' name='Profit per bet'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[avg:profit:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F9E02159-4D8F-4A89-ACFA-1AD0AD85DEB8}' />
+    </window>
+    <window class='worksheet' name='Profit per Country'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:profit:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D8F44EE3-160D-44F4-B607-5B878E610C9B}' />
+    </window>
+    <window class='worksheet' name='Country-bet-count'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1ferfve15jl6cu1213toc0s8czns].[sum:Number of Records:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1CB6758D-BBDB-4F31-BAA0-4B04C403A947}' />
+    </window>
+    <window class='worksheet' name='Bets by Favorite Status'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F19B7D4D-A6AB-4210-9C5F-DC46570E3699}' />
+    </window>
+    <window class='dashboard' name='Color and Bets'>
+      <viewpoints>
+        <viewpoint name='Bets Per Color'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Profit per Bet (Color)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{69EAC7B3-E7DF-4A4F-BACB-6C1E84EC1B7D}' />
+    </window>
+    <window class='dashboard' name='Gender and Profit'>
+      <viewpoints>
+        <viewpoint name='Fights Per Gender'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Profit per Bet (Gender)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{AD7480BB-61A1-44F5-8136-48116C1C1FF5}' />
+    </window>
+    <window class='dashboard' maximized='true' name='UD-vs-FAV'>
+      <viewpoints>
+        <viewpoint name='Bets by Favorite Status'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Profit (UD v Fav)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Profit Per Bet (UD vs Fav)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{E3BA1A0E-0AA9-4865-A95A-854EEE479789}' />
+    </window>
+    <window class='dashboard' name='country comparisons'>
+      <viewpoints>
+        <viewpoint name='Country-bet-count' />
+        <viewpoint name='Profit per Country' />
+        <viewpoint name='Profit per bet' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{733CBF3E-51F2-4183-93D1-B526A6B40AC4}' />
+    </window>
+  </windows>
+</workbook>
