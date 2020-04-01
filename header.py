@@ -237,12 +237,14 @@ def get_test_probs(df: pd.DataFrame, fs: str, seed: int
     prepped_df = fsd.create_prepped_df(fs, df)
 
     #2. Create alternate DF that only includes odds
-    ev_df = prepped_df[['date_final', 'B_ev_final', 'R_ev_final', 'Winner', 'label']]
+    ev_df = prepped_df[['date_final', 'B_ev_final', 'R_ev_final', 'Winner'
+                        , 'label', 'country_final']]
 
     #3. Remove certain characteristics from Prepped DF
     y = prepped_df['label']
     prepped_df = prepped_df.drop(['Winner', 'label', 'R_ev_final',
-                                'B_ev_final', 'date_final'], axis=1)
+                                'B_ev_final', 'date_final', 
+                                'country_final'], axis=1)
     X = prepped_df.values
     X_ev = ev_df.values
     
@@ -275,7 +277,7 @@ def get_test_probs(df: pd.DataFrame, fs: str, seed: int
     colNamesArr = np.append(colNamesArr, ['B_prob', 'R_prob', 
                                           'preds', 'date_final',  
                                           'B_ev_final','R_ev_final', 
-                                          'Winner', 'label'])
+                                          'Winner', 'label', 'country_final'])
     print(X_test.shape)
     print(colNamesArr.shape)
     final_df = pd.DataFrame(X_test)
@@ -507,10 +509,11 @@ def get_recent_probs(df: pd.DataFrame, fs: str) -> pd.DataFrame:
     print(list_of_dates)
     
     y = prepped_df[['label', 'date_final']]
-    ev_df = prepped_df[['date_final', 'B_ev_final', 'R_ev_final', 'Winner', 'label']]
+    ev_df = prepped_df[['date_final', 'B_ev_final', 'R_ev_final', 'Winner',
+                        'label', 'country_final']]
     
     prepped_df = prepped_df.drop(['Winner', 'label', 'R_ev_final',
-                                    'B_ev_final'], axis=1)
+                                    'B_ev_final', 'country_final'], axis=1)
     
     
     
@@ -556,7 +559,8 @@ def get_recent_probs(df: pd.DataFrame, fs: str) -> pd.DataFrame:
         colNamesArr = np.append(colNamesArr, ['B_prob', 'R_prob', 
                                               'preds', 'date_final',  
                                               'B_ev_final','R_ev_final', 
-                                              'Winner', 'label'])
+                                              'Winner', 'label',
+                                              'country_final'])
         final_df = pd.DataFrame(X_test)
         final_df.columns = colNamesArr    
     
