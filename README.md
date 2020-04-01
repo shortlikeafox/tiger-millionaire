@@ -6,6 +6,8 @@ Tiger Millionaire (T-M) is a project whose goal is to use machine learning model
 ***
 This is a work in progress.  This readme will be updated as work progresses.
 
+Upcoming event results will be [posted on my website](https://www.shortlikeafox.com/matthewdabbert/)
+
 ***
 ### Initial Steps
 
