@@ -192,7 +192,7 @@ def get_classifier(fs: str):
     return(the_classifier)
     
 def get_test_probs(df: pd.DataFrame, fs: str, seed: int
-                   , split: float)-> pd.DataFrame:
+                   , split: float, count_split=False)-> pd.DataFrame:
     """
     Returns a DataFrame that includes classification results    
 
@@ -249,12 +249,23 @@ def get_test_probs(df: pd.DataFrame, fs: str, seed: int
     X_ev = ev_df.values
     
     #4. Split both DFs
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=split,
+    if count_split == False:
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=split,
                                                     random_state = seed)
 
-    X_train_ev, X_test_ev, y_train_ev, y_test_ev = train_test_split(X_ev, y, 
+        X_train_ev, X_test_ev, y_train_ev, y_test_ev = train_test_split(X_ev, y, 
                                                     test_size=split,
                                                     random_state = seed)
+    else:
+        X_test = X[:split]
+        X_train= X[split:]
+        y_test = y[:split]
+        y_train = y[split:]
+        X_test_ev = X_ev[:split]
+        X_train_ev= X_ev[split:]
+        y_test_ev = y[:split]
+        y_train_ev = y[split:]
+
 
     #4.5 Create classifier
     classifier = get_classifier(fs)

@@ -22,13 +22,14 @@ pd.set_option('display.max_rows', 500) #Used for debugging
 #print(df.head)
 #print(df.dtypes)
 #OK... Now we need to create some dataframes....
-df = h.create_master_df()
+df = h.create_fight_df('../data/ufc-master.csv')
+print(df.dtypes)
 #print(df.head)
 #print(len(df))
 #adding a comment
 
 
-fs = 'c1d'
+fs = 'c3'
 
 temp_df = fsd.create_prepped_df(fs, df)
 
@@ -74,6 +75,8 @@ lr = h.get_classifier(fs)
 
 
 print(f"The type of classifier is {lr.get_params}")
+
+print(y_train)
 
 lr.fit(X_train, y_train)
 
