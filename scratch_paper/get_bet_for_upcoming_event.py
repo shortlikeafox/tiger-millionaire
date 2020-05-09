@@ -32,12 +32,12 @@ for index, row in df.iterrows():
     pass
     R_bet_ev = h.get_fighter_ev(row['R_prob'], row['R_ev_final'])
     B_bet_ev = h.get_fighter_ev(row['B_prob'], row['B_ev_final'])
-    print(event_fighter_list[index][0], "has an EV of $", R_bet_ev, 
-          "he has a ", row['R_prob']*100, "% chance of winning.", 
-          "his return on a $100 bet would be", row['R_ev_final'],
-          event_fighter_list[index][1], "has an EV of $", B_bet_ev,
-    "he has a ", row['B_prob']*100, "% chance of winning.",
-    "his return on a $100 bet would be", row['B_ev_final'],
+    print(event_fighter_list[index][0], "has an EV of $", round(R_bet_ev, 2), 
+          "he has a ", round(row['R_prob']*100, 2), "% chance of winning.", 
+          "his return on a $100 bet would be", round(row['R_ev_final'],2),
+          event_fighter_list[index][1], "has an EV of $", round(B_bet_ev,2),
+    "he has a ", round(row['B_prob']*100, 2), "% chance of winning.",
+    "his return on a $100 bet would be", round(row['B_ev_final'],2),
 )
 
     print()

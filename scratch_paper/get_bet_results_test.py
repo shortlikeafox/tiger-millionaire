@@ -42,6 +42,7 @@ for index, row in df.iterrows():
 
     print()
 
+print(df.iloc[2]['B_ev_final'])
 
 #df_results = h.get_bet_results(df)
 
