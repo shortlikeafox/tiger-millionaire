@@ -10,8 +10,8 @@ from sklearn.linear_model import LogisticRegression
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-fs = 'c3'
-number_of_fights = 12
+fs = 'c3d'
+number_of_fights = 11
 
 df = h.create_fight_df('../data/event.csv')
 old_df = df

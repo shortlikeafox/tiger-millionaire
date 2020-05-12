@@ -8,7 +8,7 @@ import pandas as pd
 
 
 
-fs = 'c3d'
+fs = 'c1'
 df = h.create_fight_df('../data/ufc-master.csv')
 """
 #We want to figure out how to split on the date....
