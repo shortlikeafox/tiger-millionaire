@@ -31,20 +31,20 @@ df = pd.DataFrame(columns=column_list)
 
 #REVERT ME!!!
 #####################################################################
-html=urlopen('http://ufcstats.com/event-details/14b9e0f2679a2205')
-bs=BeautifulSoup(html, 'html.parser')
+#html=urlopen('http://ufcstats.com/event-details/dfb965c9824425db')
+#bs=BeautifulSoup(html, 'html.parser')
 ######################################################################
 #So we aren't constantly scraping let's save the file.  This will have
 #to be reverted before we go live.
-with open("temp.html", "w", encoding='utf-8') as file:
-    file.write(str(bs))
+#with open("temp.html", "w", encoding='utf-8') as file:
+#    file.write(str(bs))
 
 
 
 #REMOVE ME############################################################
-#fight_file=open('temp.html', "r")
+fight_file=open('temp.html', "r")
     
-#bs=BeautifulSoup(fight_file.read(), 'html.parser')
+bs=BeautifulSoup(fight_file.read(), 'html.parser')
 #######################################################################
 
 
@@ -64,6 +64,7 @@ weight_classes_raw = []
 #The 2nd has the weight class of the fight
 #The 3rd is junk
 for f in fights:
+    
     if f_count%3 == 0 :
         fighters_raw.append(f)
     if f_count%3 == 1:
@@ -74,6 +75,7 @@ for f in fights:
 #These lists will contain the fighter and a link
 red_fighter_list = []
 blue_fighter_list = []
+weight_class_list = []
 
 for f in fighters_raw:
     temp_fighters = f.find_all('p')
@@ -86,7 +88,12 @@ for f in fighters_raw:
                              temp_links[0].attrs['href']])
     blue_fighter_list.append([temp_fighters[1].get_text().strip(),
                              temp_links[1].attrs['href']])
-    
+
+
+for w in weight_classes_raw:
+    temp_wc = w.find_all('p')
+    weight_class_list.append(temp_wc[0].get_text().strip())
+#print(weight_class_list)
  
 #print(bs)
 
@@ -153,15 +160,15 @@ df['Winner']='Red'
 
 #################################################################
 #Set weight class
-weight_classes = bs.find_all('p', {'class':'b-fight-details__table-text'})
-weight_class_list = []
-temp_count=0
-for wc in weight_classes:
-    #print(temp_count)
-    if((temp_count+5)%10==0):
-        weight_class_list.append(wc.get_text().strip())
-    temp_count += 1
-
+#weight_classes = bs.find_all('p', {'class':'b-fight-details__table-text'})
+#weight_class_list = []
+#temp_count=0
+#for wc in weight_classes:
+#    #print(temp_count)
+#    if((temp_count+5)%10==0):
+#        weight_class_list.append(wc.get_text().strip())
+#    temp_count += 1
+#
 #print(weight_class_list)
 
 df['weight_class']=weight_class_list
@@ -198,7 +205,6 @@ df['gender'] = gender_list
 
 
 
-
 ##################################################################
 #Determine the number of rounds.  First check for title fight.
 #All title fights are 5 rounds.  The main event is also 5 rounds.
@@ -227,29 +233,29 @@ df['no_of_rounds'] = round_list
 
 #REVERT BEFORE GOING LIVE
 
-red_count = 0
-for f in red_fighter_list:
-    print(f[1][7:])
+#red_count = 0
+#for f in red_fighter_list:
+#    print(f[1][7:])
     
-    html= urlopen(f[1])
-    bs = BeautifulSoup(html.read(), 'html.parser')
-    with open(f'fighter_pages/r{red_count}.html', "w", encoding='utf-8') as file:
-        file.write(str(bs))
+#    html= urlopen(f[1])
+#    bs = BeautifulSoup(html.read(), 'html.parser')
+#    with open(f'fighter_pages/r{red_count}.html', "w", encoding='utf-8') as file:
+#        file.write(str(bs))
  
 
-    red_count+=1
+#    red_count+=1
 
-blue_count = 0
-for f in blue_fighter_list:
-    print(f[1][7:])
+#blue_count = 0
+#for f in blue_fighter_list:
+#    print(f[1][7:])
     
-    html= urlopen(f[1])
-    bs = BeautifulSoup(html.read(), 'html.parser')
-    with open(f'fighter_pages/b{blue_count}.html', "w", encoding='utf-8') as file:
-        file.write(str(bs))
+#    html= urlopen(f[1])
+#    bs = BeautifulSoup(html.read(), 'html.parser')
+#    with open(f'fighter_pages/b{blue_count}.html', "w", encoding='utf-8') as file:
+#        file.write(str(bs))
  
 
-    blue_count+=1
+#    blue_count+=1
 
 
 #Find the current lose and win streaks
@@ -301,6 +307,8 @@ blue_age_list = []
 red_age_list = []
 
 z = 0
+
+
 for z in range(number_of_fights):
     b_fighter_file=open(f'fighter_pages/b{z}.html', "r")
     blue_soup=BeautifulSoup(b_fighter_file.read(), 'html.parser')
@@ -316,7 +324,7 @@ for z in range(number_of_fights):
     #print(len(blue_rounds_raw))
     for b in blue_rounds_raw:
         if (temp_count>20):
-            if (temp_count - 4) % 17 == 0:
+            if (temp_count + 2) % 17 == 0:
                 #print(b.get_text().strip())
                 round_raw = b.get_text()
                 round_stripped = round_raw.strip()
@@ -494,11 +502,12 @@ for z in range(number_of_fights):
     #print(len(blue_rounds_raw))
     for r in red_rounds_raw:
         if (temp_count>20):
-            if (temp_count - 4) % 17 == 0:
+            if (temp_count + 2) % 17 == 0:
                 #print(b.get_text().strip())
                 round_raw = r.get_text()
                 round_stripped = round_raw.strip()
                 round_count+=int(round_stripped)
+                #print(round_count)
                 #print(round_count)
         temp_count+=1
     red_total_rounds.append(round_count)
@@ -714,7 +723,10 @@ for z in range(number_of_fights):
             if s_count == 2:
                 #Reach
                 isolate_stat = isolate_stat.replace('"', '')
+                if isolate_stat == ('--'):
+                    isolate_stat = 0
                 reach_in_cm = int(isolate_stat) * 2.54
+
                 reach_list.append(reach_in_cm)
             if s_count == 1:
                 #weight

@@ -29,7 +29,7 @@ def get_bet_return(odds):
         return (100 / abs(odds))*100
 
 
-def get_ev_from_df(ev_df, print_stats = False, min_ev = 0):
+def get_ev_from_df(ev_df, print_stats = False, min_ev = 0, get_total=False):
     num_matches = 0
     num_bets = 0
     num_wins = 0
@@ -116,9 +116,14 @@ def get_ev_from_df(ev_df, print_stats = False, min_ev = 0):
                 elif row['winner'] == 0:
                     num_even_losses += 1
             
-    profit_per_bet = profit / num_bets
-    profit_per_match = profit / num_matches
-        
+    if num_bets > 0:
+        profit_per_bet = profit / num_bets
+    else:
+        profit_per_bet = 0
+    if num_matches > 0:
+        profit_per_match = profit / num_matches
+    else:
+        profit_per_match = 0
         
     if print_stats:
         print(f"""
@@ -140,8 +145,11 @@ def get_ev_from_df(ev_df, print_stats = False, min_ev = 0):
           Profit per match: {profit_per_match}
           
           """)
-        
-    return (profit_per_bet)
+    if (get_total):
+        print(f"# Matches: {num_matches}, # Bets: {num_bets} # Wins: {num_wins}")
+        return(profit)
+    else:
+        return (profit_per_bet)
 
 
 
@@ -152,7 +160,7 @@ def get_ev_from_df(ev_df, print_stats = False, min_ev = 0):
 # labels: The labels
 #odds: The odds
 #min_ev: The minimum EV to place a bet
-def custom_cv_eval(df, m, labels, odds, min_ev=0):
+def custom_cv_eval(df, m, labels, odds, min_ev=0, verbose=False, get_total=False):
     X = np.array(df)
     y = np.array(labels)
     odds = np.array(odds)
@@ -178,7 +186,7 @@ def custom_cv_eval(df, m, labels, odds, min_ev=0):
         #display(temp_df)
         #print(f"{count}: {get_ev_from_df(ev_prepped_df, print_stats = False)}")
         count=count+1
-        running_total = running_total + get_ev_from_df(ev_prepped_df, print_stats = False, min_ev = min_ev)
+        running_total = running_total + get_ev_from_df(ev_prepped_df, print_stats = verbose, min_ev = min_ev, get_total=get_total)
         #display(ev_prepped_df)
     
     return running_total
