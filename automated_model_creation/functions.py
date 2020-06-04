@@ -146,7 +146,7 @@ def get_ev_from_df(ev_df, print_stats = False, min_ev = 0, get_total=False):
           
           """)
     if (get_total):
-        print(f"# Matches: {num_matches}, # Bets: {num_bets} # Wins: {num_wins}")
+        #print(f"# Matches: {num_matches}, # Bets: {num_bets} # Wins: {num_wins}")
         return(profit)
     else:
         return (profit_per_bet)
