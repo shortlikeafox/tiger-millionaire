@@ -10,7 +10,10 @@ from sklearn.model_selection import KFold
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
 import random
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 # -*- coding: utf-8 -*-
 
 
@@ -206,13 +209,13 @@ def custom_cv_eval(df, m, labels, odds, min_ev=0, verbose=False, get_total=False
     return running_total
 
 
-#We split off the labels and the odds.  Now we can rewrite the get_best_features function
+#We split off the labels and the odds.  Now we can rewrite the function
 #INPUT
 #pos_features: The list of possible features
 #m: The model
 #cur_features: The list of current features
 #scale: Does the data need to be scaled?  
-def get_best_features(pos_features, m, df, cur_features, labels, odds, scale=False):
+def get_best_features(pos_features, m, df, cur_features, labels, odds, scale=False, min_ev=0):
     best_feature = ''
         
     #If there are no current features...
@@ -225,7 +228,7 @@ def get_best_features(pos_features, m, df, cur_features, labels, odds, scale=Fal
         #OK we need to filter the labels and odds based off of the indices
         labels_sel = labels[labels.index.isin(df_sel.index)]
         odds_sel = odds[odds.index.isin(df_sel.index)]        
-        best_score = custom_cv_eval(df_sel, m, labels_sel, odds_sel)
+        best_score = custom_cv_eval(df_sel, m, labels_sel, odds_sel, min_ev=min_ev)
         
     best_feature = ""
     
@@ -242,7 +245,7 @@ def get_best_features(pos_features, m, df, cur_features, labels, odds, scale=Fal
             #OK we need to filter the labels and odds based off of the indices
             labels_sel = labels[labels.index.isin(df_sel.index)]
             odds_sel = odds[odds.index.isin(df_sel.index)]
-            new_score = custom_cv_eval(df_sel, m, labels_sel, odds_sel)
+            new_score = custom_cv_eval(df_sel, m, labels_sel, odds_sel, min_ev=min_ev)
             #print(f"{len(df_sel)} {len(labels_sel)} {len(odds_sel)}")
             if new_score > best_score:
                 print(f"Feature: {f} Score: {new_score}")
@@ -252,7 +255,7 @@ def get_best_features(pos_features, m, df, cur_features, labels, odds, scale=Fal
         print(f"The best feature was {best_feature}.  It scored {best_score}")
         cur_features = [best_feature] + cur_features
         #Keep running until we don't improve
-        return(get_best_features(pos_features, m, df, cur_features, labels, odds, scale))
+        return(get_best_features(pos_features, m, df, cur_features, labels, odds, scale, min_ev=min_ev))
     else:
         print("NO IMPROVEMENT")
         print(f"FINAL BEST SCORE: {best_score}")
@@ -261,7 +264,7 @@ def get_best_features(pos_features, m, df, cur_features, labels, odds, scale=Fal
     return []
 
 
-def tune_LogisticRegression(input_model, input_features, input_df, input_labels, odds_input):
+def tune_LogisticRegression(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
     #1. penalty ('l1' or 'l2')
@@ -275,7 +278,7 @@ def tune_LogisticRegression(input_model, input_features, input_df, input_labels,
     print()
     print()
     output_model = input_model
-    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input)
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
     print("Previous Best Score:", best_score)    
 
     
@@ -293,7 +296,7 @@ def tune_LogisticRegression(input_model, input_features, input_df, input_labels,
                     pass
                 else:
                     test_model = LogisticRegression(solver = s, penalty = p, tol=t, random_state=75, max_iter=50000)
-                    score = get_ev(input_df, input_model, input_features, input_labels, odds_input)
+                    score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
                     if score > best_score:
                         best_score = score
                         output_model = test_model
@@ -307,13 +310,14 @@ def tune_LogisticRegression(input_model, input_features, input_df, input_labels,
                         print()
                         print()
                     else:
+                        pass
                         print("solver:", s, 
                               "penalty:", p,
                               "tol:", t,
                               "Score:", score)                                                       
     return(output_model)
 
-def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_labels, odds_input):
+def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
     #1. criterion ('gini', 'entropy')
@@ -328,7 +332,7 @@ def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_lab
     print()
     print()
     output_model = input_model
-    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input)
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
     print("Previous Best Score:", best_score)    
 
     criterion = ['gini', 'entropy']
@@ -356,7 +360,7 @@ def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_lab
                     for s in splitter:
                         test_model = DecisionTreeClassifier(criterion = c, splitter = s, max_depth = m,
                                                             min_samples_leaf=sam, max_leaf_nodes = l, random_state=75)
-                        score = get_ev(input_df, test_model, input_features, input_labels, odds_input)
+                        score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
                         if score > best_score:
                             best_score = score
                             output_model = test_model
@@ -367,14 +371,15 @@ def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_lab
                                   "min_samples_leaf:", sam, "max_leaf_nodes:", l, best_score)        
                             print()
                         else:
+                            pass
                             print("Criterion:", c, "splitter:", s, "max_depth:", m, 
-                                  "min_samples_leaf:", sam, "max_leaf_nodes:", l, best_score)        
+                                  "min_samples_leaf:", sam, "max_leaf_nodes:", l, score)        
                             
                                         
     
     return output_model
 
-def tune_RandomForestClassifier(input_model, input_features, input_df, input_labels, odds_input):
+def tune_RandomForestClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
     #1. criterion ('gini', 'entropy')
@@ -390,7 +395,7 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
     print()
     print()
     output_model = input_model
-    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input)
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
     print("Previous Best Score:", best_score)        
     #1. criterion ('gini', 'entropy')
     criterion = ['gini', 'entropy']
@@ -433,7 +438,7 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
                                                                 max_features = mf, 
                                                                 n_jobs = -1,
                                                                 random_state=75)
-                            score = get_ev(input_df, test_model, input_features, input_labels, odds_input)
+                            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
                             if score > best_score:
                                 best_score = score
                                 output_model = test_model
@@ -444,12 +449,13 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
                                 print()
                                 print()
                             else:
+                                pass
                                 print("Criterion:", c, "max_features:", mf, "max_depth:", md, "min_samples_leaf:", ms,
                                       "max_leaf_nodes:", ml, "n_estimators", n, score)        
                             
     return output_model
 
-def tune_GradientBoostingClassifier(input_model, input_features, input_df, input_labels, odds_input):
+def tune_GradientBoostingClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
     #1. criterion ('friedman_mse', 'mse', 'mae')
@@ -468,7 +474,7 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
     print()
     print()
     output_model = input_model
-    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input)
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
     print("Previous Best Score:", best_score)
     
     #1. criterion ('friedman_mse', 'mse', 'mae')
@@ -534,7 +540,7 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
                                                                                 max_leaf_nodes = ml,
                                                                                 tol = t,
                                                                                 random_state=75)
-                                        score = get_ev(input_df, test_model, input_features, input_labels, odds_input)
+                                        score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
                                         if score > best_score:
                                             best_score = score
                                             output_model = test_model
@@ -553,6 +559,7 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
                                             print()
                                             print()
                                         else:
+                                            pass
                                             print("Criterion:", c,
                                                   "n_estimators:", n,                          
                                                   "Loss:", l, 
@@ -567,7 +574,7 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
     
     return(output_model)
 
-def tune_GaussianNB(input_model, input_features, input_df, input_labels, odds_input):
+def tune_GaussianNB(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
     #1. var_smoothing (1e-12, 1e-11, 1e-10, 1e-9, 1e-8, 1e-7, 1e-6)
@@ -578,14 +585,14 @@ def tune_GaussianNB(input_model, input_features, input_df, input_labels, odds_in
     print()
     print()
     output_model = input_model
-    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input)
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
     print("Previous Best Score:", best_score)    
     
     var_smoothing = [1e-12, 1e-11, 1e-10, 1e-9, 1e-8, 1e-7, 1e-6]
     
     for v in var_smoothing:
         test_model = GaussianNB(var_smoothing = v)
-        score = get_ev(input_df, test_model, input_features, input_labels, odds_input)
+        score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
         if score > best_score:
             best_score = score
             output_model = test_model
@@ -596,19 +603,20 @@ def tune_GaussianNB(input_model, input_features, input_df, input_labels, odds_in
             print()
             print()
         else:
+            pass
             print("var_smoothing:", v, 
                   "Score:", score)        
         
     
     return output_model
 
-def tune_hyperparameters(input_model, input_features, input_df, input_labels, odds_input):
+def tune_hyperparameters(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     best_model = input_model
     keep_going = True
     
     if isinstance(input_model, LogisticRegression):
         while(keep_going):
-            pos_model = (tune_LogisticRegression(best_model, input_features, input_df, input_labels, odds_input))
+            pos_model = (tune_LogisticRegression(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             
             if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
                 keep_going = False
@@ -618,7 +626,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 
     elif isinstance(input_model, DecisionTreeClassifier):
         while(keep_going):
-            pos_model = (tune_DecisionTreeClassifier(best_model, input_features, input_df, input_labels, odds_input))
+            pos_model = (tune_DecisionTreeClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
                 keep_going = False
                 output_model = best_model
@@ -627,7 +635,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 
     elif isinstance(input_model, RandomForestClassifier):
         while(keep_going):
-            pos_model = (tune_RandomForestClassifier(best_model, input_features, input_df, input_labels, odds_input))
+            pos_model = (tune_RandomForestClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
                 keep_going = False
                 output_model = best_model
@@ -637,7 +645,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
     elif isinstance(input_model, GradientBoostingClassifier):
         print("HI")
         while(keep_going):
-            pos_model = (tune_GradientBoostingClassifier(best_model, input_features, input_df, input_labels, odds_input))
+            pos_model = (tune_GradientBoostingClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
                 keep_going = False
                 output_model = best_model
@@ -646,7 +654,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 
     elif isinstance(input_model, GaussianNB):
         while(keep_going):
-            pos_model = (tune_GaussianNB(best_model, input_features, input_df, input_labels, odds_input))
+            pos_model = (tune_GaussianNB(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
                 keep_going = False
                 output_model = best_model

@@ -4,7 +4,7 @@ model_1,model_2,model_3,model_4,model_5,model_test
                    multi_class='auto', n_jobs=None, penalty='l2',
                    random_state=75, solver='lbfgs', tol=5.993308915320019,
                    verbose=0, warm_start=False)","DecisionTreeClassifier(ccp_alpha=0.0, class_weight=None, criterion='gini',
-                       max_depth=None, max_features=None, max_leaf_nodes=None,
+                       max_depth=None, max_features=None, max_leaf_nodes=262,
                        min_impurity_decrease=0.0, min_impurity_split=None,
                        min_samples_leaf=1, min_samples_split=2,
                        min_weight_fraction_leaf=0.0, presort='deprecated',
@@ -13,8 +13,8 @@ model_1,model_2,model_3,model_4,model_5,model_test
                        max_leaf_nodes=None, max_samples=None,
                        min_impurity_decrease=0.0, min_impurity_split=None,
                        min_samples_leaf=1, min_samples_split=2,
-                       min_weight_fraction_leaf=0.0, n_estimators=98, n_jobs=-1,
-                       oob_score=False, random_state=75, verbose=0,
+                       min_weight_fraction_leaf=0.0, n_estimators=178,
+                       n_jobs=-1, oob_score=False, random_state=75, verbose=0,
                        warm_start=False)","GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
                            learning_rate=0.1, loss='deviance', max_depth=3,
                            max_features=None, max_leaf_nodes=None,
@@ -29,6 +29,6 @@ model_1,model_2,model_3,model_4,model_5,model_test
                    multi_class='auto', n_jobs=None, penalty='l2',
                    random_state=75, solver='lbfgs', tol=5.993308915320019,
                    verbose=0, warm_start=False)"
-"['B_win_by_Decision_Majority', 'B_win_by_TKO_Doctor_Stoppage', 'R_win_by_Decision_Majority', 'R_odds', 'R_current_lose_streak', 'R_Reach_cms', 'B_draw', 'total_round_dif', 'R_ev', 'B_ev']","['B_fighter', 'B_avg_TD_pct']","['B_current_lose_streak', 'B_total_title_bouts', 'B_fighter']","['B_total_rounds_fought', 'location', 'R_odds']","['avg_td_dif', 'R_win_by_Decision_Split', 'age_dif', 'B_current_win_streak', 'R_odds']","['total_round_dif', 'R_ev', 'B_ev']"
-0,25,2,0,0,0
-1323.8875861704942,-181,177,2436,914,1288
+"['B_win_by_Decision_Majority', 'B_win_by_TKO_Doctor_Stoppage', 'R_win_by_Decision_Majority', 'R_odds', 'R_current_lose_streak', 'R_Reach_cms', 'B_draw', 'total_round_dif', 'R_ev', 'B_ev']","['longest_win_streak_dif', 'B_fighter', 'B_avg_TD_pct']","['B_current_lose_streak', 'B_total_title_bouts', 'B_fighter', 'B_win_by_Decision_Split', 'B_draw']","['B_total_rounds_fought', 'location', 'R_odds', 'R_avg_TD_pct', 'R_Reach_cms', 'R_Weight_lbs', 'R_current_win_streak']","['avg_td_dif', 'R_win_by_Decision_Split', 'age_dif', 'B_current_win_streak', 'R_odds']","['total_round_dif', 'R_ev', 'B_ev']"
+0,20,2,0,0,0
+1323.887586,-3031.576862,-1142.290964,2436,914,1288
