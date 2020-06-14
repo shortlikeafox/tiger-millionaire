@@ -31,8 +31,8 @@ df = pd.DataFrame(columns=column_list)
 
 #REVERT ME!!!
 #####################################################################
-#html=urlopen('http://ufcstats.com/event-details/dfb965c9824425db')
-#bs=BeautifulSoup(html, 'html.parser')
+html=urlopen('http://ufcstats.com/event-details/1e13936d708bcff7')
+bs=BeautifulSoup(html, 'html.parser')
 ######################################################################
 #So we aren't constantly scraping let's save the file.  This will have
 #to be reverted before we go live.
@@ -42,9 +42,9 @@ df = pd.DataFrame(columns=column_list)
 
 
 #REMOVE ME############################################################
-fight_file=open('temp.html', "r")
+#fight_file=open('temp.html', "r")
     
-bs=BeautifulSoup(fight_file.read(), 'html.parser')
+#bs=BeautifulSoup(fight_file.read(), 'html.parser')
 #######################################################################
 
 
@@ -233,29 +233,29 @@ df['no_of_rounds'] = round_list
 
 #REVERT BEFORE GOING LIVE
 
-#red_count = 0
-#for f in red_fighter_list:
-#    print(f[1][7:])
+red_count = 0
+for f in red_fighter_list:
+    print(f[1][7:])
     
-#    html= urlopen(f[1])
-#    bs = BeautifulSoup(html.read(), 'html.parser')
-#    with open(f'fighter_pages/r{red_count}.html', "w", encoding='utf-8') as file:
-#        file.write(str(bs))
+    html= urlopen(f[1])
+    bs = BeautifulSoup(html.read(), 'html.parser')
+    with open(f'fighter_pages/r{red_count}.html', "w", encoding='utf-8') as file:
+        file.write(str(bs))
  
 
-#    red_count+=1
+    red_count+=1
 
-#blue_count = 0
-#for f in blue_fighter_list:
-#    print(f[1][7:])
+blue_count = 0
+for f in blue_fighter_list:
+    print(f[1][7:])
     
-#    html= urlopen(f[1])
-#    bs = BeautifulSoup(html.read(), 'html.parser')
-#    with open(f'fighter_pages/b{blue_count}.html', "w", encoding='utf-8') as file:
-#        file.write(str(bs))
+    html= urlopen(f[1])
+    bs = BeautifulSoup(html.read(), 'html.parser')
+    with open(f'fighter_pages/b{blue_count}.html', "w", encoding='utf-8') as file:
+        file.write(str(bs))
  
 
-#    blue_count+=1
+    blue_count+=1
 
 
 #Find the current lose and win streaks

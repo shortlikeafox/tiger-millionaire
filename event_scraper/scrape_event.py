@@ -31,7 +31,7 @@ df = pd.DataFrame(columns=column_list)
 
 #REVERT ME!!!
 #####################################################################
-html=urlopen('http://ufcstats.com/event-details/4c12aa7ca246e7a4')
+html=urlopen('http://ufcstats.com/event-details/1e13936d708bcff7')
 bs=BeautifulSoup(html, 'html.parser')
 ######################################################################
 #So we aren't constantly scraping let's save the file.  This will have
@@ -162,7 +162,7 @@ for wc in weight_classes:
         weight_class_list.append(wc.get_text().strip())
     temp_count += 1
 
-#print(weight_class_list)
+print(weight_class_list)
 
 df['weight_class']=weight_class_list
 

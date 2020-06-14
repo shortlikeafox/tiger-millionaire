@@ -14,6 +14,7 @@ from sklearn.tree import DecisionTreeClassifier
 import random
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.naive_bayes import GaussianNB
 # -*- coding: utf-8 -*-
 
 
