@@ -31,7 +31,7 @@ df = pd.DataFrame(columns=column_list)
 
 #REVERT ME!!!
 #####################################################################
-html=urlopen('http://ufcstats.com/event-details/1e13936d708bcff7')
+html=urlopen('http://ufcstats.com/event-details/2eab7a6c8b0ed8cc')
 bs=BeautifulSoup(html, 'html.parser')
 ######################################################################
 #So we aren't constantly scraping let's save the file.  This will have
@@ -310,11 +310,12 @@ z = 0
 
 
 for z in range(number_of_fights):
+    print("new fight")
     b_fighter_file=open(f'fighter_pages/b{z}.html', "r")
     blue_soup=BeautifulSoup(b_fighter_file.read(), 'html.parser')
     blue_results_raw = blue_soup.find_all('i',{'class':'b-flag__text'})
     blue_rounds_raw = blue_soup.find_all('p', {'class':'b-fight-details__table-text'})
- 
+    
     ################################################################
     #Blue Total rounds fought
     #Round totals are on 21, 38, 55, 72... etc...
@@ -322,11 +323,16 @@ for z in range(number_of_fights):
     temp_count=0
     round_count = 0
     #print(len(blue_rounds_raw))
+    count = 0
     for b in blue_rounds_raw:
+        #print(count)
+        #count = count+1
+        #print(b.get_text())
         if (temp_count>20):
-            if (temp_count + 2) % 17 == 0:
+            if (temp_count -21) % 17 == 0:
                 #print(b.get_text().strip())
                 round_raw = b.get_text()
+                print(round_raw)
                 round_stripped = round_raw.strip()
                 round_count+=int(round_stripped)
                 #print(round_count)
@@ -502,7 +508,7 @@ for z in range(number_of_fights):
     #print(len(blue_rounds_raw))
     for r in red_rounds_raw:
         if (temp_count>20):
-            if (temp_count + 2) % 17 == 0:
+            if (temp_count -21) % 17 == 0:
                 #print(b.get_text().strip())
                 round_raw = r.get_text()
                 round_stripped = round_raw.strip()

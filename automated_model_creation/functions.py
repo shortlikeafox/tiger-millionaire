@@ -18,7 +18,7 @@ from sklearn.naive_bayes import GaussianNB
 # -*- coding: utf-8 -*-
 
 
-def get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev = 0, verbose=False, get_total=False):
+def get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev = 0, verbose=False, get_total=True):
     df_sel = input_df[input_features]
     df_sel = df_sel.dropna()
     df_sel = pd.get_dummies(df_sel)
@@ -47,7 +47,7 @@ def get_bet_return(odds):
         return (100 / abs(odds))*100
 
 
-def get_ev_from_df(ev_df, print_stats = False, min_ev = 0, get_total=False):
+def get_ev_from_df(ev_df, print_stats = False, min_ev = 0, get_total=True):
     num_matches = 0
     num_bets = 0
     num_wins = 0
@@ -178,7 +178,7 @@ def get_ev_from_df(ev_df, print_stats = False, min_ev = 0, get_total=False):
 # labels: The labels
 #odds: The odds
 #min_ev: The minimum EV to place a bet
-def custom_cv_eval(df, m, labels, odds, min_ev=0, verbose=False, get_total=False):
+def custom_cv_eval(df, m, labels, odds, min_ev=0, verbose=False, get_total=True):
     X = np.array(df)
     y = np.array(labels)
     odds = np.array(odds)
