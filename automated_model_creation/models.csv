@@ -1,4 +1,4 @@
-model_0,model_1,model_2,model_3,model_4,model_06_13_20,model_06_20_20
+model_0,model_1,model_2,model_3,model_4,model_06_13_20,model_06_20_20,model_test
 "LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
                    intercept_scaling=1, l1_ratio=None, max_iter=50000,
                    multi_class='auto', n_jobs=None, penalty='l2',
@@ -9,12 +9,12 @@ model_0,model_1,model_2,model_3,model_4,model_06_13_20,model_06_20_20
                        min_samples_leaf=1, min_samples_split=2,
                        min_weight_fraction_leaf=0.0, presort='deprecated',
                        random_state=75, splitter='best')","RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight=None,
-                       criterion='gini', max_depth=None, max_features='auto',
-                       max_leaf_nodes=None, max_samples=None,
+                       criterion='entropy', max_depth=None, max_features=None,
+                       max_leaf_nodes=5, max_samples=None,
                        min_impurity_decrease=0.0, min_impurity_split=None,
                        min_samples_leaf=1, min_samples_split=2,
-                       min_weight_fraction_leaf=0.0, n_estimators=178,
-                       n_jobs=-1, oob_score=False, random_state=75, verbose=0,
+                       min_weight_fraction_leaf=0.0, n_estimators=5, n_jobs=-1,
+                       oob_score=False, random_state=75, verbose=0,
                        warm_start=False)","GradientBoostingClassifier(ccp_alpha=0.0, criterion='friedman_mse', init=None,
                            learning_rate=0.1, loss='deviance', max_depth=3,
                            max_features=None, max_leaf_nodes=None,
@@ -28,7 +28,11 @@ model_0,model_1,model_2,model_3,model_4,model_06_13_20,model_06_20_20
                    intercept_scaling=1, l1_ratio=None, max_iter=50000,
                    multi_class='auto', n_jobs=None, penalty='l2',
                    random_state=75, solver='lbfgs', tol=5.993308915320019,
-                   verbose=0, warm_start=False)","GaussianNB(priors=None, var_smoothing=1e-09)"
-"['R_longest_win_streak', 'R_losses', 'B_longest_win_streak', 'R_total_title_bouts', 'empty_arena', 'R_current_win_streak', 'title_bout', 'R_avg_SIG_STR_pct', 'longest_win_streak_dif', 'age_dif', 'B_win_by_Decision_Majority', 'B_win_by_TKO_Doctor_Stoppage', 'R_win_by_Decision_Majority', 'R_odds', 'R_current_lose_streak', 'R_Reach_cms', 'B_draw', 'total_round_dif', 'R_ev', 'B_ev']","['R_win_by_Decision_Majority', 'longest_win_streak_dif', 'B_fighter', 'B_avg_TD_pct', 'R_avg_SIG_STR_landed', 'B_win_by_Submission', 'R_Stance']","['R_draw', 'R_Weight_lbs', 'B_current_lose_streak', 'B_total_title_bouts', 'B_fighter', 'B_win_by_Decision_Split', 'B_draw', 'total_title_bout_dif']","['R_ev', 'B_total_rounds_fought', 'location', 'R_odds', 'R_avg_TD_pct', 'R_Reach_cms', 'R_Weight_lbs', 'R_current_win_streak', 'R_age', 'empty_arena', 'R_win_by_Decision_Split', 'R_draw', 'lose_streak_dif', 'B_draw']","['R_win_by_Decision_Unanimous', 'B_win_by_Submission', 'R_Weight_lbs', 'sig_str_dif', 'B_Height_cms', 'B_avg_SUB_ATT', 'R_win_by_TKO_Doctor_Stoppage', 'height_dif', 'B_draw', 'avg_td_dif', 'R_win_by_Decision_Split', 'age_dif', 'B_current_win_streak', 'R_odds']","['B_win_by_Decision_Majority', 'B_win_by_TKO_Doctor_Stoppage', 'R_win_by_Decision_Majority', 'R_odds', 'R_current_lose_streak', 'R_Reach_cms', 'B_draw', 'total_round_dif', 'R_ev', 'B_ev']","['R_win_by_Decision_Unanimous', 'B_win_by_Submission', 'R_Weight_lbs', 'sig_str_dif', 'B_Height_cms', 'B_avg_SUB_ATT', 'R_win_by_TKO_Doctor_Stoppage', 'height_dif', 'B_draw', 'avg_td_dif', 'R_win_by_Decision_Split', 'age_dif', 'B_current_win_streak', 'R_odds']"
-0,22,1,0,0,0,0
--589.3305892940928,-428.4027138,-306.0755965,415.9126412,2324.90253,816.5325018,2324.90253
+                   verbose=0, warm_start=False)","GaussianNB(priors=None, var_smoothing=1e-09)","LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=50000,
+                   multi_class='auto', n_jobs=None, penalty='l2',
+                   random_state=75, solver='lbfgs', tol=0.0001, verbose=0,
+                   warm_start=False)"
+"['B_Height_cms', 'R_win_by_TKO_Doctor_Stoppage', 'sub_dif', 'R_win_by_Submission', 'win_streak_dif', 'R_longest_win_streak', 'R_losses', 'B_longest_win_streak', 'R_total_title_bouts', 'empty_arena', 'R_current_win_streak', 'title_bout', 'R_avg_SIG_STR_pct', 'longest_win_streak_dif', 'age_dif', 'B_win_by_Decision_Majority', 'B_win_by_TKO_Doctor_Stoppage', 'R_win_by_Decision_Majority', 'R_odds', 'R_current_lose_streak', 'R_Reach_cms', 'B_draw', 'total_round_dif', 'R_ev', 'B_ev']","['avg_td_dif', 'B_win_by_Decision_Unanimous', 'age_dif', 'R_win_by_Decision_Majority', 'longest_win_streak_dif', 'B_fighter', 'B_avg_TD_pct', 'R_avg_SIG_STR_landed', 'B_win_by_Submission', 'R_Stance']","['B_fighter', 'R_win_by_KO/TKO', 'B_current_win_streak', 'R_Middleweight_rank']","['R_ev', 'B_total_rounds_fought', 'location', 'R_odds', 'R_avg_TD_pct', 'R_Reach_cms', 'R_Weight_lbs', 'R_current_win_streak', 'R_age', 'empty_arena', 'R_win_by_Decision_Split', 'R_draw', 'lose_streak_dif', 'B_draw']","['R_win_by_Decision_Unanimous', 'B_win_by_Submission', 'R_Weight_lbs', 'sig_str_dif', 'B_Height_cms', 'B_avg_SUB_ATT', 'R_win_by_TKO_Doctor_Stoppage', 'height_dif', 'B_draw', 'avg_td_dif', 'R_win_by_Decision_Split', 'age_dif', 'B_current_win_streak', 'R_odds']","['B_win_by_Decision_Majority', 'B_win_by_TKO_Doctor_Stoppage', 'R_win_by_Decision_Majority', 'R_odds', 'R_current_lose_streak', 'R_Reach_cms', 'B_draw', 'total_round_dif', 'R_ev', 'B_ev']","['R_win_by_Decision_Unanimous', 'B_win_by_Submission', 'R_Weight_lbs', 'sig_str_dif', 'B_Height_cms', 'B_avg_SUB_ATT', 'R_win_by_TKO_Doctor_Stoppage', 'height_dif', 'B_draw', 'avg_td_dif', 'R_win_by_Decision_Split', 'age_dif', 'B_current_win_streak', 'R_odds']","['B_win_by_Decision_Majority', 'lose_streak_dif', 'B_longest_win_streak', 'weight_class', 'avg_sub_att_dif', 'B_Stance', 'R_total_title_bouts', 'R_Middleweight_rank', 'B_Height_cms', 'B_win_by_Submission', 'R_total_rounds_fought', 'R_win_by_KO/TKO', 'B_win_by_KO/TKO']"
+0,24,25,0,0,0,0,0
+1997.795834,-2713.830051,15.0,415.9126412,2324.90253,816.5325018,2324.90253,91.92307692

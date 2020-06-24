@@ -179,6 +179,9 @@ def get_ev_from_df(ev_df, print_stats = False, min_ev = 0, get_total=True):
 #odds: The odds
 #min_ev: The minimum EV to place a bet
 def custom_cv_eval(df, m, labels, odds, min_ev=0, verbose=False, get_total=True):
+    #If we have less than 5 samples we are going to break the split.
+    if len(df) < 5:
+        return 0
     X = np.array(df)
     y = np.array(labels)
     odds = np.array(odds)
@@ -339,19 +342,19 @@ def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_lab
     criterion = ['gini', 'entropy']
     splitter = ['random', 'best']
     if input_model.max_depth == None:
-        max_depth = [None, random.randrange(100), random.randrange(100)]
+        max_depth = [None, random.randrange(100)+1, random.randrange(100)+1]
     else:
-        max_depth = [input_model.max_depth, input_model.max_depth - 1, input_model.max_depth + 1, random.randrange(100)]
+        max_depth = [input_model.max_depth, input_model.max_depth - 1, input_model.max_depth + 1, random.randrange(100)+1]
         max_depth = [i for i in max_depth if i > 0]
 
     min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf - 1,
-                         input_model.min_samples_leaf + 1, random.randrange(100)]
+                         input_model.min_samples_leaf + 1, random.randrange(100)+1]
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]    
     if input_model.max_leaf_nodes == None:
-        max_leaf_nodes = [None, random.randrange(1000), random.randrange(1000)]
+        max_leaf_nodes = [None, random.randrange(1000)+1, random.randrange(1000)+1]
     else:
         max_leaf_nodes = [input_model.max_leaf_nodes, input_model.max_leaf_nodes - 1, 
-                     input_model.max_leaf_nodes + 1, random.randrange(1000)]
+                     input_model.max_leaf_nodes + 1, random.randrange(1000)+1]
         max_leaf_nodes = [i for i in max_leaf_nodes if i > 0]
     
     for l in max_leaf_nodes:
@@ -380,7 +383,7 @@ def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_lab
     
     return output_model
 
-def tune_RandomForestClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+def tune_RandomForestClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0, tested_hps = []):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
     #1. criterion ('gini', 'entropy')
@@ -404,25 +407,25 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
     max_features = ['auto', 'log2', None]
     #3. max_depth ('none', IF A NUMBER EXISTS +2, +4, -2, -4 ELSE 4 RANDOM INTS 1->100)
     if input_model.max_depth == None:
-        max_depth = [None, random.randrange(100), random.randrange(100)]
+        max_depth = [None, random.randrange(100)+1, random.randrange(100)+1]
     else:
         max_depth = [input_model.max_depth, input_model.max_depth - 2,   
-                     input_model.max_depth + 2, random.randrange(100)]
+                     input_model.max_depth + 2, random.randrange(100)+1]
         max_depth = [i for i in max_depth if i > 0]
     #4. min_samples_leaf(n-1, n-2, 0,  n+1, n+2)
     min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf - 2, 
-                         input_model.min_samples_leaf + 2, random.randrange(100)]
+                         input_model.min_samples_leaf + 2, random.randrange(100)+1]
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]
     
     #5. max_leaf_nodes:('none', n+1, n+2, n-1, n-2, OR 4 random numbers)
     if input_model.max_leaf_nodes == None:
-        max_leaf_nodes = [None, random.randrange(1000), random.randrange(1000)]
+        max_leaf_nodes = [None, random.randrange(1000)+1, random.randrange(1000)+1]
     else:
         max_leaf_nodes = [input_model.max_leaf_nodes, input_model.max_leaf_nodes - 2,  
-                     input_model.max_leaf_nodes + 2, random.randrange(1000)]
-        max_leaf_nodes = [i for i in max_leaf_nodes if i > 0]
+                     input_model.max_leaf_nodes + 2, random.randrange(1000)+1]
+        max_leaf_nodes = [i for i in max_leaf_nodes if i > 1 ]
     n_estimators = [input_model.n_estimators, input_model.n_estimators - 2,   
-                 input_model.n_estimators + 2, random.randrange(200)]
+                 input_model.n_estimators + 2, random.randrange(200)+1]
     n_estimators = [i for i in n_estimators if i > 0]
     
     
@@ -433,28 +436,35 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
                 for md in max_depth:
                     for mf in max_features:
                         for c in criterion:
-                            test_model = RandomForestClassifier(n_estimators = n, max_leaf_nodes = ml, 
-                                                                min_samples_leaf = ms,
-                                                                max_depth = md, criterion = c, 
-                                                                max_features = mf, 
-                                                                n_jobs = -1,
-                                                                random_state=75)
-                            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
-                            if score > best_score:
-                                best_score = score
-                                output_model = test_model
-                                print()
-                                print("NEW BEST SCORE")
-                                print("Criterion:", c, "max_features:", mf, "max_depth:", md, "min_samples_leaf:", ms,
-                                      "max_leaf_nodes:", ml, "n_estimators", n, best_score)        
-                                print()
-                                print()
+                            if (len(tested_hps) == 6) and (n in tested_hps[0]) and (ml in tested_hps[1]) and (ms in tested_hps[2]) and \
+                                (md in tested_hps[3]) and (mf in tested_hps[4]) and (c in tested_hps[5]): 
+                                print("PASS.  We have already tested this.")
                             else:
-                                pass
-                                print("Criterion:", c, "max_features:", mf, "max_depth:", md, "min_samples_leaf:", ms,
-                                      "max_leaf_nodes:", ml, "n_estimators", n, score)        
-                            
-    return output_model
+
+                                test_model = RandomForestClassifier(n_estimators = n, max_leaf_nodes = ml, 
+                                                                    min_samples_leaf = ms,
+                                                                    max_depth = md, criterion = c, 
+                                                                    max_features = mf, 
+                                                                    n_jobs = -1,
+                                                                    random_state=75)
+                                #score = random.random()
+                                score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+                                if score > best_score:
+                                    best_score = score
+                                    output_model = test_model
+                                    print()
+                                    print("NEW BEST SCORE")
+                                    print("Criterion:", c, "max_features:", mf, "max_depth:", md, "min_samples_leaf:", ms,
+                                          "max_leaf_nodes:", ml, "n_estimators", n, best_score)        
+                                    print()
+                                    print()
+                                else:
+                                    pass
+                                    print("Criterion:", c, "max_features:", mf, "max_depth:", md, "min_samples_leaf:", ms,
+                                          "max_leaf_nodes:", ml, "n_estimators", n, score)        
+
+    new_hps = [n_estimators, max_leaf_nodes, min_samples_leaf, max_depth, max_features, criterion]
+    return output_model, new_hps
 
 def tune_GradientBoostingClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     ###############################################################################################################
@@ -486,7 +496,7 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
 
     #3. n_estimators (n, n+1, n-1)
     n_estimators = [input_model.n_estimators, input_model.n_estimators - 1,  input_model.n_estimators + 1,
-                    random.randrange(200)]
+                    random.randrange(200)+1]
     n_estimators = [i for i in n_estimators if i > 0]    
     
     #4. learning_rate (learning_rate, learning_rate *1.1, learning_rate*.9)
@@ -499,10 +509,10 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
 
     #6. max_depth: (n, n+1, n-1)
     if input_model.max_depth == None:
-        max_depth = [None, random.randrange(100), random.randrange(100)]
+        max_depth = [None, random.randrange(100)+1, random.randrange(100)+1]
     else:
         max_depth = [input_model.max_depth, input_model.max_depth - 1,  
-                     input_model.max_depth + 1, random.randrange(100)]
+                     input_model.max_depth + 1, random.randrange(100)+1]
         max_depth = [i for i in max_depth if i > 0]
         
     #7. max_features: (None, 'auto', 'sqrt', 'log2')
@@ -510,10 +520,10 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
 
     #8. max_leaf_nodes: (None, n+1, n-1, OR 2 random numbers)
     if input_model.max_leaf_nodes == None:
-        max_leaf_nodes = [None, random.randrange(1000), random.randrange(1000)]
+        max_leaf_nodes = [None, random.randrange(1000)+1, random.randrange(1000)+1]
     else:
         max_leaf_nodes = [input_model.max_leaf_nodes, input_model.max_leaf_nodes - 1, input_model.max_leaf_nodes + 1, 
-                          random.randrange(1000)]
+                          random.randrange(1000)+1]
         max_leaf_nodes = [i for i in max_leaf_nodes if i > 0]
 
     #9. tol (n, n*1.1, n*.9)
@@ -542,6 +552,7 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
                                                                                 tol = t,
                                                                                 random_state=75)
                                         score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+                                        
                                         if score > best_score:
                                             best_score = score
                                             output_model = test_model
@@ -635,8 +646,11 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 best_model = pos_model            
                 
     elif isinstance(input_model, RandomForestClassifier):
+        tested_hps = []
         while(keep_going):
-            pos_model = (tune_RandomForestClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            pos_model, tested_hps = (tune_RandomForestClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev, tested_hps=tested_hps))
+            print(tested_hps)
+            print(len(tested_hps))
             if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
                 keep_going = False
                 output_model = best_model
