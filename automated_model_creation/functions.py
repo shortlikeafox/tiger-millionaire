@@ -407,25 +407,21 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
     max_features = ['auto', 'log2', None]
     #3. max_depth ('none', IF A NUMBER EXISTS +2, +4, -2, -4 ELSE 4 RANDOM INTS 1->100)
     if input_model.max_depth == None:
-        max_depth = [None, random.randrange(100)+1, random.randrange(100)+1]
+        max_depth = [None, random.randrange(100)+1]
     else:
-        max_depth = [input_model.max_depth, input_model.max_depth - 2,   
-                     input_model.max_depth + 2, random.randrange(100)+1]
+        max_depth = [input_model.max_depth, random.randrange(100)+1]
         max_depth = [i for i in max_depth if i > 0]
     #4. min_samples_leaf(n-1, n-2, 0,  n+1, n+2)
-    min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf - 2, 
-                         input_model.min_samples_leaf + 2, random.randrange(100)+1]
+    min_samples_leaf = [input_model.min_samples_leaf, random.randrange(100)+1]
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]
     
     #5. max_leaf_nodes:('none', n+1, n+2, n-1, n-2, OR 4 random numbers)
     if input_model.max_leaf_nodes == None:
-        max_leaf_nodes = [None, random.randrange(1000)+1, random.randrange(1000)+1]
+        max_leaf_nodes = [None, random.randrange(1000)+1]
     else:
-        max_leaf_nodes = [input_model.max_leaf_nodes, input_model.max_leaf_nodes - 2,  
-                     input_model.max_leaf_nodes + 2, random.randrange(1000)+1]
+        max_leaf_nodes = [input_model.max_leaf_nodes, random.randrange(1000)+1]
         max_leaf_nodes = [i for i in max_leaf_nodes if i > 1 ]
-    n_estimators = [input_model.n_estimators, input_model.n_estimators - 2,   
-                 input_model.n_estimators + 2, random.randrange(200)+1]
+    n_estimators = [input_model.n_estimators, random.randrange(200)+1]
     n_estimators = [i for i in n_estimators if i > 0]
     
     
@@ -466,7 +462,7 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
     new_hps = [n_estimators, max_leaf_nodes, min_samples_leaf, max_depth, max_features, criterion]
     return output_model, new_hps
 
-def tune_GradientBoostingClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+def tune_GradientBoostingClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0, tested_hps = []):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
     #1. criterion ('friedman_mse', 'mse', 'mae')
@@ -495,24 +491,21 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
     loss = ['deviance']
 
     #3. n_estimators (n, n+1, n-1)
-    n_estimators = [input_model.n_estimators, input_model.n_estimators - 1,  input_model.n_estimators + 1,
-                    random.randrange(200)+1]
+    n_estimators = [input_model.n_estimators, random.randrange(200)+1]
     n_estimators = [i for i in n_estimators if i > 0]    
     
     #4. learning_rate (learning_rate, learning_rate *1.1, learning_rate*.9)
     learning_rate = [input_model.learning_rate]
     
     #5. min_samples_leaf: (n, n-1, n+1)
-    min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf - 1,
-                         input_model.min_samples_leaf + 1]
+    min_samples_leaf = [input_model.min_samples_leaf, random.randrange(20)+1]
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]
 
     #6. max_depth: (n, n+1, n-1)
     if input_model.max_depth == None:
-        max_depth = [None, random.randrange(100)+1, random.randrange(100)+1]
+        max_depth = [None, random.randrange(100)+1]
     else:
-        max_depth = [input_model.max_depth, input_model.max_depth - 1,  
-                     input_model.max_depth + 1, random.randrange(100)+1]
+        max_depth = [input_model.max_depth, random.randrange(100)+1]
         max_depth = [i for i in max_depth if i > 0]
         
     #7. max_features: (None, 'auto', 'sqrt', 'log2')
@@ -520,14 +513,13 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
 
     #8. max_leaf_nodes: (None, n+1, n-1, OR 2 random numbers)
     if input_model.max_leaf_nodes == None:
-        max_leaf_nodes = [None, random.randrange(1000)+1, random.randrange(1000)+1]
+        max_leaf_nodes = [None, random.randrange(1000)+1]
     else:
-        max_leaf_nodes = [input_model.max_leaf_nodes, input_model.max_leaf_nodes - 1, input_model.max_leaf_nodes + 1, 
-                          random.randrange(1000)+1]
+        max_leaf_nodes = [input_model.max_leaf_nodes, random.randrange(1000)+1]
         max_leaf_nodes = [i for i in max_leaf_nodes if i > 0]
 
     #9. tol (n, n*1.1, n*.9)
-    tol = [input_model.tol, input_model.tol * 1.2, input_model.tol * .8]
+    tol = [input_model.tol, random.random()]
             
     print(len(tol) * len(max_leaf_nodes) * len(max_features) * len(max_depth) * len(min_samples_leaf) * len(learning_rate) * len(n_estimators) * len(loss) * len(criterion))    
         
