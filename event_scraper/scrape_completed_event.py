@@ -31,7 +31,7 @@ df = pd.DataFrame(columns=column_list)
 
 #REVERT ME!!!
 #####################################################################
-html=urlopen('http://ufcstats.com/event-details/dbd198f780286aca')
+html=urlopen('http://ufcstats.com/event-details/18f5669a92e99d92')
 bs=BeautifulSoup(html, 'html.parser')
 ######################################################################
 #So we aren't constantly scraping let's save the file.  This will have
@@ -730,8 +730,9 @@ for z in range(number_of_fights):
                 #Reach
                 isolate_stat = isolate_stat.replace('"', '')
                 if isolate_stat == ('--'):
-                    isolate_stat = 0
-                reach_in_cm = int(isolate_stat) * 2.54
+                    reach_in_cm = height_in_cm
+                else:
+                    reach_in_cm = int(isolate_stat) * 2.54
 
                 reach_list.append(reach_in_cm)
             if s_count == 1:
