@@ -31,7 +31,7 @@ df = pd.DataFrame(columns=column_list)
 
 #REVERT ME!!!
 #####################################################################
-html=urlopen('http://ufcstats.com/event-details/ddbd0d6259ce57cc')
+html=urlopen('http://ufcstats.com/event-details/dde70a112e053a6c')
 bs=BeautifulSoup(html, 'html.parser')
 ######################################################################
 #So we aren't constantly scraping let's save the file.  This will have
@@ -745,12 +745,12 @@ for z in range(number_of_fights):
                 #Age
                 #print(isolate_stat)
                 #print(formatted_date)
-                birth_date = datetime.strptime(isolate_stat, "%b %d, %Y")
-                #The pound sign removes the leading 0.
-                #birth_date=(birth_date.strftime("%#m/%e/%Y"))
-                #print(birth_date)
-                #print()
-                age = date_datetime.year - birth_date.year - ((date_datetime.month, date_datetime.day) < (birth_date.month, birth_date.day))
+                if isolate_stat == '--':
+                    age = 30
+                else:
+                    birth_date = datetime.strptime(isolate_stat, "%b %d, %Y")
+                    age = date_datetime.year - birth_date.year - ((date_datetime.month, date_datetime.day) < (birth_date.month, birth_date.day))
+                
                 blue_age_list.append(age)
         #print(s_count)
         #print(s)
@@ -836,8 +836,11 @@ for z in range(number_of_fights):
                 red_weight_list.append(isolate_stat)
             if s_count == 4:
                 #Age
-                birth_date = datetime.strptime(isolate_stat, "%b %d, %Y")
-                age = date_datetime.year - birth_date.year - ((date_datetime.month, date_datetime.day) < (birth_date.month, birth_date.day))
+                if isolate_stat == '--':
+                    age = 30
+                else:
+                    birth_date = datetime.strptime(isolate_stat, "%b %d, %Y")
+                    age = date_datetime.year - birth_date.year - ((date_datetime.month, date_datetime.day) < (birth_date.month, birth_date.day))
                 red_age_list.append(age)
 
 
