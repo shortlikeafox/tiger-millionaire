@@ -31,7 +31,7 @@ df = pd.DataFrame(columns=column_list)
 
 #REVERT ME!!!
 #####################################################################
-html=urlopen('http://ufcstats.com/event-details/d4f364dd076bb0e2')
+html=urlopen('http://ufcstats.com/event-details/ad044be25c94dcfd')
 bs=BeautifulSoup(html, 'html.parser')
 ######################################################################
 #So we aren't constantly scraping let's save the file.  This will have
