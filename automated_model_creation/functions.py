@@ -350,13 +350,13 @@ def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_lab
     min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf - 1,
                          input_model.min_samples_leaf + 1, random.randrange(100)+1]
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]    
-    if input_model.max_leaf_nodes == None:
+    if ((input_model.max_leaf_nodes == None) or (input_model.max_leaf_nodes == 1)):
         max_leaf_nodes = [None, random.randrange(1000)+1, random.randrange(1000)+1]
     else:
         max_leaf_nodes = [input_model.max_leaf_nodes, input_model.max_leaf_nodes - 1, 
                      input_model.max_leaf_nodes + 1, random.randrange(1000)+1]
         max_leaf_nodes = [i for i in max_leaf_nodes if i > 0]
-    
+        
     for l in max_leaf_nodes:
         for sam in min_samples_leaf:
             for m in max_depth:
@@ -416,7 +416,7 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]
     
     #5. max_leaf_nodes:('none', n+1, n+2, n-1, n-2, OR 4 random numbers)
-    if input_model.max_leaf_nodes == None:
+    if ((input_model.max_leaf_nodes == None) or (input_model.max_leaf_nodes == 1)):
         max_leaf_nodes = [None, random.randrange(1000)+1]
     else:
         max_leaf_nodes = [input_model.max_leaf_nodes, random.randrange(1000)+1]
