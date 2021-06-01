@@ -224,7 +224,7 @@ def get_best_features(pos_features, m, df, cur_features, labels, odds, scale=Fal
         
     #If there are no current features...
     if len(cur_features) == 0:
-        best_score = -100
+        best_score = -10000
     else:
         df_sel = df[cur_features]
         df_sel = df_sel.dropna()
@@ -347,8 +347,8 @@ def tune_DecisionTreeClassifier(input_model, input_features, input_df, input_lab
         max_depth = [input_model.max_depth, input_model.max_depth - 1, input_model.max_depth + 1, random.randrange(100)+1]
         max_depth = [i for i in max_depth if i > 0]
 
-    min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf - 1,
-                         input_model.min_samples_leaf + 1, random.randrange(100)+1]
+    min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf *1.01,
+                         input_model.min_samples_leaf*0.99]
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]    
     if ((input_model.max_leaf_nodes == None) or (input_model.max_leaf_nodes == 1)):
         max_leaf_nodes = [None, random.randrange(1000)+1, random.randrange(1000)+1]
@@ -412,7 +412,7 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
         max_depth = [input_model.max_depth, random.randrange(100)+1]
         max_depth = [i for i in max_depth if i > 0]
     #4. min_samples_leaf(n-1, n-2, 0,  n+1, n+2)
-    min_samples_leaf = [input_model.min_samples_leaf, random.randrange(100)+1]
+    min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf*1.01, input_model.min_samples_leaf*0.99]
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]
     
     #5. max_leaf_nodes:('none', n+1, n+2, n-1, n-2, OR 4 random numbers)
@@ -498,7 +498,7 @@ def tune_GradientBoostingClassifier(input_model, input_features, input_df, input
     learning_rate = [input_model.learning_rate]
     
     #5. min_samples_leaf: (n, n-1, n+1)
-    min_samples_leaf = [input_model.min_samples_leaf, random.randrange(20)+1]
+    min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf*0.99, input_model.min_samples_leaf*1.01]
     min_samples_leaf = [i for i in min_samples_leaf if i > 0]
 
     #6. max_depth: (n, n+1, n-1)
