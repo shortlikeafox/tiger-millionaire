@@ -193,8 +193,12 @@ def custom_cv_eval(df, m, labels, odds, min_ev=0, verbose=False, get_total=True)
         y_train, y_test = y[train_index], y[test_index]
         odds_train, odds_test = odds[train_index], odds[test_index]
         #display(y_train)
-        m.fit(X_train, y_train)
-        probs=m.predict_proba(X_test)
+        scaler = StandardScaler()
+        scaled_train = scaler.fit_transform(X_train)
+        scaled_test = scaler.transform(X_test)
+        
+        m.fit(scaled_train, y_train)
+        probs=m.predict_proba(scaled_test)
         #print(probs)
         #We need to prep the dataframe to evaluate....
         #X_odds = X_test[['t1_odds', 't2_odds']]
@@ -676,7 +680,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
 def tune_ev(input_model, input_features, input_df, input_labels, odds_input, verbose=False):
     best_ev = 0
     best_pos = -1
-    for temp_ev in range(200):
+    for temp_ev in range(50):
         pos_ev = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=temp_ev, verbose=verbose,
                        get_total=True)
         print(temp_ev, pos_ev)
@@ -758,11 +762,16 @@ def evaluate_model(input_model, input_features, input_ev, train_df, train_labels
     display(labels_test.shape)
     display(odds_test.shape)
     
-    input_model.fit(df_train, labels_train)
+    
+    
+    scaler = StandardScaler()
+    scaled_train = scaler.fit_transform(df_train)
+    
+    input_model.fit(scaled_train, labels_train)
 
+    scaled_test = scaler.transform(df_test)
     
-    
-    probs = input_model.predict_proba(df_test)
+    probs = input_model.predict_proba(scaled_test)
 
     
     odds_test = np.array(odds_test)    
