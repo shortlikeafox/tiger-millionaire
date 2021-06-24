@@ -1,6 +1,7 @@
 ## Project Title
 
 Tiger Millionaire - UFC Fight Predictor
+
 [Full Documentation in the Wiki](https://github.com/shortlikeafox/tiger-millionaire/wiki)
 
 ## Description
