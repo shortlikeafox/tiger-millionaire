@@ -5,9 +5,9 @@ Tiger Millionaire - UFC Fight Predictor
 ## Description
 
 The goal of this project is to maintain the most complete UFC database that includes the following data sources:
-* ufcstats.com (bout and fighter statistics)
-* bestfightodds.com (odds)
-* kaggle.com/martj42/ufc-rankings (ufc rankings)
+* [ufcstats.com](http://ufcstats.com/statistics/events/completed) - (bout and fighter statistics)
+* [bestfightodds.com](https://www.bestfightodds.com/) - (odds)
+* [kaggle.com/martj42/ufc-rankings](https://www.kaggle.com/martj42/ufc-rankings) - (ufc rankings)
 
 ## Getting Started
 
