@@ -37,3 +37,7 @@ This project is licensed under [MIT License](https://github.com/shortlikeafox/ti
 
 Inspiration, code snippets, etc.
 * [Rajeev Warrier's UFC Dataset](https://www.kaggle.com/rajeevw/ufcdata)
+
+## Suggestions
+
+If you have any suggestions.  Open an Issue ticket.  I'll respond with what I think I can do.

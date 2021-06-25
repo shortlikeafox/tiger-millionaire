@@ -15,6 +15,10 @@ import random
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import ExtraTreeClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import RadiusNeighborsClassifier
+from sklearn.neighbors import KNeighborsClassifier
 # -*- coding: utf-8 -*-
 
 
@@ -466,6 +470,90 @@ def tune_RandomForestClassifier(input_model, input_features, input_df, input_lab
     new_hps = [n_estimators, max_leaf_nodes, min_samples_leaf, max_depth, max_features, criterion]
     return output_model, new_hps
 
+
+
+
+
+def tune_ExtraTreeClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0, tested_hps = []):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. criterion ('gini', 'entropy')
+    #2. max_features ('auto', 'sqrt', 'log2')
+    #3. max_depth ('none', IF A NUMBER EXISTS +2, -2, ELSE 2 RANDOM INTS 1->100)
+    #4. min_samples_leaf(n-2, 0, n+2)
+    #5. max_leaf_nodes:('none', n+2, n-2, OR 2 random numbers)
+    #6. n_estimators: (n, n+2, n-2)
+    ###############################################################################################################    
+    print()
+    print()
+    print("Starting New Run for RandomForestClassifier")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)        
+    #1. criterion ('gini', 'entropy')
+    criterion = ['gini', 'entropy']
+    #2. max_features ('auto', 'log2')
+    max_features = ['auto', 'log2', None]
+    #3. max_depth ('none', IF A NUMBER EXISTS +2, +4, -2, -4 ELSE 4 RANDOM INTS 1->100)
+    if input_model.max_depth == None:
+        max_depth = [None, random.randrange(100)+1]
+    else:
+        max_depth = [input_model.max_depth, random.randrange(100)+1]
+        max_depth = [i for i in max_depth if i > 0]
+    #4. min_samples_leaf(n-1, n-2, 0,  n+1, n+2)
+    min_samples_leaf = [input_model.min_samples_leaf, input_model.min_samples_leaf*1.01, input_model.min_samples_leaf*0.99]
+    min_samples_leaf = [i for i in min_samples_leaf if i > 0]
+    
+    #5. max_leaf_nodes:('none', n+1, n+2, n-1, n-2, OR 4 random numbers)
+    if ((input_model.max_leaf_nodes == None) or (input_model.max_leaf_nodes == 1)):
+        max_leaf_nodes = [None, random.randrange(1000)+1]
+    else:
+        max_leaf_nodes = [input_model.max_leaf_nodes, random.randrange(1000)+1]
+        max_leaf_nodes = [i for i in max_leaf_nodes if i > 1 ]
+    
+    
+    
+    for ml in max_leaf_nodes:
+        for ms in min_samples_leaf:
+            for md in max_depth:
+                for mf in max_features:
+                    for c in criterion:
+                        if (len(tested_hps) == 6) and  (ml in tested_hps[1]) and (ms in tested_hps[2]) and \
+                            (md in tested_hps[3]) and (mf in tested_hps[4]) and (c in tested_hps[5]): 
+                            print("PASS.  We have already tested this.")
+                        else:
+
+                            test_model = RandomForestClassifier( 
+                                                                min_samples_leaf = ms,
+                                                                max_depth = md, criterion = c, 
+                                                                max_features = mf, 
+                                                                random_state=75)
+                            #score = random.random()
+                            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+                            if score > best_score:
+                                best_score = score
+                                output_model = test_model
+                                print()
+                                print("NEW BEST SCORE")
+                                print("Criterion:", c, "max_features:", mf, "max_depth:", md, "min_samples_leaf:", ms,
+                                      "max_leaf_nodes:", ml,  best_score)        
+                                print()
+                                print()
+                            else:
+                                pass
+                                print("Criterion:", c, "max_features:", mf, "max_depth:", md, "min_samples_leaf:", ms,
+                                      "max_leaf_nodes:", ml,  score)        
+
+    new_hps = [max_leaf_nodes, min_samples_leaf, max_depth, max_features, criterion]
+    return output_model, new_hps
+
+
+
+
+
+
 def tune_GradientBoostingClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0, tested_hps = []):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
@@ -613,10 +701,138 @@ def tune_GaussianNB(input_model, input_features, input_df, input_labels, odds_in
         else:
             pass
             print("var_smoothing:", v, 
+                  "Score:", score)            
+    return output_model
+
+
+def tune_MLPClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. var_smoothing (1e-12, 1e-11, 1e-10, 1e-9, 1e-8, 1e-7, 1e-6)
+    ###############################################################################################################  
+    print()
+    print()
+    print("Starting New Run for MLPClassifier")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+    
+    hidden_layer_sizes = [input_model.hidden_layer_sizes, (100,), (10,5), (6,), (1,),(5,), (15,),(25,)]
+    
+    for h in hidden_layer_sizes:
+        test_model = MLPClassifier(hidden_layer_sizes=h)
+        score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+        if score > best_score:
+            best_score = score
+            output_model = test_model
+            print()
+            print("NEW BEST SCORE")
+            print("hidden_layer_sizes:", h, 
+                  "Best Score:", best_score)        
+            print()
+            print()
+        else:
+            pass
+            print("hidden_layer_sizes:", h, 
                   "Score:", score)        
         
     
     return output_model
+
+
+def tune_RadiusNeighborsClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. weights ('uniform' or 'distance')
+    #2. p (1 or 2)
+    ###############################################################################################################
+    print()
+    print()
+    print("Starting New Run for RadiusNeighborsClassifier")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+
+    
+    weights = ['uniform', 'distance']
+    p = [1,2]
+    for w in weights:
+        score = -10000
+        for p1 in p:
+            test_model = RadiusNeighborsClassifier(weights = w, p=p1, outlier_label='most_frequent')
+            score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+            if score > best_score:
+                best_score = score
+                output_model = test_model
+                
+                print()
+                print("NEW BEST SCORE")
+                print("weights:", w, 
+                      "p:", p1,
+                      "Best Score:", best_score)        
+                print()
+                print()
+            else:
+                pass
+                print("NEW BEST SCORE")
+                print("weights:", w, 
+                      "p:", p1,
+                      "Best Score:", best_score)        
+            
+    return(output_model)
+
+def tune_KNeighborsClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. n_neighbors (1,2,3,4,5,6,7,8,9,10)
+    #2. weights ('uniform', 'distance')
+    ###############################################################################################################
+    print()
+    print()
+    print("Starting New Run for KNeighborsClassifier")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+
+    
+    weights = ['uniform', 'distance']
+    n_neighbors = [1,2,3,4,5,6,7,8,9,10]
+    for w in weights:
+        score = -10000
+        for n in n_neighbors:
+            test_model = KNeighborsClassifier(weights = w, n_neighbors=n)
+            score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+            if score > best_score:
+                best_score = score
+                output_model = test_model
+                
+                print()
+                print("NEW BEST SCORE")
+                print("weights:", w, 
+                      "n_neighbors:", n,
+                      "Best Score:", best_score)        
+                print()
+                print()
+            else:
+                pass
+                print("weights:", w, 
+                      "n_neighbors:", n,
+                      "Best Score:", best_score)        
+                
+    return(output_model)
+
+
+
+
+
+
+
 
 def tune_hyperparameters(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     best_model = input_model
@@ -652,6 +868,21 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 output_model = best_model
             else:
                 best_model = pos_model    
+
+    elif isinstance(input_model, ExtraTreeClassifier):
+        tested_hps = []
+        while(keep_going):
+            pos_model, tested_hps = (tune_ExtraTreeClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev, tested_hps=tested_hps))
+            print(tested_hps)
+            print(len(tested_hps))
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model    
+
+
+
                                 
     elif isinstance(input_model, GradientBoostingClassifier):
         print("HI")
@@ -663,6 +894,17 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
             else:
                 best_model = pos_model                    
                 
+    elif isinstance(input_model, MLPClassifier):
+        print("MLPClassifier")
+        while(keep_going):
+            pos_model = (tune_MLPClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model                    
+                
+                
     elif isinstance(input_model, GaussianNB):
         while(keep_going):
             pos_model = (tune_GaussianNB(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
@@ -670,7 +912,27 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 keep_going = False
                 output_model = best_model
             else:
-                best_model = pos_model                    
+                best_model = pos_model    
+
+    elif isinstance(input_model, RadiusNeighborsClassifier):
+        while(keep_going):
+            pos_model = (tune_RadiusNeighborsClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model    
+                
+    elif isinstance(input_model, KNeighborsClassifier):
+        while(keep_going):
+            pos_model = (tune_KNeighborsClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model    
+                
+                
                 
                 
     else:
@@ -705,6 +967,8 @@ def remove_to_improve(cur_features, m, df, labels, odds, scale=False, min_ev = 0
     print(f"The original score is {orig_score}")
     if number_of_features == 0:
         return []
+    if number_of_features == 1:
+        return cur_features
     
     for z in range(number_of_features):
         temp_features = cur_features.copy()
