@@ -19,6 +19,7 @@ from sklearn.tree import ExtraTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import RadiusNeighborsClassifier
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import SGDClassifier
 # -*- coding: utf-8 -*-
 
 
@@ -28,6 +29,7 @@ def get_ev(input_df, input_model, input_features, input_labels, odds_input, min_
     df_sel = pd.get_dummies(df_sel)
     labels_sel = input_labels[input_labels.index.isin(df_sel.index)]
     odds_sel = odds_input[odds_input.index.isin(df_sel.index)] 
+    print(input_model)
     best_score = custom_cv_eval(df_sel, input_model, labels_sel, odds_sel, min_ev = min_ev, verbose=verbose, 
                                 get_total=get_total)
     return best_score
@@ -308,7 +310,7 @@ def tune_LogisticRegression(input_model, input_features, input_df, input_labels,
                     pass
                 else:
                     test_model = LogisticRegression(solver = s, penalty = p, tol=t, random_state=75, max_iter=50000)
-                    score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+                    score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
                     if score > best_score:
                         best_score = score
                         output_model = test_model
@@ -764,7 +766,7 @@ def tune_RadiusNeighborsClassifier(input_model, input_features, input_df, input_
         score = -10000
         for p1 in p:
             test_model = RadiusNeighborsClassifier(weights = w, p=p1, outlier_label='most_frequent')
-            score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
             if score > best_score:
                 best_score = score
                 output_model = test_model
@@ -807,7 +809,7 @@ def tune_KNeighborsClassifier(input_model, input_features, input_df, input_label
         score = -10000
         for n in n_neighbors:
             test_model = KNeighborsClassifier(weights = w, n_neighbors=n)
-            score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
             if score > best_score:
                 best_score = score
                 output_model = test_model
@@ -828,6 +830,52 @@ def tune_KNeighborsClassifier(input_model, input_features, input_df, input_label
     return(output_model)
 
 
+def tune_SGDClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. penalty ('l1', 'l2')
+    #2. alpha (input_model.alpha, input_model.alpha*.9, input_model.alpha*1.1)
+    #3. loss ('modified_huber', 'log')
+    ###############################################################################################################
+    print()
+    print()
+    print("Starting New Run for SGDClassifier")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+
+    
+    penalty = ['l1', 'l2']
+    alpha = [input_model.alpha, input_model.alpha*.9, input_model.alpha*1.1]
+    loss = ['modified_huber', 'log']
+    for l in loss:
+        for p in penalty:
+            score = -10000
+            for a in alpha:
+                test_model = SGDClassifier(loss = l, penalty = p, alpha = a, random_state=75)
+                score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+                if score > best_score:
+                    best_score = score
+                    output_model = test_model
+                    
+                    print()
+                    print("NEW BEST SCORE")
+                    print("loss: ", l,
+                          "penalty: ", p, 
+                          "alpha: ", a,
+                          "Best Score: ", best_score)        
+                    print()
+                    print()
+                else:
+                    pass
+                    print("loss: ", l,
+                          "penalty: ", p, 
+                          "alpha: ", a,
+                          "Best Score: ", best_score)        
+                
+    return(output_model)
 
 
 
@@ -837,6 +885,17 @@ def tune_KNeighborsClassifier(input_model, input_features, input_df, input_label
 def tune_hyperparameters(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     best_model = input_model
     keep_going = True
+    
+    if isinstance(input_model, SGDClassifier):
+        while(keep_going):
+            pos_model = (tune_SGDClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model
+
     
     if isinstance(input_model, LogisticRegression):
         while(keep_going):
