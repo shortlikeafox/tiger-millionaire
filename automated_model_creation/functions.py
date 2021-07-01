@@ -20,6 +20,8 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import RadiusNeighborsClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import SGDClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 # -*- coding: utf-8 -*-
 
 
@@ -29,7 +31,6 @@ def get_ev(input_df, input_model, input_features, input_labels, odds_input, min_
     df_sel = pd.get_dummies(df_sel)
     labels_sel = input_labels[input_labels.index.isin(df_sel.index)]
     odds_sel = odds_input[odds_input.index.isin(df_sel.index)] 
-    print(input_model)
     best_score = custom_cv_eval(df_sel, input_model, labels_sel, odds_sel, min_ev = min_ev, verbose=verbose, 
                                 get_total=get_total)
     return best_score
@@ -780,10 +781,9 @@ def tune_RadiusNeighborsClassifier(input_model, input_features, input_df, input_
                 print()
             else:
                 pass
-                print("NEW BEST SCORE")
                 print("weights:", w, 
                       "p:", p1,
-                      "Best Score:", best_score)        
+                      "Score:", score)        
             
     return(output_model)
 
@@ -825,7 +825,7 @@ def tune_KNeighborsClassifier(input_model, input_features, input_df, input_label
                 pass
                 print("weights:", w, 
                       "n_neighbors:", n,
-                      "Best Score:", best_score)        
+                      "Score:", score)        
                 
     return(output_model)
 
@@ -873,9 +873,108 @@ def tune_SGDClassifier(input_model, input_features, input_df, input_labels, odds
                     print("loss: ", l,
                           "penalty: ", p, 
                           "alpha: ", a,
-                          "Best Score: ", best_score)        
+                          "Score: ", score)        
                 
     return(output_model)
+
+
+def tune_BaggingClassifier(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. base_estimator ('GaussianNB()', 'DecisionTreeClassifier()', LogisticRegression(), RadiusNeighborsClassifier())
+    #2. bootstrap(True, False)
+    #3. n_estimators(input_model.n_estimators, input_model.n_estimators+3, input_model.n_estimators-3)
+    ###############################################################################################################
+    print()
+    print()
+    print("Starting New Run for BaggingClassifier")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+
+    
+    base_estimator = [GaussianNB(), DecisionTreeClassifier(random_state=75), LogisticRegression(random_state=75)]
+    bootstrap = [True, False]
+    n_estimators = [input_model.n_estimators, input_model.n_estimators+3, input_model.n_estimators-3]
+    for be in base_estimator:
+        for bs in bootstrap:
+            for e in n_estimators:
+                test_model = BaggingClassifier(base_estimator = be, bootstrap = bs, n_estimators = e, random_state=75)
+                score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+                if score > best_score:
+                    best_score = score
+                    output_model = test_model
+                    
+                    print()
+                    print("NEW BEST SCORE")
+                    print("base_estimator: ", be,
+                          "bootstrap: ", bs, 
+                          "n_estimators: ", e,
+                          "Best Score: ", best_score)        
+                    print()
+                    print()
+                else:
+                    pass
+                    print("base_estimator: ", be,
+                          "bootstrap: ", bs, 
+                          "n_estimators: ", e,
+                           "Score: ", score)        
+                
+    return(output_model)
+
+
+
+
+def tune_LinearDiscriminantAnalysis(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. solver ['svd', 'lsqr', 'eigen']
+    #2. tol [n, n*1.1, n*.9]
+    ###############################################################################################################
+    print()
+    print()
+    print("Starting New Run for LinearDiscriminantAnalysis")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+
+    solver = ['svd', 'lsqr', 'eigen']
+    tol = [input_model.tol, input_model.tol*1.1, input_model.tol*0.9]
+
+    for s in solver:
+        for t in tol:
+            test_model = LinearDiscriminantAnalysis(solver = s, tol = t)
+            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+            if score > best_score:
+                best_score = score
+                output_model = test_model
+                
+                print()
+                print("NEW BEST SCORE")
+                print("solver: ", s,
+                      "tol: ", t, 
+                      "Best Score: ", best_score)        
+                print()
+                print()
+            else:
+                pass
+                print("solver: ", s,
+                      "tol: ", t, 
+                       "Score: ", score)        
+                
+    return(output_model)
+
+
+
+
+
+
+
+
 
 
 
@@ -885,6 +984,29 @@ def tune_SGDClassifier(input_model, input_features, input_df, input_labels, odds
 def tune_hyperparameters(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     best_model = input_model
     keep_going = True
+
+
+    if isinstance(input_model, LinearDiscriminantAnalysis):
+        while(keep_going):
+            pos_model = (tune_LinearDiscriminantAnalysis(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model
+
+
+    if isinstance(input_model, BaggingClassifier):
+        while(keep_going):
+            pos_model = (tune_BaggingClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model
+    
     
     if isinstance(input_model, SGDClassifier):
         while(keep_going):
