@@ -22,6 +22,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import BaggingClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.svm import NuSVC
+from sklearn.svm import SVC
+#from sklearn.mixture import DPGMM
 # -*- coding: utf-8 -*-
 
 
@@ -52,6 +55,49 @@ def get_bet_return(odds):
         return odds
     else:
         return (100 / abs(odds))*100
+
+
+
+
+
+
+#    get_ev_from_df_mov(odds_test, probs, labels_test, label_list, print_stats = True, min_ev = input_ev, get_total=True)
+
+def get_ev_from_df_mov(df_odds, probs, labels, label_list, probs_label_list, print_stats = False, min_ev = 0, get_total=True):
+    score = 0
+    print()
+    print()
+    print()
+    df_odds.reset_index(drop=True, inplace=True)
+    labels.reset_index(drop=True, inplace=True)
+    
+    #print(df_odds)
+    for i in range(len(df_odds)):
+        #print(i)
+        #        df_temp_odds = df_odds.iloc[[i, :]]
+        print(df_odds.iloc[[i]])
+        for l in range(len(probs[i])):
+            print(f"{label_list[probs_label_list[l]]}: {probs[i][l]}")
+            temp_odds = (df_odds.loc[[i]])[label_list[probs_label_list[l]]][i]
+            print((temp_odds))
+            bet_ev = get_bet_ev(temp_odds, probs[i][l])
+            print(bet_ev)
+            if bet_ev > min_ev:
+                print(l)
+                if labels[i] == probs_label_list[l]:
+                    print(f"{labels[i]} {probs_label_list[l]}")
+                    score = score + get_bet_return(temp_odds)
+                    print(f"Winning Bet. New Score: {score}")
+                else:
+                    score = score - 100
+                    print(f"Losing Bet.  New Score: {score}")
+                    
+            print()
+            
+            
+            
+        print(f"Result: {label_list[labels[i]]} ({labels[i]})")
+    return(score)
 
 
 def get_ev_from_df(ev_df, print_stats = False, min_ev = 0, get_total=True):
@@ -942,7 +988,7 @@ def tune_LinearDiscriminantAnalysis(input_model, input_features, input_df, input
     best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
     print("Previous Best Score:", best_score)    
 
-    solver = ['svd', 'lsqr', 'eigen']
+    solver = ['svd', 'lsqr']
     tol = [input_model.tol, input_model.tol*1.1, input_model.tol*0.9]
 
     for s in solver:
@@ -970,13 +1016,137 @@ def tune_LinearDiscriminantAnalysis(input_model, input_features, input_df, input
 
 
 
+def tune_NuSVC(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. nu = [input_model.nu, input_model.nu*1.1, input_model.nu*0.9, random.random()]
+    #2. tol = [input_model.tol, input_model.nu*1.1, input_model.nu*0.9, random.random()]
+
+    ###############################################################################################################
+    print()
+    print()
+    print("Starting New Run for NuSVC")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+
+    
+    nu = [input_model.nu, input_model.nu*1.1, input_model.nu*0.9, random.random()]    
+    tol = [input_model.tol, input_model.tol*1.1, input_model.tol*0.9, random.random()]    
+    for n in nu:
+        for t in tol:
+            test_model = NuSVC(nu=n, tol=t, probability=True, random_state=75)
+            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+            if score > best_score:
+                best_score = score
+                output_model = test_model
+                
+                print()
+                print("NEW BEST SCORE")
+                print("nu: ", n,
+                      "tol: ", t, 
+                      "Best Score: ", best_score)        
+                print()
+                print()
+            else:
+                pass
+                print("nu: ", n,
+                      "tol: ", t, 
+                       "Score: ", score)        
+                
+    return(output_model)
 
 
 
 
+def tune_SVC(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. C = [input_model.nu, input_model.nu*1.1, input_model.nu*0.9, random.random()*1000]
+    #2. tol = [input_model.tol, input_model.nu*1.1, input_model.nu*0.9, random.random()]
+
+    ###############################################################################################################
+    print()
+    print()
+    print("Starting New Run for SVC")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+
+    
+    C = [input_model.C, input_model.C*1.1, input_model.C*0.9, random.random()*1000]    
+    tol = [input_model.tol, input_model.tol*1.1, input_model.tol*0.9, random.random()]    
+    for n in C:
+        for t in tol:
+            test_model = SVC(C=n, tol=t, probability=True, random_state=75)
+            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+            if score > best_score:
+                best_score = score
+                output_model = test_model
+                
+                print()
+                print("NEW BEST SCORE")
+                print("C: ", n,
+                      "tol: ", t, 
+                      "Best Score: ", best_score)        
+                print()
+                print()
+            else:
+                pass
+                print("C: ", n,
+                      "tol: ", t, 
+                       "Score: ", score)        
+                
+    return(output_model)
 
 
+"""
+def tune_DPGMM(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    ###############################################################################################################
+    #Parameters we are going to fine-tune:
+    #1. covariance_type = ['spherical', 'tied', 'diag', 'full']
+    #2. tol = [input_model.tol, input_model.tol*1.1, input_model.tol*0.9, random.random()]
 
+    ###############################################################################################################
+    print()
+    print()
+    print("Starting New Run for DPGMM")
+    print()
+    print()
+    output_model = input_model
+    best_score = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=min_ev)
+    print("Previous Best Score:", best_score)    
+
+    
+    covariance_type = ['spherical', 'tied', 'diag', 'full']
+    tol = [input_model.tol, input_model.tol*1.1, input_model.tol*0.9, random.random()]    
+    for n in covariance_type:
+        for t in tol:
+            test_model = DPGMM(covariance_type = n, tol = t)
+            score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+            if score > best_score:
+                best_score = score
+                output_model = test_model
+                
+                print()
+                print("NEW BEST SCORE")
+                print("Covariance Type: ", n,
+                      "tol: ", t, 
+                      "Best Score: ", best_score)        
+                print()
+                print()
+            else:
+                pass
+                print("Covariance Type: ", n,
+                      "tol: ", t, 
+                       "Score: ", score)        
+                
+    return(output_model)
+"""
 
 
 
@@ -984,6 +1154,41 @@ def tune_LinearDiscriminantAnalysis(input_model, input_features, input_df, input
 def tune_hyperparameters(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     best_model = input_model
     keep_going = True
+
+    """
+    if isinstance(input_model, DPGMM):
+        while(keep_going):
+            pos_model = (tune_DPGMM(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model
+    """
+
+    if isinstance(input_model, SVC):
+        while(keep_going):
+            pos_model = (tune_SVC(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model
+
+
+
+    if isinstance(input_model, NuSVC):
+        while(keep_going):
+            pos_model = (tune_NuSVC(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
+            
+            if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
+                keep_going = False
+                output_model = best_model
+            else:
+                best_model = pos_model
+
 
 
     if isinstance(input_model, LinearDiscriminantAnalysis):
@@ -1121,7 +1326,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
     return(output_model)                
 
 def tune_ev(input_model, input_features, input_df, input_labels, odds_input, verbose=False):
-    best_ev = 0
+    best_ev = -100000
     best_pos = -1
     for temp_ev in range(50):
         pos_ev = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=temp_ev, verbose=verbose,
@@ -1232,3 +1437,45 @@ def evaluate_model(input_model, input_features, input_ev, train_df, train_labels
     model_score = get_ev_from_df(ev_prepped_df, print_stats = True, min_ev = input_ev, get_total=True)
     
     return(model_score)    
+
+
+def evaluate_model_mov(input_model, input_features, input_ev, train_df, train_labels, train_odds, test_df, test_labels,
+                  test_odds, label_list, verbose=True):
+    model_score = 0
+    
+    df_train = train_df[input_features].copy()
+    df_test = test_df[input_features].copy()
+    df_train = df_train.dropna()
+    df_test = df_test.dropna()
+    
+    df_train = pd.get_dummies(df_train)
+    df_test = pd.get_dummies(df_test)
+    df_train, df_test = df_train.align(df_test, join='left', axis=1)    #Ensures both sets are dummified the same
+    df_test = df_test.fillna(0)
+
+    labels_train = train_labels[train_labels.index.isin(df_train.index)]
+    odds_train = train_odds[train_odds.index.isin(df_train.index)] 
+    labels_test = test_labels[test_labels.index.isin(df_test.index)]
+    odds_test = test_odds[test_odds.index.isin(df_test.index)] 
+    
+
+    if verbose:
+        display(df_train.shape)
+        display(labels_train.shape)
+        display(odds_train.shape)
+        display(df_test.shape)
+        display(labels_test.shape)
+        display(odds_test.shape)
+
+    scaler = StandardScaler()
+    scaled_train = scaler.fit_transform(df_train)
+    
+    input_model.fit(scaled_train, labels_train)
+
+    scaled_test = scaler.transform(df_test)
+    
+    probs = input_model.predict_proba(scaled_test)
+    model_score = get_ev_from_df_mov(odds_test, probs, labels_test, label_list, input_model.classes_, print_stats = True, min_ev = input_ev, get_total=True)
+
+
+    return(model_score)
