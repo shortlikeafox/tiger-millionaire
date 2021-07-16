@@ -2,3 +2,20 @@
 __pycache__
 update_kaggle/.ipynb_checkpoints/update_kaggle-checkpoint.ipynb
 update_kaggle/update_kaggle.ipynb
+automated_model_creation/mov/TM-Optimize-Models MOV.ipynb
+automated_model_creation/mov/TM-Rescore-All-Models MOV.ipynb
+automated_model_creation/mov/.ipynb_checkpoints/TM-Optimize-Models MOV-checkpoint.ipynb
+automated_model_creation/mov/.ipynb_checkpoints/TM-Rescore-All-Models MOV-checkpoint.ipynb
+data/models_mov - temp_scores.csv
+get_bets/bet.html
+get_bets/bet_viz.twb
+get_bets/bets.csv
+get_bets/~bet_viz__14488.twbr
+single_use_notebooks/.ipynb_checkpoints/Prepare remove_to_improve_mov-checkpoint.ipynb
+single_use_notebooks/.ipynb_checkpoints/Prepare tune_ev_mov-checkpoint.ipynb
+single_use_notebooks/.ipynb_checkpoints/Prepare tune_hyperparameters_mov-checkpoint.ipynb
+single_use_notebooks/.ipynb_checkpoints/Trace MOV Feature Selection-checkpoint.ipynb
+single_use_notebooks/Prepare remove_to_improve_mov.ipynb
+single_use_notebooks/Prepare tune_ev_mov.ipynb
+single_use_notebooks/Prepare tune_hyperparameters_mov.ipynb
+single_use_notebooks/Trace MOV Feature Selection.ipynb

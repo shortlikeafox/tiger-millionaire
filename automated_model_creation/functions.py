@@ -34,8 +34,14 @@ def get_ev(input_df, input_model, input_features, input_labels, odds_input, min_
     df_sel = pd.get_dummies(df_sel)
     labels_sel = input_labels[input_labels.index.isin(df_sel.index)]
     odds_sel = odds_input[odds_input.index.isin(df_sel.index)] 
-    best_score = custom_cv_eval(df_sel, input_model, labels_sel, odds_sel, min_ev = min_ev, verbose=verbose, 
+    if len(odds_sel.columns) == 6:
+        best_score = custom_cv_eval_mov(df_sel, input_model, labels_sel, odds_sel, min_ev = min_ev, verbose=verbose, 
+                                get_total=get_total)        
+    else:
+        best_score = custom_cv_eval(df_sel, input_model, labels_sel, odds_sel, min_ev = min_ev, verbose=verbose, 
                                 get_total=get_total)
+
+    
     return best_score
 
 
@@ -64,39 +70,40 @@ def get_bet_return(odds):
 #    get_ev_from_df_mov(odds_test, probs, labels_test, label_list, print_stats = True, min_ev = input_ev, get_total=True)
 
 def get_ev_from_df_mov(df_odds, probs, labels, label_list, probs_label_list, print_stats = False, min_ev = 0, get_total=True):
-    score = 0
-    print()
-    print()
-    print()
+    probs_label_list = [int(a) for a in probs_label_list]
+    #labels = [int(a) for a in labels]
+    
+    
     df_odds.reset_index(drop=True, inplace=True)
     labels.reset_index(drop=True, inplace=True)
-    
+    score = 0
     #print(df_odds)
     for i in range(len(df_odds)):
         #print(i)
         #        df_temp_odds = df_odds.iloc[[i, :]]
-        print(df_odds.iloc[[i]])
+        #print(df_odds.iloc[[i]])
         for l in range(len(probs[i])):
-            print(f"{label_list[probs_label_list[l]]}: {probs[i][l]}")
+            #print(f"{label_list[probs_label_list[l]]}: {probs[i][l]}")
             temp_odds = (df_odds.loc[[i]])[label_list[probs_label_list[l]]][i]
-            print((temp_odds))
+            #print((temp_odds))
             bet_ev = get_bet_ev(temp_odds, probs[i][l])
-            print(bet_ev)
+            #print(bet_ev)
             if bet_ev > min_ev:
-                print(l)
+                #print(l)
                 if labels[i] == probs_label_list[l]:
-                    print(f"{labels[i]} {probs_label_list[l]}")
+                    #print(f"{int(labels[i])} {probs_label_list[l]}")
                     score = score + get_bet_return(temp_odds)
-                    print(f"Winning Bet. New Score: {score}")
+                    #print(f"Winning Bet. New Score: {score}")
                 else:
                     score = score - 100
-                    print(f"Losing Bet.  New Score: {score}")
+                    #print(f"Losing Bet.  New Score: {score}")
                     
-            print()
+            #print()
             
             
             
-        print(f"Result: {label_list[labels[i]]} ({labels[i]})")
+        #print(f"Result: {label_list[int(labels[i])]} ({int(labels[i])})")
+    print("Real Score: " + str(score))
     return(score)
 
 
@@ -270,6 +277,86 @@ def custom_cv_eval(df, m, labels, odds, min_ev=0, verbose=False, get_total=True)
     return running_total
 
 
+
+
+
+
+def get_ev_for_optimize_mov(df_odds, probs, labels,  print_stats = False, min_ev = 0, get_total=True):
+        
+    score = 0
+    #print(df_odds)
+    for i in range(len(df_odds)):
+        #print(i)
+        #        df_temp_odds = df_odds.iloc[[i, :]]
+        #print()
+        #print()
+        #print(df_odds[i])
+        for l in range(len(probs[i])):
+            temp_odds = (df_odds[i][l])
+            #print((temp_odds))
+            bet_ev = get_bet_ev(temp_odds, probs[i][l])
+            #print(bet_ev)
+            if bet_ev > min_ev:
+                #print(l)
+                if labels[i] == l:
+                    #print(f"{int(labels[i])} {l}")
+                    score = score + get_bet_return(temp_odds)
+                    #print(f"Winning Bet. New Score: {score}")
+                else:
+                    score = score - 100
+                    #print(f"Losing Bet.  New Score: {score}")
+                    
+            #print()
+            
+            
+            
+        #print(f"Result: {labels[i]}")
+    return(score)
+
+
+
+def custom_cv_eval_mov(df, m, labels, odds, min_ev=0, verbose=False, get_total=True):
+    #If we have less than 5 samples we are going to break the split.
+    #print("HI")
+    if len(df) < 5:
+        return 0
+    X = np.array(df)
+    y = np.array(labels)
+    odds = np.array(odds)
+    running_total = 0
+    count=1
+    kf = KFold(n_splits=5, shuffle=True, random_state=75)
+    for train_index, test_index in kf.split(X):
+        X_train, X_test = X[train_index], X[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+        odds_train, odds_test = odds[train_index], odds[test_index]
+        #display(y_train)
+        scaler = StandardScaler()
+        scaled_train = scaler.fit_transform(X_train)
+        scaled_test = scaler.transform(X_test)
+        
+        m.fit(scaled_train, y_train)
+        probs=m.predict_proba(scaled_test)
+        #print(probs)
+        #We need to prep the dataframe to evaluate....
+        #X_odds = X_test[['t1_odds', 't2_odds']]
+        #print(X_test)
+        #print(X_test[:, -1])
+        #print(X_test[:, -2])
+        #X_odds = list(zip(odds_test[:, -2], odds_test[:, -1], probs[:, 0], probs[:, 1], y_test))
+        #ev_prepped_df = pd.DataFrame(X_odds, columns=['t1_odds', 't2_odds', 't1_prob', 't2_prob', 'winner'])
+        #display(ev_prepped_df)
+        #display(temp_df)
+        #print(f"{count}: {get_ev_from_df(ev_prepped_df, print_stats = False)}")
+        count=count+1
+        running_total = running_total + get_ev_for_optimize_mov(odds_test, probs, y_test,  min_ev= min_ev, get_total=get_total )
+
+        #display(ev_prepped_df)
+    
+    return running_total
+
+
+
 #We split off the labels and the odds.  Now we can rewrite the function
 #INPUT
 #pos_features: The list of possible features
@@ -325,6 +412,68 @@ def get_best_features(pos_features, m, df, cur_features, labels, odds, scale=Fal
     return []
 
 
+
+
+def get_best_features_mov(pos_features, m, df, cur_features, labels, odds, label_list, scale=False, min_ev=0):
+    best_feature = ''
+        
+    #If there are no current features...
+    if len(cur_features) == 0:
+        best_score = -1000000
+    else:
+        df_sel = df[cur_features]
+        df_sel = df_sel.dropna()
+        df_sel = pd.get_dummies(df_sel)
+        #OK we need to filter the labels and odds based off of the indices
+        labels_sel = labels[labels.index.isin(df_sel.index)]
+        odds_sel = odds[odds.index.isin(df_sel.index)]        
+        labels_sel = labels_sel.dropna()
+        odds_sel = odds_sel[odds_sel.index.isin(labels_sel.index)]     
+        df_sel = df_sel[df_sel.index.isin(labels_sel.index)] 
+        best_score = custom_cv_eval_mov(df_sel, m, labels_sel, odds_sel, min_ev=min_ev)
+        
+        
+    best_feature = ""
+    
+    print(f"Current best score is: {best_score}")
+    #Go thru every feature and test it...
+    for f in pos_features:
+        #If f is not a current feature
+        if f not in cur_features:
+            new_features = [f] + cur_features
+            df_sel = df[new_features]
+            df_sel = df_sel.dropna()
+            df_sel = pd.get_dummies(df_sel)
+            #display(df_sel)
+            #OK we need to filter the labels and odds based off of the indices
+            labels_sel = labels[labels.index.isin(df_sel.index)]
+            odds_sel = odds[odds.index.isin(df_sel.index)]
+            labels_sel = labels_sel.dropna()
+            odds_sel = odds_sel[odds_sel.index.isin(labels_sel.index)]     
+            df_sel = df_sel[df_sel.index.isin(labels_sel.index)] 
+            
+            
+            new_score = custom_cv_eval_mov(df_sel, m, labels_sel, odds_sel, min_ev=min_ev)
+            #print(f"{len(df_sel)} {len(labels_sel)} {len(odds_sel)}")
+            if new_score > best_score:
+                print(f"Feature: {f} Score: {new_score}")
+                best_score = new_score
+                best_feature = f
+    if best_feature != "":
+        print(f"The best feature was {best_feature}.  It scored {best_score}")
+        cur_features = [best_feature] + cur_features
+        #Keep running until we don't improve
+        return(get_best_features_mov(pos_features, m, df, cur_features, labels, odds, label_list,  scale, min_ev=min_ev))
+    else:
+        print("NO IMPROVEMENT")
+        print(f"FINAL BEST SCORE: {best_score}")
+        return cur_features                
+                
+    return []
+
+
+
+
 def tune_LogisticRegression(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     ###############################################################################################################
     #Parameters we are going to fine-tune:
@@ -344,7 +493,7 @@ def tune_LogisticRegression(input_model, input_features, input_df, input_labels,
 
     
     penalty = ['l1', 'l2', 'none']
-    solver = ['newton-cg', 'lbfgs', 'sag', 'saga']
+    solver = ['newton-cg', 'lbfgs', 'sag']
     tol = [input_model.tol, input_model.tol * 1.2, input_model.tol * .8, random.random() * 10 ]
     for s in solver:
         score = -10000
@@ -947,26 +1096,27 @@ def tune_BaggingClassifier(input_model, input_features, input_df, input_labels, 
     for be in base_estimator:
         for bs in bootstrap:
             for e in n_estimators:
-                test_model = BaggingClassifier(base_estimator = be, bootstrap = bs, n_estimators = e, random_state=75)
-                score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
-                if score > best_score:
-                    best_score = score
-                    output_model = test_model
-                    
-                    print()
-                    print("NEW BEST SCORE")
-                    print("base_estimator: ", be,
-                          "bootstrap: ", bs, 
-                          "n_estimators: ", e,
-                          "Best Score: ", best_score)        
-                    print()
-                    print()
-                else:
-                    pass
-                    print("base_estimator: ", be,
-                          "bootstrap: ", bs, 
-                          "n_estimators: ", e,
-                           "Score: ", score)        
+                if e > 0:
+                    test_model = BaggingClassifier(base_estimator = be, bootstrap = bs, n_estimators = e, random_state=75)
+                    score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
+                    if score > best_score:
+                        best_score = score
+                        output_model = test_model
+                        
+                        print()
+                        print("NEW BEST SCORE")
+                        print("base_estimator: ", be,
+                              "bootstrap: ", bs, 
+                              "n_estimators: ", e,
+                              "Best Score: ", best_score)        
+                        print()
+                        print()
+                    else:
+                        pass
+                        print("base_estimator: ", be,
+                              "bootstrap: ", bs, 
+                              "n_estimators: ", e,
+                               "Score: ", score)        
                 
     return(output_model)
 
@@ -982,6 +1132,7 @@ def tune_LinearDiscriminantAnalysis(input_model, input_features, input_df, input
     print()
     print()
     print("Starting New Run for LinearDiscriminantAnalysis")
+    print(input_model)
     print()
     print()
     output_model = input_model
@@ -1011,7 +1162,7 @@ def tune_LinearDiscriminantAnalysis(input_model, input_features, input_df, input
                 print("solver: ", s,
                       "tol: ", t, 
                        "Score: ", score)        
-                
+    print("output model: " + str(output_model))
     return(output_model)
 
 
@@ -1150,6 +1301,12 @@ def tune_DPGMM(input_model, input_features, input_df, input_labels, odds_input, 
 
 
 
+#Let's just hold for now
+def tune_hyperparameters_mov(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
+    return(input_model)
+
+
+
 
 def tune_hyperparameters(input_model, input_features, input_df, input_labels, odds_input, min_ev=0):
     best_model = input_model
@@ -1179,7 +1336,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
 
 
 
-    if isinstance(input_model, NuSVC):
+    elif isinstance(input_model, NuSVC):
         while(keep_going):
             pos_model = (tune_NuSVC(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             
@@ -1191,18 +1348,20 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
 
 
 
-    if isinstance(input_model, LinearDiscriminantAnalysis):
+    elif isinstance(input_model, LinearDiscriminantAnalysis):
         while(keep_going):
             pos_model = (tune_LinearDiscriminantAnalysis(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             
             if str(pos_model) == str(best_model):  #Direct comparisons don't seem to work....
                 keep_going = False
                 output_model = best_model
+                print("pos model: " + str(pos_model))
+                print(" output_model: " + str(output_model))
             else:
                 best_model = pos_model
 
 
-    if isinstance(input_model, BaggingClassifier):
+    elif isinstance(input_model, BaggingClassifier):
         while(keep_going):
             pos_model = (tune_BaggingClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             
@@ -1213,7 +1372,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 best_model = pos_model
     
     
-    if isinstance(input_model, SGDClassifier):
+    elif isinstance(input_model, SGDClassifier):
         while(keep_going):
             pos_model = (tune_SGDClassifier(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             
@@ -1224,7 +1383,7 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 best_model = pos_model
 
     
-    if isinstance(input_model, LogisticRegression):
+    elif isinstance(input_model, LogisticRegression):
         while(keep_going):
             pos_model = (tune_LogisticRegression(best_model, input_features, input_df, input_labels, odds_input, min_ev=min_ev))
             
@@ -1323,7 +1482,15 @@ def tune_hyperparameters(input_model, input_features, input_df, input_labels, od
                 
     else:
         output_model = input_model
+    print("Real output model: " + str(output_model))
     return(output_model)                
+
+
+#Let's just hold....
+def tune_ev_mov(input_model, input_features, input_df, input_labels, odds_input, verbose=False):
+    return(0)
+
+
 
 def tune_ev(input_model, input_features, input_df, input_labels, odds_input, verbose=False):
     best_ev = -100000
@@ -1337,6 +1504,43 @@ def tune_ev(input_model, input_features, input_df, input_labels, odds_input, ver
             best_pos = temp_ev
     return best_pos
     
+def remove_to_improve_mov(cur_features, m, df, labels, odds, scale=False, min_ev = 0):
+    number_of_features = len(cur_features)
+    df_sel = df[cur_features]
+    df_sel = df_sel.dropna()
+    df_sel = pd.get_dummies(df_sel)
+    labels_sel = labels[labels.index.isin(df_sel.index)]
+    odds_sel = odds[odds.index.isin(df_sel.index)]        
+    orig_score = custom_cv_eval_mov(df_sel, m, labels_sel, odds_sel, get_total=True, min_ev = min_ev)    
+    best_features = cur_features
+    best_score = orig_score
+    print(f"The original score is {orig_score}")
+    if number_of_features == 0:
+        return []
+    if number_of_features == 1:
+        return cur_features
+    
+    for z in range(number_of_features):
+        temp_feature = df.columns[z]
+        temp_features = cur_features.copy()
+        #Remove a feature
+        del temp_features[z]
+        df_sel = df[temp_features]
+        df_sel = df_sel.dropna()
+        df_sel = pd.get_dummies(df_sel)
+        labels_sel = labels[labels.index.isin(df_sel.index)]
+        odds_sel = odds[odds.index.isin(df_sel.index)]        
+        temp_score = custom_cv_eval_mov(df_sel, m, labels_sel, odds_sel, get_total=True, min_ev = min_ev)
+        if temp_score > best_score:
+            best_features = temp_features
+            best_score = temp_score
+            print(f"NEW BEST FEATURE SET WITH: " + temp_feature + " REMOVED " + str(best_score))
+        
+        #Get a score
+    if best_features != cur_features:
+        return remove_to_improve_mov(best_features, m, df, labels, odds, scale, min_ev)
+    else:
+        return best_features    
     
 def remove_to_improve(cur_features, m, df, labels, odds, scale=False, min_ev = 0):
     #If the list is empty we can just return it without doing anything
@@ -1380,6 +1584,9 @@ def remove_to_improve(cur_features, m, df, labels, odds, scale=False, min_ev = 0
         return remove_to_improve(best_features, m, df, labels, odds, scale, min_ev)
     else:
         return best_features    
+    
+    
+    
     
     
 def evaluate_model(input_model, input_features, input_ev, train_df, train_labels, train_odds, test_df, test_labels,
@@ -1458,6 +1665,16 @@ def evaluate_model_mov(input_model, input_features, input_ev, train_df, train_la
     labels_test = test_labels[test_labels.index.isin(df_test.index)]
     odds_test = test_odds[test_odds.index.isin(df_test.index)] 
     
+    odds_train = odds_train.dropna()
+    odds_test = odds_test.dropna()
+    
+    df_train = df_train[df_train.index.isin(odds_train.index)]
+    df_test = df_test[df_test.index.isin(odds_test.index)]
+    
+    labels_train = labels_train[labels_train.index.isin(odds_train.index)]
+    labels_test = labels_test[labels_test.index.isin(odds_test.index)]    
+    
+    
 
     if verbose:
         display(df_train.shape)
@@ -1466,6 +1683,8 @@ def evaluate_model_mov(input_model, input_features, input_ev, train_df, train_la
         display(df_test.shape)
         display(labels_test.shape)
         display(odds_test.shape)
+
+    print(labels_train)
 
     scaler = StandardScaler()
     scaled_train = scaler.fit_transform(df_train)
