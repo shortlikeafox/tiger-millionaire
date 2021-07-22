@@ -1493,9 +1493,9 @@ def tune_ev_mov(input_model, input_features, input_df, input_labels, odds_input,
 
 
 def tune_ev(input_model, input_features, input_df, input_labels, odds_input, verbose=False):
-    best_ev = -100000
+    best_ev = -1000000
     best_pos = -1
-    for temp_ev in range(50):
+    for temp_ev in range(250):
         pos_ev = get_ev(input_df, input_model, input_features, input_labels, odds_input, min_ev=temp_ev, verbose=verbose,
                        get_total=True)
         print(temp_ev, pos_ev)

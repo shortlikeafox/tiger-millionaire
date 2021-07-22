@@ -2,4 +2,4 @@ model_2021_07_15
 LinearDiscriminantAnalysis()
 "[""R_Women's Featherweight_rank"", 'B_Lightweight_rank', 'R_Featherweight_rank', 'R_Light Heavyweight_rank', 'total_title_bout_dif', 'R_losses', 'B_win_by_Submission', 'Blue - DEC', 'B_draw', 'R_Middleweight_rank', 'B_avg_SIG_STR_pct', ""B_Women's Strawweight_rank"", 'age_dif', 'B_Middleweight_rank', 'avg_sub_att_dif', 'avg_td_dif', 'B_avg_SUB_ATT', ""R_Women's Flyweight_rank"", 'R_Pound-for-Pound_rank', 'R_Reach_cms', 'R_wins', 'B_ev', 'R_Weight_lbs', 'sub_dif', 'R_ev', 'B_avg_TD_landed']"
 0
-6180
+7360.0
