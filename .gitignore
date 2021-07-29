@@ -20,3 +20,4 @@ single_use_notebooks/Prepare tune_ev_mov.ipynb
 single_use_notebooks/Prepare tune_hyperparameters_mov.ipynb
 single_use_notebooks/Trace MOV Feature Selection.ipynb
 data/models_mov.csv
+*mov*
