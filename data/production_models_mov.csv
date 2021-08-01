@@ -1,5 +1,5 @@
-model_2021_07_15,model_14
-LinearDiscriminantAnalysis(),LogisticRegressionCV(random_state=75)
-"[""R_Women's Featherweight_rank"", 'B_Lightweight_rank', 'R_Featherweight_rank', 'R_Light Heavyweight_rank', 'total_title_bout_dif', 'R_losses', 'B_win_by_Submission', 'Blue - DEC', 'B_draw', 'R_Middleweight_rank', 'B_avg_SIG_STR_pct', ""B_Women's Strawweight_rank"", 'age_dif', 'B_Middleweight_rank', 'avg_sub_att_dif', 'avg_td_dif', 'B_avg_SUB_ATT', ""R_Women's Flyweight_rank"", 'R_Pound-for-Pound_rank', 'R_Reach_cms', 'R_wins', 'B_ev', 'R_Weight_lbs', 'sub_dif', 'R_ev', 'B_avg_TD_landed']","['R_win_by_TKO_Doctor_Stoppage', 'R_win_by_Decision_Majority', 'R_current_lose_streak', 'R_draw', 'R_avg_TD_pct', 'B_Light Heavyweight_rank', 'R_Welterweight_rank', 'R_avg_SUB_ATT', ""B_Women's Flyweight_rank"", 'R_Lightweight_rank', 'R_total_rounds_fought', 'R_Light Heavyweight_rank', 'B_win_by_Decision_Split', 'R_Flyweight_rank', 'B_Welterweight_rank', 'no_of_rounds', 'R_total_title_bouts', 'gender', 'R_win_by_Decision_Split', 'Blue - SUB', 'B_Bantamweight_rank', 'R_odds', 'Red - SUB', 'Blue - DEC', ""R_Women's Featherweight_rank"", 'B_draw', 'R_Middleweight_rank', 'B_avg_SIG_STR_pct', ""B_Women's Strawweight_rank"", 'age_dif', 'B_Middleweight_rank', 'avg_sub_att_dif', 'avg_td_dif', 'B_avg_SUB_ATT', ""R_Women's Flyweight_rank"", 'R_Pound-for-Pound_rank', 'R_wins', 'B_ev', 'R_Weight_lbs', 'sub_dif', 'R_ev', 'B_avg_TD_landed']"
-0,38
-7900.0,2960.0
+model_2021_07_15
+LinearDiscriminantAnalysis()
+"[""R_Women's Featherweight_rank"", 'B_Lightweight_rank', 'R_Featherweight_rank', 'R_Light Heavyweight_rank', 'total_title_bout_dif', 'R_losses', 'B_win_by_Submission', 'Blue - DEC', 'B_draw', 'R_Middleweight_rank', 'B_avg_SIG_STR_pct', ""B_Women's Strawweight_rank"", 'age_dif', 'B_Middleweight_rank', 'avg_sub_att_dif', 'avg_td_dif', 'B_avg_SUB_ATT', ""R_Women's Flyweight_rank"", 'R_Pound-for-Pound_rank', 'R_Reach_cms', 'R_wins', 'B_ev', 'R_Weight_lbs', 'sub_dif', 'R_ev', 'B_avg_TD_landed']"
+0
+9070
