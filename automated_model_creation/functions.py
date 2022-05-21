@@ -920,7 +920,7 @@ def tune_MLPClassifier(input_model, input_features, input_df, input_labels, odds
     hidden_layer_sizes = [input_model.hidden_layer_sizes, (100,), (10,5), (6,), (1,),(5,), (15,),(25,)]
     
     for h in hidden_layer_sizes:
-        test_model = MLPClassifier(hidden_layer_sizes=h)
+        test_model = MLPClassifier(hidden_layer_sizes=h, random_state=75)
         score = get_ev(input_df, test_model, input_features, input_labels, odds_input, min_ev=min_ev)
         if score > best_score:
             best_score = score
