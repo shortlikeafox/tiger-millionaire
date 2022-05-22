@@ -1,0 +1,10 @@
+Current Folder: automated_model_creation
+
+FILES
+functions.py                    DONE
+TM-Optimize-Models.ipynb
+TM-Rescore-All-Models.ipynb
+TM-Update Model Scores.ipynb
+
+SUBFOLDER
+mov 
