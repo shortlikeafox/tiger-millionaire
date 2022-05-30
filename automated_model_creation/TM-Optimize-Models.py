@@ -32,7 +32,7 @@ warnings.filterwarnings("ignore")
 
 #Load models
 #REMINDER: We are going to need to use 'eval' to get the models usable
-with open("../"), newline='') as f:
+with open("./data/models.csv", newline='') as f:
     reader = csv.reader(f)
     models = list(reader)
     
